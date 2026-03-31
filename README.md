@@ -3,9 +3,10 @@
 This application is designed for 
 
 <p>To run this app on your own computer or laptop use the following code:</p>
-    <pre><code>
+
+```
 shiny::runGitHub(repo="SpANOVA-App", username="VdaK1NG")
-    </code></pre>
+```
 
 <h1> App dependencies </h1>
 
