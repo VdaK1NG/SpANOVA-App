@@ -1,21 +1,19 @@
-# SpANOVA App
-
-<h1> Shiny App for Spatial Modeling (RStudio & R-INLA) </h1>
+<h1> Suplemmentary Shiny App for Sp-ANOVA </h1>
 
 This application is designed for the resolution of spatial models using the Bayesian paradigm and the INLA methodology. Therefore, since it has been designed for all kinds of users, we will explain in some detail its functionality and its main sections. <!--Additionally, in this *README* file, the theoretical foundations underlying the application will be briefly presented. Which means, a summary of Bayesian inference and the foundaments of the INLA methodology.-->
 
-<p>To run this app on your own computer or laptop, you have three options:</p>
+<p>To run this app on your own computer or laptop, you have two options:</p>
 
 <ol>
     <li>
         Run the stable and most tested version using:
         <pre><code>
-runGitHub(repo="SpANOVA-App", username="VdaK1NG")
+shiny::runGitHub(repo="SpANOVA-App", username="VdaK1NG")
         </code></pre>
     </li>
         Run the latest version with:
         <pre><code>
-runGitHub(repo="SpANOVA-App", username="VdaK1NG", ref="latest")
+shiny::runGitHub(repo="SpANOVA-App", username="VdaK1NG", ref="latest")
         </code></pre>
     </li>
 </ol>
