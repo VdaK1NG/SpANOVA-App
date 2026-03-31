@@ -10,19 +10,12 @@ This application is designed for the resolution of spatial models using the Baye
     <li>
         Run the stable and most tested version using:
         <pre><code>
-runGitHub(repo="ShinyAppSpatialModelFeedback", username="MarioFigueiraP")
+runGitHub(repo="SpANOVA-App", username="VdaK1NG")
         </code></pre>
     </li>
-    <li>
-        Run an older version (prior to the update of INLA in which it integrated functions from the <code>fmesher</code> library) with:
-        <pre><code>
-runGitHub(repo="ShinyAppSpatialModelFeedback", username="MarioFigueiraP", ref="old")
-        </code></pre>
-    </li>
-    <li>
         Run the latest version with:
         <pre><code>
-runGitHub(repo="ShinyAppSpatialModelFeedback", username="MarioFigueiraP", ref="latest")
+runGitHub(repo="SpANOVA-App", username="VdaK1NG", ref="latest")
         </code></pre>
     </li>
 </ol>
