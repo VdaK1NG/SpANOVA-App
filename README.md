@@ -49,20 +49,6 @@ The app is made up of four major blocks:
 
 *Data Simulation* and *Upload Data* are sequentially linked to *Model Anaysis*, which means that data from one of the former are taken in the latter. Once the modelling is done, these results can be used to provide feedback or to perform a sequential learning process for a new data set from the same geostatistical phenomenon that could be modeled by one of the three proposed model structures, thanks to the control options available in INLA and configurable in this application.
 
-```mermaid
-flowchart TD
-    A[Introduction]
-    B[Data Simulation]-->D[Model Fitting]
-    C[Upload Data]-->D[Model Fitting]
-    D[Model Fitting]-.->E[Independent Model]
-    D[Model Fitting]-.->F[LGCP Model]
-    D[Model Fitting]-.->G[Preferential Model]
-    D[Model Fitting]-.->H[Mixture Model] 
-    E-- Feedback --> I[Alternative Model]
-    G-- Feedback --> J[Alternative Model]
-    H-- Feedback --> K[Alternative Model]
-```
-
 <h2> 1. Data Simulation </h2>
 
 Since the objective is to model spatial datasets, a section is provided within the tool to simulate spatial data by controlling their constitutive parameters. It means that we can build a spatial dataset with which we could test the performance of the spatial analysis. Therefore, here we build a geostatistical dataset from the following model structure:
@@ -173,8 +159,6 @@ Therefore, to perform the fit there are several configuration item which the use
     - the INLA approximation strategy,
     - the INLA integration strategy,
     - and the modes for the hyperparameters.
-
-[^4]: However, although these pc-prior distributions have a simple interpretation, their shape is still a potential design problem, since we might like to have some areas with homogeneous probability density. That is, it's clear the conceptual significance of pc-prior distributions, regardless that the pc-prior hyperparameters do not describe the function's shape but its tail density probabilities. For further details see [Simpson et al. (2017)](https://projecteuclid.org/journals/statistical-science/volume-32/issue-1/Penalising-Model-Component-Complexity--A-Principled-Practical-Approach-to/10.1214/16-STS576.full) and [Fuglstad et al. (2017)](https://arxiv.org/abs/1503.00256).
 
 Once the fit starts a pop-up message will apear, as well as when the fitting process is finished, showing the time it has taken. Afterwards, we will get some output results: predictive maps of the response variable and spatial effect over the study region, parameter and hyperparameters density plots, summary tables of its characteristic values and the DIC and CPO of the fit.
 
