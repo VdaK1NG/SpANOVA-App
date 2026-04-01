@@ -1,4 +1,77 @@
-# Cargamos las librerías
+# Check if required libraries are installed, and install them if not
+if (!require("shinydashboard", quietly = TRUE)) {
+  install.packages("shinydashboard")
+}
+if (!require("shinyWidgets", quietly = TRUE)) {
+  install.packages("shinyWidgets")
+}
+if (!require("shinydashboardPlus", quietly = TRUE)) {
+  install.packages("shinydashboardPlus")
+}
+if (!require("shinybusy", quietly = TRUE)) {
+  install.packages("shinybusy")
+}
+if (!require("shinyBS", quietly = TRUE)) {
+  install.packages("shinyBS")
+}
+if (!require("shinyjs", quietly = TRUE)) {
+  install.packages("shinyjs")
+}
+
+if (!require("periscope", quietly = TRUE)) {
+  install.packages("periscope")
+}
+
+if (!require("utils", quietly = TRUE)) {
+  install.packages("utils")
+}
+
+if (!require("stringr", quietly = TRUE)) {
+  install.packages("stringr")
+}
+
+if (!require("INLA", quietly = TRUE)) {
+  
+}
+if (!require("inlabru", quietly = TRUE)) {
+  install.packages("inlabru")
+}
+if (!require("fmesher", quietly = TRUE)) {
+  remotes::install_github("inlabru-org/fmesher", ref = "stable")
+}
+if (!require("ggplot2", quietly = TRUE)) {
+  install.packages("ggplot2")
+}
+if (!require("ggtext", quietly = TRUE)) {
+  install.packages("ggtext")
+}
+
+
+if (!require("dplyr", quietly = TRUE)) {
+  install.packages("dplyr")
+}
+if (!require("lattice", quietly = TRUE)) {
+  install.packages("lattice")
+}
+if (!require("rintrojs", quietly = TRUE)) {
+  install.packages("rintrojs")
+}
+if (!require("patchwork", quietly = TRUE)) {
+  install.packages("patchwork")
+}
+if (!require("viridis", quietly = TRUE)) {
+  install.packages("viridis")
+}
+if (!require("sp", quietly = TRUE)) {
+  install.packages("sp")
+}
+if (!require("sf", quietly = TRUE)) {
+  install.packages("sf")
+}
+if (!require("gridExtra", quietly = TRUE)) {
+  install.packages("gridExtra")
+}
+# Load Libraries
 library("shiny")
 library("shinydashboard")
 library("shinyWidgets")
@@ -56,7 +129,7 @@ body <- dashboardBody(
   tags$head(tags$link(rel = "stylesheet", type = "text/css", href = "custom.css")),
   tags$head(tags$style('#tab_sim .box-header{ display: none}')), # Remover título cajas específicas
   
-  # Modificar colores cajas
+  # Modify colors
   tags$style(HTML(" 
 
                     .box.box-solid.box-primary>.box-header {
@@ -73,7 +146,7 @@ body <- dashboardBody(
                     }
 
                     ")),
-  # Esconder mensajes de error
+  # Hide error messages
   tags$style(type="text/css", 
              ".shiny-output-error { visibility: hidden; }",
              ".shiny-output-error:before { visibility: hidden; }"
@@ -83,11 +156,10 @@ body <- dashboardBody(
   shinybusy::add_busy_spinner(spin = "radar", margins = c(5, 5), position = "bottom-right"), 
   # useShinyjs(),
   tabItems(
-    # UI Descriptivo ########################################
+    # UI Introduction ########################################
     tabItem(tabName = "introduction",
             fluidRow(width=12, 
                      box(width=12, solidHeader = TRUE, title = "App Description", status = "black",
-                     # h1("Introduction", style = "color: DarkRed; text-align: center; text-decoration: underline; font-weight: bold"),
                      withMathJax(),
                      p("This Shiny app is part of the supplementary material of the paper \"Spatial-ANOVA: Multidimensional Analysis Of Suicide-Related Emergency Calls\" by Escobar-Hernández, López-Quílez A. and Palmí-Perales F. 
                        Sections included are:"),
