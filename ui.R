@@ -1,97 +1,23 @@
 # Check if required libraries are installed, and install them if not
-if (!require("shinydashboard", quietly = TRUE)) {
-  install.packages("shinydashboard")
-}
-if (!require("shinyWidgets", quietly = TRUE)) {
-  install.packages("shinyWidgets")
-}
-if (!require("shinydashboardPlus", quietly = TRUE)) {
-  install.packages("shinydashboardPlus")
-}
-if (!require("shinybusy", quietly = TRUE)) {
-  install.packages("shinybusy")
-}
-if (!require("shinyBS", quietly = TRUE)) {
-  install.packages("shinyBS")
-}
-if (!require("shinyjs", quietly = TRUE)) {
-  install.packages("shinyjs")
-}
+if (!require("shiny", quietly = TRUE)){install.packages("shiny")}
+if (!require("shinydashboard", quietly = TRUE)){install.packages("shinydashboard")}
+if (!require("shinyWidgets", quietly = TRUE)){install.packages("shinyWidgets")}
+if (!require("shinydashboardPlus", quietly = TRUE)){install.packages("shinydashboardPlus")}
+if (!require("shinyBS", quietly = TRUE)) {install.packages("shinyBS")}
+if (!require("shinyjs", quietly = TRUE)) {install.packages("shinyjs")}
+if (!require("periscope", quietly = TRUE)) {install.packages("periscope")}
+if (!require("ggplot2", quietly = TRUE)) { install.packages("ggplot2")}
+if (!require("sp", quietly = TRUE)) {install.packages("sp")}
+if (!require("sf", quietly = TRUE)) {install.packages("sf")}
+if (!require("stringr", quietly = TRUE)) {install.packages("stringr")}
+if (!require("dplyr", quietly = TRUE)){install.packages("dplyr")}
+if (!require("gridExtra", quietly = TRUE)){install.packages("gridExtra")}
+if (!require("ggiraph", quietly = TRUE)){install.packages("ggiraph")}
+if (!require("rintrojs", quietly = TRUE)){install.packages("rintrojs")}
+if (!require("fresh", quietly = TRUE)) {install.packages("fresh")}
+if (!require("DT", quietly = TRUE)) {install.packages("DT")}
 
-if (!require("periscope", quietly = TRUE)) {
-  install.packages("periscope")
-}
-
-if (!require("utils", quietly = TRUE)) {
-  install.packages("utils")
-}
-
-if (!require("stringr", quietly = TRUE)) {
-  install.packages("stringr")
-}
-
-if (!require("INLA", quietly = TRUE)) {
-  
-}
-if (!require("inlabru", quietly = TRUE)) {
-  install.packages("inlabru")
-}
-if (!require("fmesher", quietly = TRUE)) {
-  remotes::install_github("inlabru-org/fmesher", ref = "stable")
-}
-if (!require("ggplot2", quietly = TRUE)) {
-  install.packages("ggplot2")
-}
-if (!require("ggtext", quietly = TRUE)) {
-  install.packages("ggtext")
-}
-
-
-if (!require("dplyr", quietly = TRUE)) {
-  install.packages("dplyr")
-}
-if (!require("lattice", quietly = TRUE)) {
-  install.packages("lattice")
-}
-if (!require("rintrojs", quietly = TRUE)) {
-  install.packages("rintrojs")
-}
-if (!require("patchwork", quietly = TRUE)) {
-  install.packages("patchwork")
-}
-if (!require("viridis", quietly = TRUE)) {
-  install.packages("viridis")
-}
-if (!require("sp", quietly = TRUE)) {
-  install.packages("sp")
-}
-if (!require("sf", quietly = TRUE)) {
-  install.packages("sf")
-}
-if (!require("gridExtra", quietly = TRUE)) {
-  install.packages("gridExtra")
-}
-# Load Libraries
-library("shiny")
-library("shinydashboard")
-library("shinyWidgets")
-library("shinydashboardPlus")
-library("shinyBS")
-library("shinyjs")
-library("periscope")
-library("ggplot2")
-library("sp")
-library("sf")
-library("stringr")
-library("dplyr")
-library("gridExtra")
-library("ggiraph")
-library("rintrojs")
-library("fresh")
-library("DT")
-
-
-# Load accessory functions
+# Load Accessory Functions and Data
 source("source.R")
 
                       ###################################################
