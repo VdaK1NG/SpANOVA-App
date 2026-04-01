@@ -1,6 +1,6 @@
 <h1> Suplemmentary Shiny App for Sp-ANOVA </h1>
 
-This application is designed for 
+This application is part of the supplementary material from the article <it>"Spatial-ANOVA: Multidimensional Analysis Of Suicide-RelatedEmergency Calls"</it> by P. Escobar-Hernandez, A. López-Quílez, F. Palmí-Perales and M. Marco.
 
 <p>To run this app on your own computer or laptop use the following code:</p>
 
