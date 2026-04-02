@@ -1,6 +1,4 @@
-`%notin%` <- Negate(`%in%`)
-
-# Load and recompose data
+## Load and recompose data
 load("./Data/risk_sim.Rdata")
 load("./Data/sp_object.Rdata")
 load("./Data/sense_data.Rdata")
@@ -48,7 +46,7 @@ set_girafe_defaults(
 
 
 # Prepare data
-mods <- c("covid.vs.caller", "covid.vs.gender", "caller.vs.gender")
+mods <- c("Gender.VS.Period", "Caller.VS.Period", "Gender.VS.Caller")
 mods_names <-  SpANOVA_mods$M1_SIM_SpANOVA_v1$Summary
 mods_names <- mods_names %>% select(MODEL) %>% pull()
 
@@ -69,6 +67,8 @@ mun_cv_df$caller.vs.gender_mod1.sp.4 <- NA
 
 
 # Functions
+`%notin%` <- Negate(`%in%`)
+
 newLabels <- function(x, dig.lab = 4){
   lev <- levels(x)
   pattern <- paste0("^[\\(\\[][-]*\\d*\\.\\d{", dig.lab, "}|,[-]*\\d*\\.\\d{", dig.lab, "}")
