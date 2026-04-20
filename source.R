@@ -10,6 +10,7 @@ load("./Data/data_sim_p4.Rdata")
 load("./Data/data_sim_p5.Rdata")
 load("./Data/data_sim_p6.Rdata")
 load("./Data/data_sim_p7.Rdata")
+load("./Data/SUC_112_mods.Rdata")
 
 SpANOVA_mods <- append(SpANOVA_mods_p1, SpANOVA_mods_p2)
 SpANOVA_mods <- append(SpANOVA_mods, SpANOVA_mods_p3)
@@ -46,7 +47,7 @@ set_girafe_defaults(
 
 
 # Prepare data
-mods <- c("Gender.VS.Period", "Caller.VS.Period", "Gender.VS.Caller")
+mods <- c("Period.VS.Gender", "Period.VS.Caller", "Caller.VS.Gender")
 mods_names <-  SpANOVA_mods$M1_SIM_SpANOVA_v1$Summary
 mods_names <- mods_names %>% select(MODEL) %>% pull()
 
@@ -101,37 +102,45 @@ convert_col2 <- function(data){
   return(data)
 }
 
-plot_spef <- function(sf_obj=NA, fill_by=NA, breaks=NA, title="Spatial Effect", scale_name="Values", legend.pos="right", weight=1){
+plot_spef <- function(sf_obj=NA, fill_by=NA, breaks=NA, title="Spatial Effect", scale_name="Values", legend.pos="right", weight=1, sp_null=0.125){
   
   # Default breaks in case user does not specify one
   if(sum(is.na(breaks))!=0){breaks=c(-5, -2, -1, -0.5, -0.1, 0.1, 0.5, 1, 2, 5)}
   
   ncol_fill <- which(colnames(sf_obj)==fill_by)
-  sd_total <- round(sd(pull(sf_obj, fill_by))*weight, 2)
+  sd_total <- round(sd(pull(sf_obj, fill_by))*weight, 3)
   
   if(sum(is.na(pull(sf_obj, fill_by)))==0){
     fig_fill <- convert_col(levels(droplevels(cut(pull(sf_obj, fill_by)*weight, breaks=c(-5, -2, -1, -0.5, -0.1, 0.1, 0.5, 1, 2, 5)))))
     
     fig <- ggplot() + 
       geom_sf(data=sf_obj, aes(fill=cut(pull(sf_obj, fill_by)*weight,  breaks=c(-5, -2, -1, -0.5, -0.1, 0.1, 0.5, 1, 2, 5))), colour=NA) + 
-      ggtitle(paste0(title, " | sd = ", sd_total)) + scale_fill_manual(values = fig_fill, name=scale_name) + 
-      theme(axis.text.x=element_blank(),  axis.ticks.x=element_blank(), 
-            axis.text.y=element_blank(), axis.ticks.y=element_blank(), 
-            legend.text = element_text(size = 12),
-            legend.key.size = unit(0.75, "cm"),
-            strip.text.x = element_text(size = 8, face = "bold.italic"),
-            legend.position = legend.pos)
+      ggtitle(title, subtitle = ifelse(sd_total < sp_null, paste0("Standard Deviation = ", sd_total, "*"), paste0("Standard Deviation = ", sd_total))) +
+      scale_fill_manual(values = fig_fill, name=scale_name) +
+      theme(
+        plot.title = element_text(size=14, face= "bold", colour= "black", hjust = 0),
+        plot.subtitle = element_text(size=11, face= "bold", colour= ifelse(sd_total < sp_null, "red", "grey13"), hjust = 0),
+        axis.text.x=element_blank(),  axis.ticks.x=element_blank(),
+        axis.text.y=element_blank(), axis.ticks.y=element_blank(),
+        legend.text = element_text(size = 12),
+        legend.key.size = unit(0.75, "cm"),
+        strip.text.x = element_text(size = 8, face = "bold.italic"),
+        legend.position = legend.pos)
+    
   }else{
     fig <- ggplot() + 
       geom_sf(data=sf_obj, aes(fill=pull(sf_obj, fill_by)), colour="black") + 
-      ggtitle(title) + 
+      ggtitle("No Effect", subtitle = "Standard Deviation = -") + 
       guides(fill=guide_legend(title="Values         ")) +
-      theme(axis.text.x=element_blank(),  axis.ticks.x=element_blank(), 
-            axis.text.y=element_blank(), axis.ticks.y=element_blank(), 
-            legend.text = element_text(size = 12),
-            legend.key.size = unit(0.75, "cm"),
-            strip.text.x = element_text(size = 8, face = "bold.italic"),
-            legend.position = legend.pos)
+      theme(
+        plot.title = element_text(size=14, face= "bold", colour= "black", hjust = 0),
+        plot.subtitle = element_text(size=11, face= "bold", colour= ifelse(sd_total < sp_null, "red", "grey13"), hjust = 0),
+        axis.text.x=element_blank(),  axis.ticks.x=element_blank(),
+        axis.text.y=element_blank(), axis.ticks.y=element_blank(),
+        legend.text = element_text(size = 12),
+        legend.key.size = unit(0.75, "cm"),
+        strip.text.x = element_text(size = 8, face = "bold.italic"),
+        legend.position = legend.pos)
   }
   
   return(fig)
@@ -151,22 +160,26 @@ plot_rme <- function(sf_obj=NA, fill_by=NA, title=NULL, scale_name="Values", leg
     fig <- ggplot() + 
       geom_sf(data=sf_obj, aes(fill=cut(pull(sf_obj, fill_by),  breaks=c(0, 0.5, 0.9, 1.1, 2, Inf))), colour=NA) + 
       ggtitle(title) + scale_fill_manual(values = fig_fill, name=scale_name) + 
-      theme(axis.text.x=element_blank(),  axis.ticks.x=element_blank(), 
-            axis.text.y=element_blank(), axis.ticks.y=element_blank(), 
-            legend.text = element_text(size = 12),
-            legend.key.size = unit(0.75, "cm"),
-            strip.text.x = element_text(size = 8, face = "bold.italic"),
-            legend.position = legend.pos)
+      theme(
+        plot.title = element_text(size=14, face= "bold", colour= "black", hjust = 0),
+        axis.text.x=element_blank(),  axis.ticks.x=element_blank(),
+        axis.text.y=element_blank(), axis.ticks.y=element_blank(),
+        legend.text = element_text(size = 12),
+        legend.key.size = unit(0.75, "cm"),
+        strip.text.x = element_text(size = 8, face = "bold.italic"),
+        legend.position = legend.pos)
   }else{
     fig <- ggplot() + 
       geom_sf(data=sf_obj, aes(fill=pull(sf_obj, fill_by)), colour="black") + 
       ggtitle(title) + 
-      theme(axis.text.x=element_blank(),  axis.ticks.x=element_blank(), 
-            axis.text.y=element_blank(), axis.ticks.y=element_blank(), 
-            legend.text = element_text(size = 12),
-            legend.key.size = unit(0.75, "cm"),
-            strip.text.x = element_text(size = 8, face = "bold.italic"),
-            legend.position = legend.pos)
+      theme(
+        plot.title = element_text(size=14, face= "bold", colour= "black", hjust = 0),
+        axis.text.x=element_blank(),  axis.ticks.x=element_blank(),
+        axis.text.y=element_blank(), axis.ticks.y=element_blank(),
+        legend.text = element_text(size = 12),
+        legend.key.size = unit(0.75, "cm"),
+        strip.text.x = element_text(size = 8, face = "bold.italic"),
+        legend.position = legend.pos)
   }
   
   return(fig)

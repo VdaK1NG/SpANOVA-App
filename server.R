@@ -110,7 +110,18 @@ shinyServer(function(input, output, session) {
                                                       "$(this.api().table().header()).css({'background-color': '#133BF2', 'color': 'white'});",
                                                       "}")),
                                                     escape = FALSE,rownames = FALSE) %>%
-      formatStyle(c("MODEL", "DIC", "WAIC", "CPU", "LOOCV", "LOGCV.3", "LOGCV.5", "LOGCV.10", "SP 0.125", "ARB", "RMSE"), fontWeight = "bold")
+      formatStyle(c("MODEL", "DIC", "WAIC", "CPU", "LOOCV", "LOGCV.3", "LOGCV.5", "LOGCV.10", "SP 0.125", "ARB", "RMSE"), fontWeight = "bold") %>% 
+      formatStyle('MODEL', "SP 0.125", color  = styleEqual(c(0, 1, 2, 3, 4), c('black', 'red', 'red', 'red', 'red')))  %>% 
+      formatStyle('DIC', "SP 0.125", color  = styleEqual(c(0, 1, 2, 3, 4), c('black', 'red', 'red', 'red', 'red')))  %>% 
+      formatStyle('WAIC', "SP 0.125", color  = styleEqual(c(0, 1, 2, 3, 4), c('black', 'red', 'red', 'red', 'red')))  %>% 
+      formatStyle('CPU', "SP 0.125", color  = styleEqual(c(0, 1, 2, 3, 4), c('black', 'red', 'red', 'red', 'red')))  %>% 
+      formatStyle('SP 0.125', "SP 0.125", color  = styleEqual(c(0, 1, 2, 3, 4), c('black', 'red', 'red', 'red', 'red'))) %>% 
+      formatStyle('ARB', "SP 0.125", color  = styleEqual(c(0, 1, 2, 3, 4), c('black', 'red', 'red', 'red', 'red'))) %>% 
+      formatStyle('RMSE', "SP 0.125", color  = styleEqual(c(0, 1, 2, 3, 4), c('black', 'red', 'red', 'red', 'red'))) %>% 
+      formatStyle('LOOCV', "SP 0.125", color  = styleEqual(c(0, 1, 2, 3, 4), c('black', 'red', 'red', 'red', 'red'))) %>% 
+      formatStyle('LOGCV.3', "SP 0.125", color  = styleEqual(c(0, 1, 2, 3, 4), c('black', 'red', 'red', 'red', 'red'))) %>% 
+      formatStyle('LOGCV.5', "SP 0.125", color  = styleEqual(c(0, 1, 2, 3, 4), c('black', 'red', 'red', 'red', 'red'))) %>% 
+      formatStyle('LOGCV.10', "SP 0.125", color  = styleEqual(c(0, 1, 2, 3, 4), c('black', 'red', 'red', 'red', 'red'))) 
     })
   
   data.plot.sp <- reactive({
@@ -1165,81 +1176,81 @@ shinyServer(function(input, output, session) {
     
     if(input$sp_ef_mod=="M0"){
       
-      fig1.1 <- plot_spef(sf_obj = data.plot.sp.sim(), fill_by = "sim_sp1", title = "Sim Sp Ef - G1")
-      fig1.2 <- plot_spef(sf_obj = data.plot.sp(), fill_by = "sp1", title = "IID Adjusted - Omega_1")
-      fig2.1 <- plot_spef(sf_obj = data.plot.sp.sim(), fill_by = "sim_sp2", title = "Sim Sp Ef - G2")
-      fig2.2 <- plot_spef(sf_obj = data.plot.sp(), fill_by = "sp2", title = "IID Adjusted - Omega_2")
-      fig3.1 <- plot_spef(sf_obj = data.plot.sp.sim(), fill_by = "sim_sp3", title = "Sim Sp Ef - G3")
-      fig3.2 <- plot_spef(sf_obj = data.plot.sp(), fill_by = "sp3", title = "IID Adjusted - Omega_3")
-      fig4.1 <- plot_spef(sf_obj = data.plot.sp.sim(), fill_by = "sim_sp4", title = "Sim Sp Ef - G4")
-      fig4.2 <- plot_spef(sf_obj = data.plot.sp(), fill_by = "sp4", title = "IID Adjusted - Omega_4")
+      fig1.1 <- plot_spef(sf_obj = data.plot.sp.sim(), fill_by = "sim_sp1", title = "Simulated Spatial Effect 1")
+      fig1.2 <- plot_spef(sf_obj = data.plot.sp(), fill_by = "sp1", title = bquote(bold("Heterogeneity Effect Adjusted | "~omega[1])))
+      fig2.1 <- plot_spef(sf_obj = data.plot.sp.sim(), fill_by = "sim_sp2", title = "Simulated Spatial Effect 2")
+      fig2.2 <- plot_spef(sf_obj = data.plot.sp(), fill_by = "sp2", title = bquote(bold("Heterogeneity Effect Adjusted | "~omega[2])))
+      fig3.1 <- plot_spef(sf_obj = data.plot.sp.sim(), fill_by = "sim_sp3", title = "Simulated Spatial Effect 3")
+      fig3.2 <- plot_spef(sf_obj = data.plot.sp(), fill_by = "sp3", title = bquote(bold("Heterogeneity Effect Adjusted | "~omega[3])))
+      fig4.1 <- plot_spef(sf_obj = data.plot.sp.sim(), fill_by = "sim_sp4", title = "Simulated Spatial Effect 4")
+      fig4.2 <- plot_spef(sf_obj = data.plot.sp(), fill_by = "sp4", title = bquote(bold("Heterogeneity Effect Adjusted | "~omega[4])))
       
     }else if(input$sp_ef_mod=="M1"){
       
-      fig1.1 <- plot_spef(sf_obj = data.plot.sp.sim(), fill_by = "sim_sp1", title = "Sim Sp Ef - G1", weight = data.sp.w()[1])
-      fig1.2 <- plot_spef(sf_obj = data.plot.sp(), fill_by = "sp1", title = "Adj Sp Ef - Phi_1")
-      fig2.1 <- plot_spef(sf_obj = data.plot.sp.sim(), fill_by = "sim_sp2", title = "Sim Sp Ef - G2", weight = data.sp.w()[2])
-      fig2.2 <- plot_spef(sf_obj = data.plot.sp(), fill_by = "sp2", title = "Adj Sp Ef - Phi_2")
-      fig3.1 <- plot_spef(sf_obj = data.plot.sp.sim(), fill_by = "sim_sp3", title = "Sim Sp Ef - G3", weight = data.sp.w()[3])
-      fig3.2 <- plot_spef(sf_obj = data.plot.sp(), fill_by = "sp3", title = "Adj Sp Ef - Phi_3")
-      fig4.1 <- plot_spef(sf_obj = data.plot.sp.sim(), fill_by = "sim_sp4", title = "Sim Sp Ef - G4", weight = data.sp.w()[4])
-      fig4.2 <- plot_spef(sf_obj = data.plot.sp(), fill_by = "sp4", title = "Adj Sp Ef - Phi_4")
+      fig1.1 <- plot_spef(sf_obj = data.plot.sp.sim(), fill_by = "sim_sp1", title = "Simulated Spatial Effect 1", weight = data.sp.w()[1])
+      fig1.2 <- plot_spef(sf_obj = data.plot.sp(), fill_by = "sp1", title = bquote(bold("Spatial Effect | "~phi[1])))
+      fig2.1 <- plot_spef(sf_obj = data.plot.sp.sim(), fill_by = "sim_sp2", title = "Simulated Spatial Effect 2", weight = data.sp.w()[2])
+      fig2.2 <- plot_spef(sf_obj = data.plot.sp(), fill_by = "sp2", title = bquote(bold("Spatial Effect | "~phi[2])))
+      fig3.1 <- plot_spef(sf_obj = data.plot.sp.sim(), fill_by = "sim_sp3", title = "Simulated Spatial Effect 3", weight = data.sp.w()[3])
+      fig3.2 <- plot_spef(sf_obj = data.plot.sp(), fill_by = "sp3", title = bquote(bold("Spatial Effect | "~phi[3])))
+      fig4.1 <- plot_spef(sf_obj = data.plot.sp.sim(), fill_by = "sim_sp4", title = "Simulated Spatial Effect 4", weight = data.sp.w()[4])
+      fig4.2 <- plot_spef(sf_obj = data.plot.sp(), fill_by = "sp4", title = bquote(bold("Spatial Effect | "~phi[4])))
       
     }else if(input$sp_ef_mod %in% c("M2-ind(F1L1-F2L1)", "M2-ind(F1L2-F2L1)", "M2-ind(F2L1-F1L2)", "M2-ind(F2L2-F1L2)")){
       
-      fig1.1 <- plot_spef(sf_obj = data.plot.sp.sim(), fill_by = "sim_sp1", title = "Sim Sp Ef - G1", weight = data.sp.w()[1])
-      fig1.2 <- plot_spef(sf_obj = data.plot.sp(), fill_by = "sp1", title = "Adj Sp Ef - PHI1")
-      fig2.1 <- plot_spef(sf_obj = data.plot.sp.sim(), fill_by = "sim_sp2", title = "Sim Sp Ef - G2", weight = data.sp.w()[2])
+      fig1.1 <- plot_spef(sf_obj = data.plot.sp.sim(), fill_by = "sim_sp1", title = "Simulated Spatial Effect 1", weight = data.sp.w()[1])
+      fig1.2 <- plot_spef(sf_obj = data.plot.sp(), fill_by = "sp1", title = bquote(bold("Spatial Effect | "~phi[11])))
+      fig2.1 <- plot_spef(sf_obj = data.plot.sp.sim(), fill_by = "sim_sp2", title = "Simulated Spatial Effect 2", weight = data.sp.w()[2])
       fig2.2 <- plot_spef(sf_obj = data.plot.sp(), fill_by = "sp2", title = NULL)
-      fig3.1 <- plot_spef(sf_obj = data.plot.sp.sim(), fill_by = "sim_sp3", title = "Sim Sp Ef - G3", weight = data.sp.w()[3])
+      fig3.1 <- plot_spef(sf_obj = data.plot.sp.sim(), fill_by = "sim_sp3", title = "Simulated Spatial Effect 3", weight = data.sp.w()[3])
       fig3.2 <- plot_spef(sf_obj = data.plot.sp(), fill_by = "sp3", title = NULL)
-      fig4.1 <- plot_spef(sf_obj = data.plot.sp.sim(), fill_by = "sim_sp4", title = "Sim Sp Ef - G4", weight = data.sp.w()[4])
+      fig4.1 <- plot_spef(sf_obj = data.plot.sp.sim(), fill_by = "sim_sp4", title = "Simulated Spatial Effect 4", weight = data.sp.w()[4])
       fig4.2 <- plot_spef(sf_obj = data.plot.sp(), fill_by = "sp4", title = NULL)
       
     }else if(input$sp_ef_mod %in% c("M3-F1.(F1L1)", "M3-F1.(F1L2)")){
       
-      fig1.1 <- plot_spef(sf_obj = data.plot.sp.sim(), fill_by = "sim_sp1", title = "Sim Sp Ef - G1", weight = data.sp.w()[1])
-      fig1.2 <- plot_spef(sf_obj = data.plot.sp(), fill_by = "sp1", title = "Adj Sp Ef - Phi_11")
-      fig2.1 <- plot_spef(sf_obj = data.plot.sp.sim(), fill_by = "sim_sp2", title = "Sim Sp Ef - G2", weight = data.sp.w()[2])
-      fig2.2 <- plot_spef(sf_obj = data.plot.sp(), fill_by = "sp2", title = "Adj Sp Ef - Phi_12")
-      fig3.1 <- plot_spef(sf_obj = data.plot.sp.sim(), fill_by = "sim_sp3", title = "Sim Sp Ef - G3", weight = data.sp.w()[3])
+      fig1.1 <- plot_spef(sf_obj = data.plot.sp.sim(), fill_by = "sim_sp1", title = "Simulated Spatial Effect 1", weight = data.sp.w()[1])
+      fig1.2 <- plot_spef(sf_obj = data.plot.sp(), fill_by = "sp1", title = bquote(bold("Spatial Effect | "~phi[11])))
+      fig2.1 <- plot_spef(sf_obj = data.plot.sp.sim(), fill_by = "sim_sp2", title = "Simulated Spatial Effect 2", weight = data.sp.w()[2])
+      fig2.2 <- plot_spef(sf_obj = data.plot.sp(), fill_by = "sp2", title = bquote(bold("Spatial Effect | "~phi[12])))
+      fig3.1 <- plot_spef(sf_obj = data.plot.sp.sim(), fill_by = "sim_sp3", title = "Simulated Spatial Effect 3", weight = data.sp.w()[3])
       fig3.2 <- plot_spef(sf_obj = data.plot.sp(), fill_by = "sp3", title = NULL)
-      fig4.1 <- plot_spef(sf_obj = data.plot.sp.sim(), fill_by = "sim_sp4", title = "Sim Sp Ef - G4", weight = data.sp.w()[4])
+      fig4.1 <- plot_spef(sf_obj = data.plot.sp.sim(), fill_by = "sim_sp4", title = "Simulated Spatial Effect 4", weight = data.sp.w()[4])
       fig4.2 <- plot_spef(sf_obj = data.plot.sp(), fill_by = "sp4", title = NULL)
       
     }else if(input$sp_ef_mod %in% c("M4-F2.(F2L1)", "M4-F2.(F2L2)")){
       
-      fig1.1 <- plot_spef(sf_obj = data.plot.sp.sim(), fill_by = "sim_sp1", title = "Sim Sp Ef - G1", weight = data.sp.w()[1])
-      fig1.2 <- plot_spef(sf_obj = data.plot.sp(), fill_by = "sp1", title = "Adj Sp Ef - Phi_11")
-      fig2.1 <- plot_spef(sf_obj = data.plot.sp.sim(), fill_by = "sim_sp2", title = "Sim Sp Ef - G2", weight = data.sp.w()[2])
-      fig2.2 <- plot_spef(sf_obj = data.plot.sp(), fill_by = "sp2", title = "Adj Sp Ef - Phi_21")
-      fig3.1 <- plot_spef(sf_obj = data.plot.sp.sim(), fill_by = "sim_sp3", title = "Sim Sp Ef - G3", weight = data.sp.w()[3])
+      fig1.1 <- plot_spef(sf_obj = data.plot.sp.sim(), fill_by = "sim_sp1", title = "Simulated Spatial Effect 1", weight = data.sp.w()[1])
+      fig1.2 <- plot_spef(sf_obj = data.plot.sp(), fill_by = "sp1", title = bquote(bold("Spatial Effect | "~phi[11])))
+      fig2.1 <- plot_spef(sf_obj = data.plot.sp.sim(), fill_by = "sim_sp2", title = "Simulated Spatial Effect 2", weight = data.sp.w()[2])
+      fig2.2 <- plot_spef(sf_obj = data.plot.sp(), fill_by = "sp2", title = bquote(bold("Spatial Effect | "~phi[21])))
+      fig3.1 <- plot_spef(sf_obj = data.plot.sp.sim(), fill_by = "sim_sp3", title = "Simulated Spatial Effect 3", weight = data.sp.w()[3])
       fig3.2 <- plot_spef(sf_obj = data.plot.sp(), fill_by = "sp3", title = NULL)
-      fig4.1 <- plot_spef(sf_obj = data.plot.sp.sim(), fill_by = "sim_sp4", title = "Sim Sp Ef - G4", weight = data.sp.w()[4])
+      fig4.1 <- plot_spef(sf_obj = data.plot.sp.sim(), fill_by = "sim_sp4", title = "Simulated Spatial Effect 4", weight = data.sp.w()[4])
       fig4.2 <- plot_spef(sf_obj = data.plot.sp(), fill_by = "sp4", title = NULL)
       
     }else if(input$sp_ef_mod %in% c("M5-F1.(F1L1)+F2.(F2L1)", "M5-F1.(F1L2)+F2.(F2L1)", "M5-F1.(F1L1)+F2.(F2L2)", "M5-F1.(F1L2)+F2.(F2L2)")){
       
-      fig1.1 <- plot_spef(sf_obj = data.plot.sp.sim(), fill_by = "sim_sp1", title = "Sim Sp Ef - G1", weight = data.sp.w()[1])
-      fig1.2 <- plot_spef(sf_obj = data.plot.sp(), fill_by = "sp1", title = "Adj Sp Ef - Phi_11")
-      fig2.1 <- plot_spef(sf_obj = data.plot.sp.sim(), fill_by = "sim_sp2", title = "Sim Sp Ef - G2", weight = data.sp.w()[2])
-      fig2.2 <- plot_spef(sf_obj = data.plot.sp(), fill_by = "sp2", title = "Adj Sp Ef - Phi_12")
-      fig3.1 <- plot_spef(sf_obj = data.plot.sp.sim(), fill_by = "sim_sp3", title = "Sim Sp Ef - G3", weight = data.sp.w()[3])
-      fig3.2 <- plot_spef(sf_obj = data.plot.sp(), fill_by = "sp3", title = "Adj Sp Ef - Phi_21")
-      fig4.1 <- plot_spef(sf_obj = data.plot.sp.sim(), fill_by = "sim_sp4", title = "Sim Sp Ef - G4", weight = data.sp.w()[4])
+      fig1.1 <- plot_spef(sf_obj = data.plot.sp.sim(), fill_by = "sim_sp1", title = "Simulated Spatial Effect 1", weight = data.sp.w()[1])
+      fig1.2 <- plot_spef(sf_obj = data.plot.sp(), fill_by = "sp1", title = bquote(bold("Spatial Effect | "~phi[11])))
+      fig2.1 <- plot_spef(sf_obj = data.plot.sp.sim(), fill_by = "sim_sp2", title = "Simulated Spatial Effect 2", weight = data.sp.w()[2])
+      fig2.2 <- plot_spef(sf_obj = data.plot.sp(), fill_by = "sp2", title = bquote(bold("Spatial Effect | "~phi[12])))
+      fig3.1 <- plot_spef(sf_obj = data.plot.sp.sim(), fill_by = "sim_sp3", title = "Simulated Spatial Effect 3", weight = data.sp.w()[3])
+      fig3.2 <- plot_spef(sf_obj = data.plot.sp(), fill_by = "sp3", title = bquote(bold("Spatial Effect | "~phi[21])))
+      fig4.1 <- plot_spef(sf_obj = data.plot.sp.sim(), fill_by = "sim_sp4", title = "Simulated Spatial Effect 4", weight = data.sp.w()[4])
       fig4.2 <- plot_spef(sf_obj = data.plot.sp(), fill_by = "sp4", title = NULL)
       
     }else if(input$sp_ef_mod %in% c("M6-F1.(F1L1)*F2.(F2L1)", "M6-F1.(F1L2)*F2.(F2L1)", "M6-F1.(F1L1)*F2.(F2L2)", "M6-F1.(F1L2)*F2.(F2L2)",
                                     "M6-F2.(F2L1)*F1.(F1L1)", "M6-F2.(F2L2)*F1.(F1L1)", "M6-F2.(F2L1)*F1.(F1L2)", "M6-F2.(F2L2)*F1.(F1L2)")){
       
-      fig1.1 <- plot_spef(sf_obj = data.plot.sp.sim(), fill_by = "sim_sp1", title = "Sim Sp Ef - G1", weight = data.sp.w()[1])
-      fig1.2 <- plot_spef(sf_obj = data.plot.sp(), fill_by = "sp1", title = "Adj Sp Ef - Phi_11")
-      fig2.1 <- plot_spef(sf_obj = data.plot.sp.sim(), fill_by = "sim_sp2", title = "Sim Sp Ef - G2", weight = data.sp.w()[2])
-      fig2.2 <- plot_spef(sf_obj = data.plot.sp(), fill_by = "sp2", title = "Adj Sp Ef - Phi_12")
-      fig3.1 <- plot_spef(sf_obj = data.plot.sp.sim(), fill_by = "sim_sp3", title = "Sim Sp Ef - G3", weight = data.sp.w()[3])
-      fig3.2 <- plot_spef(sf_obj = data.plot.sp(), fill_by = "sp3", title = "Adj Sp Ef - Phi_21")
-      fig4.1 <- plot_spef(sf_obj = data.plot.sp.sim(), fill_by = "sim_sp4", title = "Sim Sp Ef - G4", weight = data.sp.w()[4])
-      fig4.2 <- plot_spef(sf_obj = data.plot.sp(), fill_by = "sp4", title = "Adj Sp Ef - Phi_22")
+      fig1.1 <- plot_spef(sf_obj = data.plot.sp.sim(), fill_by = "sim_sp1", title = "Simulated Spatial Effect 1", weight = data.sp.w()[1])
+      fig1.2 <- plot_spef(sf_obj = data.plot.sp(), fill_by = "sp1", title = bquote(bold("Spatial Effect | "~phi[11])))
+      fig2.1 <- plot_spef(sf_obj = data.plot.sp.sim(), fill_by = "sim_sp2", title = "Simulated Spatial Effect 2", weight = data.sp.w()[2])
+      fig2.2 <- plot_spef(sf_obj = data.plot.sp(), fill_by = "sp2", title = bquote(bold("Spatial Effect | "~phi[12])))
+      fig3.1 <- plot_spef(sf_obj = data.plot.sp.sim(), fill_by = "sim_sp3", title = "Simulated Spatial Effect 3", weight = data.sp.w()[3])
+      fig3.2 <- plot_spef(sf_obj = data.plot.sp(), fill_by = "sp3", title = bquote(bold("Spatial Effect | "~phi[21])))
+      fig4.1 <- plot_spef(sf_obj = data.plot.sp.sim(), fill_by = "sim_sp4", title = "Simulated Spatial Effect 4", weight = data.sp.w()[4])
+      fig4.2 <- plot_spef(sf_obj = data.plot.sp(), fill_by = "sp4", title = bquote(bold("Spatial Effect | "~phi[22])))
       
     }
     
@@ -1248,170 +1259,88 @@ shinyServer(function(input, output, session) {
   }, height = 1500))
   
   # Resultados modelo
-  mod.data <- reactive({
+  case.table.data <- reactive({
     
     data_table <- get(input$vars)
+    data_table <- data_table$Summary 
     data_table$NUM <- 1:22
-    data_table <- data_table %>% select(NUM, MODEL, DIC, WAIC, CPU, sp.null) %>% mutate(CPU=round(CPU, 2)) %>% 
-      arrange(sp.null, DIC)
+    data_table <- data_table %>% select(NUM, MODEL, DIC, WAIC, sp.null, CPU) %>% mutate(CPU=round(CPU, 2), DIC=round(DIC, 2), WAIC=round(WAIC, 2)) 
     data_table
     
   })
   
   output$tabla_summary <- renderDataTable({
-    datatable(mod.data(), 
+    datatable(case.table.data(), 
               options = list(pageLength = 25, initComplete = JS(
                 "function(settings, json) {",
                 "$(this.api().table().header()).css({'background-color': '#133BF2', 'color': 'white'});",
                 "}")),
               escape = FALSE,rownames = FALSE)  %>%
-      formatStyle(c("NUM", "MODEL", "DIC", "WAIC", "CPU"), fontWeight = "bold")
+      formatStyle(c("NUM", "MODEL", "DIC", "WAIC", "CPU", "sp.null"), fontWeight = "bold") %>% 
+      formatStyle('NUM', "sp.null", color  = styleEqual(c(0, 1, 2, 3, 4), c('black', 'red', 'red', 'red', 'red')))  %>% 
+      formatStyle('MODEL', "sp.null", color  = styleEqual(c(0, 1, 2, 3, 4), c('black', 'red', 'red', 'red', 'red')))  %>% 
+      formatStyle('DIC', "sp.null", color  = styleEqual(c(0, 1, 2, 3, 4), c('black', 'red', 'red', 'red', 'red')))  %>% 
+      formatStyle('WAIC', "sp.null", color  = styleEqual(c(0, 1, 2, 3, 4), c('black', 'red', 'red', 'red', 'red')))  %>% 
+      formatStyle('CPU', "sp.null", color  = styleEqual(c(0, 1, 2, 3, 4), c('black', 'red', 'red', 'red', 'red')))  %>% 
+      formatStyle('sp.null', "sp.null", color  = styleEqual(c(0, 1, 2, 3, 4), c('black', 'red', 'red', 'red', 'red'))) 
     
   })
   
-  output$plot_int <- renderPlot({
-  
-    ggplot(data.int %>% filter(MOD==input$n_mod, Vars==input$vars)) +
-      geom_point(aes(x=1:4, y=`0.5quant`, col=Group)) + 
-      geom_hline(aes(yintercept=0), lty=2) +
-      geom_errorbar(aes(x=1:4, ymin=`0.025quant`, y=`0.5quant`, ymax=`0.975quant`, col=Group)) +
-      ylab(NULL) + theme(axis.title.x=element_blank(), axis.text.x=element_blank(), axis.ticks.x=element_blank(), 
-                         legend.position = "right", legend.text = element_text(size=15), legend.title = element_text(size=15)) +
-      ggtitle("Intercept Comparison 95% Credible Interval")
+  case.mod.data <- reactive({
     
-  }, height = 500)
+    data_mod <- get(input$vars)
+    data_mod
+  })
+  
+  n.mod <- reactive({
+    
+    data_mod <- as.numeric(input$n_mod)
+    data_mod
+    
+  })
+    
+    
   
   output$plot_sp <- renderPlot({
     
-    col_numg1 <- which(names(mun_cv_df) == paste0(input$vars, "_mod", input$n_mod, ".sp.1"))
-    col_numg2 <- which(names(mun_cv_df) == paste0(input$vars, "_mod", input$n_mod, ".sp.2"))
-    col_numg3 <- which(names(mun_cv_df) == paste0(input$vars, "_mod", input$n_mod, ".sp.3"))
-    col_numg4 <- which(names(mun_cv_df) == paste0(input$vars, "_mod", input$n_mod, ".sp.4"))
+    fig <- plot.SpANOVA(
+      obj=case.mod.data(),
+      obj_type="SpANOVA",
+      fill_by="Spatial",
+      n_mod=n.mod(),
+      sp_obj=mun_cv_df,
+      fil_scale=c("#133BF2", "#7189F7", "#FFFFFF", "#FF867A", "#FF2F1B"),
+      col_frontiers="black",
+      scale_name="Values",
+      sp_null=0.125,
+      legend.position="right",
+      ncol_fig=4
+    )
     
-    title_sp_plot1 <- fig.names %>% filter(mods == input$vars, n_mod == input$n_mod) %>% select(sp_ef_1) %>% pull()
-    title_sp_plot2 <- fig.names %>% filter(mods == input$vars, n_mod == input$n_mod) %>% select(sp_ef_2) %>% pull()
-    title_sp_plot3 <- fig.names %>% filter(mods == input$vars, n_mod == input$n_mod) %>% select(sp_ef_3) %>% pull()
-    title_sp_plot4 <- fig.names %>% filter(mods == input$vars, n_mod == input$n_mod) %>% select(sp_ef_4) %>% pull()
+    fig
     
-    if(input$n_mod == 1){
-      
-      fig1 <- plot_spef(sf_obj = mun_cv_df, fill_by =  paste0(input$vars, "_mod", input$n_mod, ".sp.1"), title = "Adjusted Ef - G1", legend.pos = "bottom")
-      fig2 <- plot_spef(sf_obj = mun_cv_df, fill_by =  paste0(input$vars, "_mod", input$n_mod, ".sp.2"), title = "Adjusted Ef - G2", legend.pos = "bottom")
-      fig3 <- plot_spef(sf_obj = mun_cv_df, fill_by =  paste0(input$vars, "_mod", input$n_mod, ".sp.3"), title = "Adjusted Ef - G3", legend.pos = "bottom")
-      fig4 <- plot_spef(sf_obj = mun_cv_df, fill_by =  paste0(input$vars, "_mod", input$n_mod, ".sp.4"), title = "Adjusted Ef - G4", legend.pos = "bottom")
-      
-      grid.arrange(fig1, fig2, fig3, fig4, ncol=4)
-      
-    } else if(input$n_mod %in% c(3,4,5,6)){
-      
-      fig1 <- plot_spef(sf_obj = mun_cv_df, fill_by =  paste0(input$vars, "_mod", input$n_mod, ".sp.1"), title = "Adjusted Ef - G1", legend.pos = "bottom")
-      fig2 <- plot_spef(sf_obj = mun_cv_df, fill_by =  paste0(input$vars, "_mod", input$n_mod, ".sp.2"), title = "Adjusted Ef - G2", legend.pos = "bottom")
-      fig3 <- plot_spef(sf_obj = mun_cv_df, fill_by =  paste0(input$vars, "_mod", input$n_mod, ".sp.3"), title = "Adjusted Ef - G3", legend.pos = "bottom")
-      fig4 <- plot_spef(sf_obj = mun_cv_df, fill_by =  paste0(input$vars, "_mod", input$n_mod, ".sp.4"), title = "Adjusted Ef - G4", legend.pos = "bottom")
-      
-      grid.arrange(fig1, fig2, fig3, fig4, ncol=4)
-      
-    }else if(input$n_mod %in% c(7,8,9,10)){
-      
-      fig1 <- plot_spef(sf_obj = mun_cv_df, fill_by =  paste0(input$vars, "_mod", input$n_mod, ".sp.1"), title = "Adjusted Ef - G1", legend.pos = "bottom")
-      fig2 <- plot_spef(sf_obj = mun_cv_df, fill_by =  paste0(input$vars, "_mod", input$n_mod, ".sp.2"), title = "Adjusted Ef - G2", legend.pos = "bottom")
-      fig3 <- plot_spef(sf_obj = mun_cv_df, fill_by =  paste0(input$vars, "_mod", input$n_mod, ".sp.3"), title = "Adjusted Ef - G3", legend.pos = "bottom")
-      fig4 <- plot_spef(sf_obj = mun_cv_df, fill_by =  paste0(input$vars, "_mod", input$n_mod, ".sp.4"), title = "Adjusted Ef - G4", legend.pos = "bottom")
-      
-      grid.arrange(fig1, fig2, fig3, fig4, ncol=4)
-      
-      
-    }else if(input$n_mod %in% c(11,12,13,14)){
-      
-      fig1 <- plot_spef(sf_obj = mun_cv_df, fill_by =  paste0(input$vars, "_mod", input$n_mod, ".sp.1"), title = "Adjusted Ef - G1", legend.pos = "bottom")
-      fig2 <- plot_spef(sf_obj = mun_cv_df, fill_by =  paste0(input$vars, "_mod", input$n_mod, ".sp.2"), title = "Adjusted Ef - G2", legend.pos = "bottom")
-      fig3 <- plot_spef(sf_obj = mun_cv_df, fill_by =  paste0(input$vars, "_mod", input$n_mod, ".sp.3"), title = "Adjusted Ef - G3", legend.pos = "bottom")
-      fig4 <- plot_spef(sf_obj = mun_cv_df, fill_by =  paste0(input$vars, "_mod", input$n_mod, ".sp.4"), title = "Adjusted Ef - G4", legend.pos = "bottom")
-      
-      grid.arrange(fig1, fig2, fig3, fig4, ncol=4)
-      
-      
-    }else if(input$n_mod %in% c(2, 15:22)){
-      
-      fig1 <- plot_spef(sf_obj = mun_cv_df, fill_by =  paste0(input$vars, "_mod", input$n_mod, ".sp.1"), title = "Adjusted Ef - G1", legend.pos = "bottom")
-      fig2 <- plot_spef(sf_obj = mun_cv_df, fill_by =  paste0(input$vars, "_mod", input$n_mod, ".sp.2"), title = "Adjusted Ef - G2", legend.pos = "bottom")
-      fig3 <- plot_spef(sf_obj = mun_cv_df, fill_by =  paste0(input$vars, "_mod", input$n_mod, ".sp.3"), title = "Adjusted Ef - G3", legend.pos = "bottom")
-      fig4 <- plot_spef(sf_obj = mun_cv_df, fill_by =  paste0(input$vars, "_mod", input$n_mod, ".sp.4"), title = "Adjusted Ef - G4", legend.pos = "bottom")
-      
-      grid.arrange(fig1, fig2, fig3, fig4, ncol=4)
-      
-    }
-    
-  }, height = 750)
+  }, height = 500)
   
   output$plot_rme <- renderPlot({
   
-  col_numg1 <- which(names(mun_cv_df) == paste0(input$vars, "_mod", input$n_mod, ".RME.G1"))
-  col_numg2 <- which(names(mun_cv_df) == paste0(input$vars, "_mod", input$n_mod, ".RME.G2"))
-  col_numg3 <- which(names(mun_cv_df) == paste0(input$vars, "_mod", input$n_mod, ".RME.G3"))
-  col_numg4 <- which(names(mun_cv_df) == paste0(input$vars, "_mod", input$n_mod, ".RME.G4"))
+    fig <- plot.SpANOVA(
+      obj=case.mod.data(),
+      obj_type="SpANOVA",
+      fill_by="RR",
+      n_mod=n.mod(),
+      sp_obj=mun_cv_df,
+      fil_scale=c("#133BF2", "#7189F7", "#FFFFFF", "#FF867A", "#FF2F1B"),
+      col_frontiers="black",
+      scale_name="Values",
+      sp_null=0.125,
+      legend.position="right",
+      ncol_fig=4
+    )
+    
+    fig
+
   
-  title_rme_plot1 <- fig.names %>% filter(mods == input$vars, n_mod == input$n_mod) %>% select(group1) %>% pull()
-  title_rme_plot2 <- fig.names %>% filter(mods == input$vars, n_mod == input$n_mod) %>% select(group2) %>% pull()
-  title_rme_plot3 <- fig.names %>% filter(mods == input$vars, n_mod == input$n_mod) %>% select(group3) %>% pull()
-  title_rme_plot4 <- fig.names %>% filter(mods == input$vars, n_mod == input$n_mod) %>% select(group4) %>% pull()
-  
-  # Fill values for group 1
-  mun_cv_df$fill_rme1 <- cut(as.data.frame(mun_cv_df[,col_numg1])[,1], breaks = c(0, 0.5, 0.9, 1.1, 2, Inf), 
-                             labels = c("0, 0.5", "0.5, 0.9", "0.9, 1.1", "1.1, 2", "> 2"), include.lowest = TRUE)
-  
-  # Fill values for group 2
-  mun_cv_df$fill_rme2 <- cut(as.data.frame(mun_cv_df[,col_numg2])[,1], breaks = c(0, 0.5, 0.9, 1.1, 2, Inf), 
-                                    labels = c("0, 0.5", "0.5, 0.9", "0.9, 1.1", "1.1, 2", "> 2"), include.lowest = TRUE)
-  
-  # Fill values for group 3
-  mun_cv_df$fill_rme3 <- cut(as.data.frame(mun_cv_df[,col_numg3])[,1], breaks = c(0, 0.5, 0.9, 1.1, 2, Inf), 
-                                    labels = c("0, 0.5", "0.5, 0.9", "0.9, 1.1", "1.1, 2", "> 2"), include.lowest = TRUE)
-  
-  # Fill values for group 4
-  mun_cv_df$fill_rme4 <- cut(as.data.frame(mun_cv_df[,col_numg4])[,1], breaks = c(0, 0.5, 0.9, 1.1, 2, Inf), 
-                                    labels = c("0, 0.5", "0.5, 0.9", "0.9, 1.1", "1.1, 2", "> 2"), include.lowest = TRUE)
-  
-  
-  fig1 <- ggplot() + 
-    geom_sf(expand=TRUE, color = "black", linewidth = 0.25, data  = mun_cv_df, aes(fill = fill_rme1)) + 
-    scale_fill_manual("", values = CScale_dif(5), na.value="red", 
-                      guide = guide_legend(direction = "horizontal", nrow = 3, keywidth = 1)) +
-    theme(axis.text = element_blank(), axis.title = element_blank(), legend.position = "bottom", legend.title = element_blank(), 
-          legend.key.size = unit(1.5, "cm"), legend.text = element_text(size=18), 
-          strip.text.x = element_text(size = 12, face = "bold.italic")) +  scale_y_continuous(expand = c(0, 0)) + 
-    ggtitle(title_rme_plot1) + xlab("") + ylab("")
-  
-  fig2 <- ggplot() + 
-    geom_sf(expand=TRUE, color = "black", linewidth = 0.25, data  = mun_cv_df, aes(fill = fill_rme2)) + 
-    scale_fill_manual("", values = CScale_dif(5), na.value="red", 
-                      guide = guide_legend(direction = "horizontal", nrow = 3, keywidth = 1)) +
-    theme(axis.text = element_blank(), axis.title = element_blank(), legend.position = "bottom", legend.title = element_blank(), 
-          legend.key.size = unit(1.5, "cm"), legend.text = element_text(size=18), 
-          strip.text.x = element_text(size = 12, face = "bold.italic")) +  scale_y_continuous(expand = c(0, 0)) + 
-    ggtitle(title_rme_plot2) + xlab("") + ylab("")
-  
-  fig3 <- ggplot() + 
-    geom_sf(expand=TRUE, color = "black", linewidth = 0.25, data  = mun_cv_df, aes(fill = fill_rme3)) + 
-    scale_fill_manual("", values = CScale_dif(5), na.value="red", 
-                      guide = guide_legend(direction = "horizontal", nrow = 3, keywidth = 1)) +
-    theme(axis.text = element_blank(), axis.title = element_blank(), legend.position = "bottom", legend.title = element_blank(), 
-          legend.key.size = unit(1.5, "cm"), legend.text = element_text(size=18), 
-          strip.text.x = element_text(size = 12, face = "bold.italic")) +  scale_y_continuous(expand = c(0, 0)) + 
-    ggtitle(title_rme_plot3) + xlab("") + ylab("")
-  
-  fig4 <- ggplot() + 
-    geom_sf(expand=TRUE, color = "black", linewidth = 0.25, data  = mun_cv_df, aes(fill = fill_rme4)) + 
-    scale_fill_manual("", values = CScale_dif(5), na.value="red", 
-                      guide = guide_legend(direction = "horizontal", nrow = 3, keywidth = 1)) +
-    theme(axis.text = element_blank(), axis.title = element_blank(), legend.position = "bottom", legend.title = element_blank(), 
-          legend.key.size = unit(1.5, "cm"), legend.text = element_text(size=18), 
-          strip.text.x = element_text(size = 12, face = "bold.italic")) +  scale_y_continuous(expand = c(0, 0)) + 
-    ggtitle(title_rme_plot4) + xlab("") + ylab("")
-  
-  grid.arrange(fig1, fig2, fig3, fig4, ncol=4)
-  
-  } , height = 750)
+  } , height = 500)
   
   
   ###################################

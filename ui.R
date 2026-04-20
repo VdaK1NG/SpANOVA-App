@@ -16,6 +16,7 @@ if (!require("ggiraph", quietly = TRUE)){install.packages("ggiraph")}
 if (!require("rintrojs", quietly = TRUE)){install.packages("rintrojs")}
 if (!require("fresh", quietly = TRUE)) {install.packages("fresh")}
 if (!require("DT", quietly = TRUE)) {install.packages("DT")}
+#if (!require("INLA.SocialEp", quietly = TRUE)) {remotes::install_github("VdaK1NG/INLA.SocialEp")}
 
 # Load Accessory Functions and Data
 source("source.R")
@@ -208,12 +209,10 @@ body <- dashboardBody(
               
               column(width=10,
                      box(width = 12, solidHeader = FALSE, id = 'tab_sim', title = NULL, headerBorder = FALSE, dataTableOutput("tabla_summary")), 
-                     box(width = 12, solidHeader = TRUE, title = "Intercept", status = "primary",
-                         plotOutput("plot_int"), br(), br(), br(), br(), br()), 
                      box(width = 12, solidHeader = TRUE, title = "Spatial Effects", status = "primary",
-                         plotOutput("plot_sp"), br(), br(), br(), br(), br(), br(), br(), br(), br(), br(), br(), br(), br(), br(), br(), br(), br(), br()), 
+                         plotOutput("plot_sp"), br(), br(), br(), br(), br()), 
                      box(width = 12, solidHeader = TRUE, title = "RME", status = "primary",
-                         plotOutput("plot_rme"), br(), br(), br(), br(), br(), br(), br(), br(), br(), br(), br(), br(), br(), br(), br(), br(), br(), br())
+                         plotOutput("plot_rme"), br(), br(), br(), br(), br())
               )
             )
     )
