@@ -16,7 +16,7 @@ if (!require("ggiraph", quietly = TRUE)){install.packages("ggiraph")}
 if (!require("rintrojs", quietly = TRUE)){install.packages("rintrojs")}
 if (!require("fresh", quietly = TRUE)) {install.packages("fresh")}
 if (!require("DT", quietly = TRUE)) {install.packages("DT")}
-#if (!require("INLA.SocialEp", quietly = TRUE)) {remotes::install_github("VdaK1NG/INLA.SocialEp")}
+# if (!require("INLA.SocialEp", quietly = TRUE)) {remotes::install_github("VdaK1NG/INLA.SocialEp")}
 
 # Load Accessory Functions and Data
 source("source.R")
