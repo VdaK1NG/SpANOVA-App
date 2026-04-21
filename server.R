@@ -7,7 +7,7 @@ shinyServer(function(input, output, session) {
       session, "risk_version", "Select a Risk Version",
       choices = switch(input$mod_type,
                        "M0" = c("-"),
-                       "M1" = c("Risk Version 1", "Risk Version 2", "Risk Version 3"),
+                       "M1" = c("v1", "v2", "v3"),
                        "M2" = c("v1", "v2", "v3"),
                        "M3" = c("v1", "v2", "v3"),
                        "M4" = c("v1", "v2", "v3"),
@@ -293,10 +293,10 @@ shinyServer(function(input, output, session) {
     
     if(input$sp_ef_mod=="M0"){
       
-      data_temp$rme1 <- sim.data.ShANOVA()$M0$summary.fitted.values$mean[1:3107]
-      data_temp$rme2 <- sim.data.ShANOVA()$M0$summary.fitted.values$mean[(3107+1):(3107*2)]
-      data_temp$rme3 <- sim.data.ShANOVA()$M0$summary.fitted.values$mean[(3107*2+1):(3107*3)]
-      data_temp$rme4 <- sim.data.ShANOVA()$M0$summary.fitted.values$mean[(3107*3+1):(3107*4)]
+      data_temp$rme1 <- sim.data.ShANOVA()$M0$RME[1:3107]
+      data_temp$rme2 <- sim.data.ShANOVA()$M0$RME[(3107+1):(3107*2)]
+      data_temp$rme3 <- sim.data.ShANOVA()$M0$RME[(3107*2+1):(3107*3)]
+      data_temp$rme4 <- sim.data.ShANOVA()$M0$RME[(3107*3+1):(3107*4)]
       
     }else if(input$sp_ef_mod=="M1"){
       
