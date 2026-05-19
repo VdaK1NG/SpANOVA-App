@@ -21,6 +21,8 @@ SpANOVA_mods <- append(SpANOVA_mods, SpANOVA_mods_p7)
 rm(SpANOVA_mods_p1, SpANOVA_mods_p2, SpANOVA_mods_p3, SpANOVA_mods_p4, 
    SpANOVA_mods_p5, SpANOVA_mods_p6, SpANOVA_mods_p7)
 
+for (i in 1:ncol(sp_object)){if(is.matrix(sp_object[, i])){sp_object[, i] <- as.numeric(sp_object[, i])}}
+
 # Define graph style
 PSIC <- "#133BF2"
 PSIC_ESC <- c("#FFFFFF", "#FF2F1B", "black")
