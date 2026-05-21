@@ -21,8 +21,6 @@ SpANOVA_mods <- append(SpANOVA_mods, SpANOVA_mods_p7)
 rm(SpANOVA_mods_p1, SpANOVA_mods_p2, SpANOVA_mods_p3, SpANOVA_mods_p4, 
    SpANOVA_mods_p5, SpANOVA_mods_p6, SpANOVA_mods_p7)
 
-for (i in 1:ncol(sp_object)){if(is.matrix(sp_object[, i])){sp_object[, i] <- as.numeric(sp_object[, i])}}
-
 # Define graph style
 PSIC <- "#133BF2"
 PSIC_ESC <- c("#FFFFFF", "#FF2F1B", "black")
@@ -56,8 +54,8 @@ nodata_plot <- ggplot() + geom_text(aes(x=1, y=1, label="No Data"), size=15, fon
 
 # Prepare data
 mods <- c("Period.VS.Gender", "Period.VS.Caller", "Caller.VS.Gender")
-mods_names <-  SpANOVA_mods$M1_SIM_SpANOVA_v1$Summary
-mods_names <- mods_names %>% select(MODEL) %>% pull()
+mods_names <- hyperpam_dbs %>% mutate(sim_type = gsub(" ref:", "", sim_type), sim_type = gsub("ref: ", "", sim_type)) %>% 
+  select(sim_type) %>% distinct() %>% pull()
 
 # Functions
 `%notin%` <- Negate(`%in%`)
@@ -144,13 +142,15 @@ plot_rme <- function(sf_obj=NA, fill_by=NA, title=NULL, scale_name="Values", leg
   # Default breaks in case user does not specify one
   
   ncol_fill <- which(colnames(sf_obj)==fill_by)
+  data_plot <- sf_obj %>% pull(fill_by)
+  if(is.null(data_plot)){stop("PROBLEM WITH DATA")}
   
   if(sum(is.na(pull(sf_obj, fill_by)))==0){
-    fig_fill <- convert_rr(levels(droplevels(cut(pull(sf_obj, fill_by), breaks = c(0, 0.5, 0.9, 1.1, 2, Inf), 
+    fig_fill <- convert_rr(levels(droplevels(cut(data_plot, breaks = c(0, 0.5, 0.9, 1.1, 2, Inf), 
                                                    labels = c("(0, 0.5]", "(0.5, 0.9]", "(0.9, 1.1]", "(1.1, 2]", "(2, Inf]")))))
     
     fig <- ggplot() + 
-      geom_sf(data=sf_obj, aes(fill=cut(pull(sf_obj, fill_by),  breaks=c(0, 0.5, 0.9, 1.1, 2, Inf))), colour=NA) + 
+      geom_sf(data=sf_obj, aes(fill=cut(data_plot,  breaks=c(0, 0.5, 0.9, 1.1, 2, Inf))), colour=NA) + 
       ggtitle(title) + scale_fill_manual(values = fig_fill, name=scale_name) + 
       theme(
         plot.title = element_text(size=14, face= "bold", colour= "black", hjust = 0),
@@ -162,7 +162,7 @@ plot_rme <- function(sf_obj=NA, fill_by=NA, title=NULL, scale_name="Values", leg
         legend.position = legend.pos)
   }else{
     fig <- ggplot() + 
-      geom_sf(data=sf_obj, aes(fill=pull(sf_obj, fill_by)), colour="black") + 
+      geom_sf(data=sf_obj, aes(fill=data_plot), colour="black") + 
       ggtitle(title) + 
       theme(
         plot.title = element_text(size=14, face= "bold", colour= "black", hjust = 0),

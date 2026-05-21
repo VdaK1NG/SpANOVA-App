@@ -119,10 +119,10 @@ body <- dashboardBody(
                                   
                                   tags$span(style = "font-weight: bold;", "M1"), 
                                   
-                                  tags$span(style = "font-weight: bold;", "M2-ind(F1L1-F2L1)"), 
-                                  tags$span(style = "font-weight: bold;", "M2-ind(F1L1-F2L1)"), 
-                                  tags$span(style = "font-weight: bold;", "M2-ind(F1L1-F2L1)"), 
-                                  tags$span(style = "font-weight: bold;", "M2-ind(F1L1-F2L1)"), 
+                                  tags$span(style = "font-weight: bold;", "M2.(F1L1-F2L1)"), 
+                                  tags$span(style = "font-weight: bold;", "M2.(F1L2-F2L1)"), 
+                                  tags$span(style = "font-weight: bold;", "M2.(F1L1-F2L2)"), 
+                                  tags$span(style = "font-weight: bold;", "M2.(F1L2-F2L2)"), 
                                   
                                   tags$span(style = "font-weight: bold;", "M3-F1.(F1L1)"), 
                                   tags$span(style = "font-weight: normal;", "M3-F1.(F1L2)"), 

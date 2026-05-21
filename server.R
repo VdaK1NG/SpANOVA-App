@@ -57,12 +57,12 @@ shinyServer(function(input, output, session) {
     
     if(input$mod_type=="M0"){
       n_mod <- which(names(SpANOVA_mods)==paste0(input$mod_type, "_", input$base_type, "_SpANOVA"))
-      data <- SpANOVA_mods[[n_mod]]
-      data
+      sim.data.ShANOVA <- SpANOVA_mods[[n_mod]]
+      sim.data.ShANOVA
     }else{
       n_mod <- which(names(SpANOVA_mods)==paste0(input$mod_type, "_", input$base_type, "_SpANOVA", "_", input$risk_version))
-      data <- SpANOVA_mods[[n_mod]]
-      data
+      sim.data.ShANOVA <- SpANOVA_mods[[n_mod]]
+      sim.data.ShANOVA
     }
   })
   
@@ -142,145 +142,145 @@ shinyServer(function(input, output, session) {
       data.plot.sp.temp$sp3 <- as.numeric(sim.data.ShANOVA()$M1$summary.random$phi_3$mean)
       data.plot.sp.temp$sp4 <- as.numeric(sim.data.ShANOVA()$M1$summary.random$phi_4$mean)
       
-    }else if(input$sp_ef_mod=="M2-ind(F1L1-F2L1)"){
+    }else if(input$sp_ef_mod=="M2.(F1L1-F2L1)"){
       
-      data.plot.sp.temp$sp1 <- as.numeric(sim.data.ShANOVA()$`M2.(F1L1)`$summary.random$phi_11$mean)
+      data.plot.sp.temp$sp1 <- as.numeric(sim.data.ShANOVA()$`M2.[F1L1-F2L1]`$summary.random$phi_11$mean)
       data.plot.sp.temp$sp2 <- NA
       data.plot.sp.temp$sp3 <- NA
       data.plot.sp.temp$sp4 <- NA
       
-    }else if(input$sp_ef_mod=="M2-ind(F1L2-F2L1)"){
+    }else if(input$sp_ef_mod=="M2.(F1L2-F2L1)"){
       
-      data.plot.sp.temp$sp1 <- as.numeric(sim.data.ShANOVA()$`M2.(F1L2)`$summary.random$phi_11$mean)
+      data.plot.sp.temp$sp1 <- as.numeric(sim.data.ShANOVA()$`M2.[F1L2-F2L1]`$summary.random$phi_11$mean)
       data.plot.sp.temp$sp2 <- NA
       data.plot.sp.temp$sp3 <- NA
       data.plot.sp.temp$sp4 <- NA
       
-    }else if(input$sp_ef_mod=="M2-ind(F2L1-F1L2)"){
+    }else if(input$sp_ef_mod=="M2.(F1L1-F2L2)"){
       
-      data.plot.sp.temp$sp1 <- as.numeric(sim.data.ShANOVA()$`M2.(F2L1)`$summary.random$phi_11$mean) 
+      data.plot.sp.temp$sp1 <- as.numeric(sim.data.ShANOVA()$`M2.[F1L1-F2L2]`$summary.random$phi_11$mean) 
       data.plot.sp.temp$sp2 <- NA
       data.plot.sp.temp$sp3 <- NA
       data.plot.sp.temp$sp4 <- NA
       
-    }else if(input$sp_ef_mod=="M2-ind(F2L2-F1L2)"){
+    }else if(input$sp_ef_mod=="M2.(F1L2-F2L2)"){
       
-      data.plot.sp.temp$sp1 <- as.numeric(sim.data.ShANOVA()$`M2.(F2L2)`$summary.random$phi_11$mean)
+      data.plot.sp.temp$sp1 <- as.numeric(sim.data.ShANOVA()$`M2.[F1L2-F2L2]`$summary.random$phi_11$mean)
       data.plot.sp.temp$sp2 <- NA
       data.plot.sp.temp$sp3 <- NA
       data.plot.sp.temp$sp4 <- NA
       
-    }else if(input$sp_ef_mod=="M3-F1.(F1L1)"){
+    }else if(input$sp_ef_mod=="M3.F1(F1L1)"){
       
-      data.plot.sp.temp$sp1 <- as.numeric(sim.data.ShANOVA()$`M3.F1(ref: F1L1)`$summary.random$phi_11$mean)
-      data.plot.sp.temp$sp2 <- as.numeric(sim.data.ShANOVA()$`M3.F1(ref: F1L1)`$summary.random$phi_21$mean)
+      data.plot.sp.temp$sp1 <- as.numeric(sim.data.ShANOVA()$`M3.F1[ref: F1L1]`$summary.random$phi_11$mean)
+      data.plot.sp.temp$sp2 <- as.numeric(sim.data.ShANOVA()$`M3.F1[ref: F1L1]`$summary.random$phi_21$mean)
       data.plot.sp.temp$sp3 <- NA
       data.plot.sp.temp$sp4 <- NA
       
-    }else if(input$sp_ef_mod=="M3-F1.(F1L2)"){
+    }else if(input$sp_ef_mod=="M3.F1(F1L2)"){
       
-      data.plot.sp.temp$sp1 <- as.numeric(sim.data.ShANOVA()$`M3.F1(ref: F1L2)`$summary.random$phi_11$mean)
-      data.plot.sp.temp$sp2 <- as.numeric(sim.data.ShANOVA()$`M3.F1(ref: F1L2)`$summary.random$phi_21$mean)
+      data.plot.sp.temp$sp1 <- as.numeric(sim.data.ShANOVA()$`M3.F1[ref: F1L2]`$summary.random$phi_11$mean)
+      data.plot.sp.temp$sp2 <- as.numeric(sim.data.ShANOVA()$`M3.F1[ref: F1L2]`$summary.random$phi_21$mean)
       data.plot.sp.temp$sp3 <- NA
       data.plot.sp.temp$sp4 <- NA
       
-    }else if(input$sp_ef_mod=="M4-F2.(F2L1)"){
+    }else if(input$sp_ef_mod=="M4.F2(F2L1)"){
       
-      data.plot.sp.temp$sp1 <- as.numeric(sim.data.ShANOVA()$`M4.F2(ref: F2L1)`$summary.random$phi_11$mean)
-      data.plot.sp.temp$sp2 <- as.numeric(sim.data.ShANOVA()$`M4.F2(ref: F2L1)`$summary.random$phi_12$mean)
+      data.plot.sp.temp$sp1 <- as.numeric(sim.data.ShANOVA()$`M4.F2[ref: F2L1]`$summary.random$phi_11$mean)
+      data.plot.sp.temp$sp2 <- as.numeric(sim.data.ShANOVA()$`M4.F2[ref: F2L1]`$summary.random$phi_12$mean)
       data.plot.sp.temp$sp3 <- NA
       data.plot.sp.temp$sp4 <- NA
       
-    }else if(input$sp_ef_mod=="M4-F2.(F2L2)"){
+    }else if(input$sp_ef_mod=="M4.F2(F2L2)"){
       
-      data.plot.sp.temp$sp1 <- as.numeric(sim.data.ShANOVA()$`M4.F2(ref: F2L2)`$summary.random$phi_11$mean)
-      data.plot.sp.temp$sp2 <- as.numeric(sim.data.ShANOVA()$`M4.F2(ref: F2L2)`$summary.random$phi_12$mean)
+      data.plot.sp.temp$sp1 <- as.numeric(sim.data.ShANOVA()$`M4.F2[ref: F2L2]`$summary.random$phi_11$mean)
+      data.plot.sp.temp$sp2 <- as.numeric(sim.data.ShANOVA()$`M4.F2[ref: F2L2]`$summary.random$phi_12$mean)
       data.plot.sp.temp$sp3 <- NA
       data.plot.sp.temp$sp4 <- NA
       
-    }else if(input$sp_ef_mod=="M5-F1.(F1L1)+F2.(F2L1)"){
+    }else if(input$sp_ef_mod=="M5.F1(F1L1)+F2(F2L1)"){
       
-      data.plot.sp.temp$sp1 <- as.numeric(sim.data.ShANOVA()$`M5.F1(ref: F1L1)+F2(ref: F2L1)`$summary.random$phi_11$mean)
-      data.plot.sp.temp$sp2 <- as.numeric(sim.data.ShANOVA()$`M5.F1(ref: F1L1)+F2(ref: F2L1)`$summary.random$phi_12$mean)
-      data.plot.sp.temp$sp3 <- as.numeric(sim.data.ShANOVA()$`M5.F1(ref: F1L1)+F2(ref: F2L1)`$summary.random$phi_21$mean)
+      data.plot.sp.temp$sp1 <- as.numeric(sim.data.ShANOVA()$`M5.F1[ref: F1L1]+F2[ref: F2L1]`$summary.random$phi_11$mean)
+      data.plot.sp.temp$sp2 <- as.numeric(sim.data.ShANOVA()$`M5.F1[ref: F1L1]+F2[ref: F2L1]`$summary.random$phi_12$mean)
+      data.plot.sp.temp$sp3 <- as.numeric(sim.data.ShANOVA()$`M5.F1[ref: F1L1]+F2[ref: F2L1]`$summary.random$phi_21$mean)
       data.plot.sp.temp$sp4 <- NA
       
-    }else if(input$sp_ef_mod=="M5-F1.(F1L2)+F2.(F2L1)"){
+    }else if(input$sp_ef_mod=="M5.F1(F1L2)+F2(F2L1)"){
       
-      data.plot.sp.temp$sp1 <- as.numeric(sim.data.ShANOVA()$`M5.F1(ref: F1L2)+F2(ref: F2L1)`$summary.random$phi_11$mean)
-      data.plot.sp.temp$sp2 <- as.numeric(sim.data.ShANOVA()$`M5.F1(ref: F1L2)+F2(ref: F2L1)`$summary.random$phi_12$mean)
-      data.plot.sp.temp$sp3 <- as.numeric(sim.data.ShANOVA()$`M5.F1(ref: F1L2)+F2(ref: F2L1)`$summary.random$phi_21$mean)
+      data.plot.sp.temp$sp1 <- as.numeric(sim.data.ShANOVA()$`M5.F1[ref: F1L2]+F2[ref: F2L1]`$summary.random$phi_11$mean)
+      data.plot.sp.temp$sp2 <- as.numeric(sim.data.ShANOVA()$`M5.F1[ref: F1L2]+F2[ref: F2L1]`$summary.random$phi_12$mean)
+      data.plot.sp.temp$sp3 <- as.numeric(sim.data.ShANOVA()$`M5.F1[ref: F1L2]+F2[ref: F2L1]`$summary.random$phi_21$mean)
       data.plot.sp.temp$sp4 <- NA
       
-    }else if(input$sp_ef_mod=="M5-F1.(F1L1)+F2.(F2L2)"){
+    }else if(input$sp_ef_mod=="M5.F1(F1L1)+F2(F2L2)"){
       
-      data.plot.sp.temp$sp1 <- as.numeric(sim.data.ShANOVA()$`M5.F1(ref: F1L1)+F2(ref: F2L2)`$summary.random$phi_11$mean)
-      data.plot.sp.temp$sp2 <- as.numeric(sim.data.ShANOVA()$`M5.F1(ref: F1L1)+F2(ref: F2L2)`$summary.random$phi_12$mean)
-      data.plot.sp.temp$sp3 <- as.numeric(sim.data.ShANOVA()$`M5.F1(ref: F1L1)+F2(ref: F2L2)`$summary.random$phi_21$mean)
+      data.plot.sp.temp$sp1 <- as.numeric(sim.data.ShANOVA()$`M5.F1[ref: F1L1]+F2[ref: F2L2]`$summary.random$phi_11$mean)
+      data.plot.sp.temp$sp2 <- as.numeric(sim.data.ShANOVA()$`M5.F1[ref: F1L1]+F2[ref: F2L2]`$summary.random$phi_12$mean)
+      data.plot.sp.temp$sp3 <- as.numeric(sim.data.ShANOVA()$`M5.F1[ref: F1L1]+F2[ref: F2L2]`$summary.random$phi_21$mean)
       data.plot.sp.temp$sp4 <- NA
       
-    }else if(input$sp_ef_mod=="M5-F1.(F1L2)+F2.(F2L2)"){
+    }else if(input$sp_ef_mod=="M5.F1(F1L2)+F2(F2L2)"){
       
-      data.plot.sp.temp$sp1 <- as.numeric(sim.data.ShANOVA()$`M5.F1(ref: F1L2)+F2(ref: F2L2)`$summary.random$phi_11$mean)
-      data.plot.sp.temp$sp2 <- as.numeric(sim.data.ShANOVA()$`M5.F1(ref: F1L2)+F2(ref: F2L2)`$summary.random$phi_12$mean)
-      data.plot.sp.temp$sp3 <- as.numeric(sim.data.ShANOVA()$`M5.F1(ref: F1L2)+F2(ref: F2L2)`$summary.random$phi_21$mean)
+      data.plot.sp.temp$sp1 <- as.numeric(sim.data.ShANOVA()$`M5.F1[ref: F1L2]+F2[ref: F2L2]`$summary.random$phi_11$mean)
+      data.plot.sp.temp$sp2 <- as.numeric(sim.data.ShANOVA()$`M5.F1[ref: F1L2]+F2[ref: F2L2]`$summary.random$phi_12$mean)
+      data.plot.sp.temp$sp3 <- as.numeric(sim.data.ShANOVA()$`M5.F1[ref: F1L2]+F2[ref: F2L2]`$summary.random$phi_21$mean)
       data.plot.sp.temp$sp4 <- NA
       
-    }else if(input$sp_ef_mod=="M6-F1.(F1L1)*F2.(F2L1)"){
+    }else if(input$sp_ef_mod=="M6.F1(F1L1)*F2(F2L1)"){
       
-      data.plot.sp.temp$sp1 <- as.numeric(sim.data.ShANOVA()$`M6.F1(ref: F1L1)*F2(ref: F2L1)`$summary.random$phi_11$mean)
-      data.plot.sp.temp$sp2 <- as.numeric(sim.data.ShANOVA()$`M6.F1(ref: F1L1)*F2(ref: F2L1)`$summary.random$phi_12$mean)
-      data.plot.sp.temp$sp3 <- as.numeric(sim.data.ShANOVA()$`M6.F1(ref: F1L1)*F2(ref: F2L1)`$summary.random$phi_21$mean)
-      data.plot.sp.temp$sp4 <- as.numeric(sim.data.ShANOVA()$`M6.F1(ref: F1L1)*F2(ref: F2L1)`$summary.random$phi_22$mean)
+      data.plot.sp.temp$sp1 <- as.numeric(sim.data.ShANOVA()$`M6.F1[ref: F1L1]*F2[ref: F2L1]`$summary.random$phi_11$mean)
+      data.plot.sp.temp$sp2 <- as.numeric(sim.data.ShANOVA()$`M6.F1[ref: F1L1]*F2[ref: F2L1]`$summary.random$phi_12$mean)
+      data.plot.sp.temp$sp3 <- as.numeric(sim.data.ShANOVA()$`M6.F1[ref: F1L1]*F2[ref: F2L1]`$summary.random$phi_21$mean)
+      data.plot.sp.temp$sp4 <- as.numeric(sim.data.ShANOVA()$`M6.F1[ref: F1L1]*F2[ref: F2L1]`$summary.random$phi_22$mean)
       
-    }else if(input$sp_ef_mod=="M6-F1.(F1L2)*F2.(F2L1)"){
+    }else if(input$sp_ef_mod=="M6.F1(F1L2)*F2(F2L1)"){
       
-      data.plot.sp.temp$sp1 <- as.numeric(sim.data.ShANOVA()$`M6.F1(F1L2)*F2(F2L1)`$summary.random$phi_11$mean)
-      data.plot.sp.temp$sp2 <- as.numeric(sim.data.ShANOVA()$`M6.F1(F1L2)*F2(F2L1)`$summary.random$phi_12$mean)
-      data.plot.sp.temp$sp3 <- as.numeric(sim.data.ShANOVA()$`M6.F1(F1L2)*F2(F2L1)`$summary.random$phi_21$mean)
-      data.plot.sp.temp$sp4 <- as.numeric(sim.data.ShANOVA()$`M6.F1(F1L2)*F2(F2L1)`$summary.random$phi_22$mean)
+      data.plot.sp.temp$sp1 <- as.numeric(sim.data.ShANOVA()$`M6.F1[ref: F1L2]*F2[ref: F2L1]`$summary.random$phi_11$mean)
+      data.plot.sp.temp$sp2 <- as.numeric(sim.data.ShANOVA()$`M6.F1[ref: F1L2]*F2[ref: F2L1]`$summary.random$phi_12$mean)
+      data.plot.sp.temp$sp3 <- as.numeric(sim.data.ShANOVA()$`M6.F1[ref: F1L2]*F2[ref: F2L1]`$summary.random$phi_21$mean)
+      data.plot.sp.temp$sp4 <- as.numeric(sim.data.ShANOVA()$`M6.F1[ref: F1L2]*F2[ref: F2L1]`$summary.random$phi_22$mean)
       
-    }else if(input$sp_ef_mod=="M6-F1.(F1L1)*F2.(F2L2)"){
+    }else if(input$sp_ef_mod=="M6.F1(F1L1)*F2(F2L2)"){
       
-      data.plot.sp.temp$sp1 <- as.numeric(sim.data.ShANOVA()$`M6.F1(ref: F1L1)*F2(ref: F2L2)`$summary.random$phi_11$mean)
-      data.plot.sp.temp$sp2 <- as.numeric(sim.data.ShANOVA()$`M6.F1(ref: F1L1)*F2(ref: F2L2)`$summary.random$phi_12$mean)
-      data.plot.sp.temp$sp3 <- as.numeric(sim.data.ShANOVA()$`M6.F1(ref: F1L1)*F2(ref: F2L2)`$summary.random$phi_21$mean)
-      data.plot.sp.temp$sp4 <- as.numeric(sim.data.ShANOVA()$`M6.F1(ref: F1L1)*F2(ref: F2L2)`$summary.random$phi_22$mean)
+      data.plot.sp.temp$sp1 <- as.numeric(sim.data.ShANOVA()$`M6.F1[ref: F1L1]*F2[ref: F2L2]`$summary.random$phi_11$mean)
+      data.plot.sp.temp$sp2 <- as.numeric(sim.data.ShANOVA()$`M6.F1[ref: F1L1]*F2[ref: F2L2]`$summary.random$phi_12$mean)
+      data.plot.sp.temp$sp3 <- as.numeric(sim.data.ShANOVA()$`M6.F1[ref: F1L1]*F2[ref: F2L2]`$summary.random$phi_21$mean)
+      data.plot.sp.temp$sp4 <- as.numeric(sim.data.ShANOVA()$`M6.F1[ref: F1L1]*F2[ref: F2L2]`$summary.random$phi_22$mean)
       
-    }else if(input$sp_ef_mod=="M6-F1.(F1L2)*F2.(F2L2)"){
+    }else if(input$sp_ef_mod=="M6.F1(F1L2)*F2(F2L2)"){
       
-      data.plot.sp.temp$sp1 <- as.numeric(sim.data.ShANOVA()$`M6.F1(ref: F1L2)*F2(ref: F2L2)`$summary.random$phi_11$mean)
-      data.plot.sp.temp$sp2 <- as.numeric(sim.data.ShANOVA()$`M6.F1(ref: F1L2)*F2(ref: F2L2)`$summary.random$phi_12$mean)
-      data.plot.sp.temp$sp3 <- as.numeric(sim.data.ShANOVA()$`M6.F1(ref: F1L2)*F2(ref: F2L2)`$summary.random$phi_21$mean)
-      data.plot.sp.temp$sp4 <- as.numeric(sim.data.ShANOVA()$`M6.F1(ref: F1L2)*F2(ref: F2L2)`$summary.random$phi_22$mean)
+      data.plot.sp.temp$sp1 <- as.numeric(sim.data.ShANOVA()$`M6.F1[ref: F1L2]*F2[ref: F2L2]`$summary.random$phi_11$mean)
+      data.plot.sp.temp$sp2 <- as.numeric(sim.data.ShANOVA()$`M6.F1[ref: F1L2]*F2[ref: F2L2]`$summary.random$phi_12$mean)
+      data.plot.sp.temp$sp3 <- as.numeric(sim.data.ShANOVA()$`M6.F1[ref: F1L2]*F2[ref: F2L2]`$summary.random$phi_21$mean)
+      data.plot.sp.temp$sp4 <- as.numeric(sim.data.ShANOVA()$`M6.F1[ref: F1L2]*F2[ref: F2L2]`$summary.random$phi_22$mean)
       
-    }else if(input$sp_ef_mod=="M6-F2.(F2L1)*F1.(F1L1)"){
+    }else if(input$sp_ef_mod=="M6.F2(F2L1)*F1(F1L1)"){
       
-      data.plot.sp.temp$sp1 <- as.numeric(sim.data.ShANOVA()$`M6.F2(ref: F2L1)*F1(ref: F1L1)`$summary.random$phi_11$mean)
-      data.plot.sp.temp$sp2 <- as.numeric(sim.data.ShANOVA()$`M6.F2(ref: F2L1)*F1(ref: F1L1)`$summary.random$phi_12$mean)
-      data.plot.sp.temp$sp3 <- as.numeric(sim.data.ShANOVA()$`M6.F2(ref: F2L1)*F1(ref: F1L1)`$summary.random$phi_21$mean)
-      data.plot.sp.temp$sp4 <- as.numeric(sim.data.ShANOVA()$`M6.F2(ref: F2L1)*F1(ref: F1L1)`$summary.random$phi_22$mean)
+      data.plot.sp.temp$sp1 <- as.numeric(sim.data.ShANOVA()$`M6.F2[ref: F2L1]*F1[ref: F1L1]`$summary.random$phi_11$mean)
+      data.plot.sp.temp$sp2 <- as.numeric(sim.data.ShANOVA()$`M6.F2[ref: F2L1]*F1[ref: F1L1]`$summary.random$phi_12$mean)
+      data.plot.sp.temp$sp3 <- as.numeric(sim.data.ShANOVA()$`M6.F2[ref: F2L1]*F1[ref: F1L1]`$summary.random$phi_21$mean)
+      data.plot.sp.temp$sp4 <- as.numeric(sim.data.ShANOVA()$`M6.F2[ref: F2L1]*F1[ref: F1L1]`$summary.random$phi_22$mean)
       
-    }else if(input$sp_ef_mod=="M6-F2.(F2L2)*F1.(F1L1)"){
+    }else if(input$sp_ef_mod=="M6.F2(F2L2)*F1(F1L1)"){
       
-      data.plot.sp.temp$sp1 <- as.numeric(sim.data.ShANOVA()$`M6.F2(ref: F2L2)*F1(ref: F1L1)`$summary.random$phi_11$mean)
-      data.plot.sp.temp$sp2 <- as.numeric(sim.data.ShANOVA()$`M6.F2(ref: F2L2)*F1(ref: F1L1)`$summary.random$phi_12$mean)
-      data.plot.sp.temp$sp3 <- as.numeric(sim.data.ShANOVA()$`M6.F2(ref: F2L2)*F1(ref: F1L1)`$summary.random$phi_21$mean)
-      data.plot.sp.temp$sp4 <- as.numeric(sim.data.ShANOVA()$`M6.F2(ref: F2L2)*F1(ref: F1L1)`$summary.random$phi_22$mean)
+      data.plot.sp.temp$sp1 <- as.numeric(sim.data.ShANOVA()$`M6.F2[ref: F2L2]*F1[ref: F1L1]`$summary.random$phi_11$mean)
+      data.plot.sp.temp$sp2 <- as.numeric(sim.data.ShANOVA()$`M6.F2[ref: F2L2]*F1[ref: F1L1]`$summary.random$phi_12$mean)
+      data.plot.sp.temp$sp3 <- as.numeric(sim.data.ShANOVA()$`M6.F2[ref: F2L2]*F1[ref: F1L1]`$summary.random$phi_21$mean)
+      data.plot.sp.temp$sp4 <- as.numeric(sim.data.ShANOVA()$`M6.F2[ref: F2L2]*F1[ref: F1L1]`$summary.random$phi_22$mean)
       
-    }else if(input$sp_ef_mod=="M6-F2.(F2L1)*F1.(F1L2)"){
+    }else if(input$sp_ef_mod=="M6.F2(F2L1)*F1(F1L2)"){
       
-      data.plot.sp.temp$sp1 <- as.numeric(sim.data.ShANOVA()$`M6.F2(ref: F2L1)*F1(ref: F1L2)`$summary.random$phi_11$mean)
-      data.plot.sp.temp$sp2 <- as.numeric(sim.data.ShANOVA()$`M6.F2(ref: F2L1)*F1(ref: F1L2)`$summary.random$phi_12$mean)
-      data.plot.sp.temp$sp3 <- as.numeric(sim.data.ShANOVA()$`M6.F2(ref: F2L1)*F1(ref: F1L2)`$summary.random$phi_21$mean)
-      data.plot.sp.temp$sp4 <- as.numeric(sim.data.ShANOVA()$`M6.F2(ref: F2L1)*F1(ref: F1L2)`$summary.random$phi_22$mean)
+      data.plot.sp.temp$sp1 <- as.numeric(sim.data.ShANOVA()$`M6.F2[ref: F2L1]*F1[ref: F1L2]`$summary.random$phi_11$mean)
+      data.plot.sp.temp$sp2 <- as.numeric(sim.data.ShANOVA()$`M6.F2[ref: F2L1]*F1[ref: F1L2]`$summary.random$phi_12$mean)
+      data.plot.sp.temp$sp3 <- as.numeric(sim.data.ShANOVA()$`M6.F2[ref: F2L1]*F1[ref: F1L2]`$summary.random$phi_21$mean)
+      data.plot.sp.temp$sp4 <- as.numeric(sim.data.ShANOVA()$`M6.F2[ref: F2L1]*F1[ref: F1L2]`$summary.random$phi_22$mean)
       
-    }else if(input$sp_ef_mod=="M6-F2.(F2L2)*F1.(F1L2)"){
+    }else if(input$sp_ef_mod=="M6.F2(F2L2)*F1(F1L2)"){
       
-      data.plot.sp.temp$sp1 <- as.numeric(sim.data.ShANOVA()$`M6.F2(ref: F2L2)*F1(ref: F1L2)`$summary.random$phi_11$mean)
-      data.plot.sp.temp$sp2 <- as.numeric(sim.data.ShANOVA()$`M6.F2(ref: F2L2)*F1(ref: F1L2)`$summary.random$phi_12$mean)
-      data.plot.sp.temp$sp3 <- as.numeric(sim.data.ShANOVA()$`M6.F2(ref: F2L2)*F1(ref: F1L2)`$summary.random$phi_21$mean)
-      data.plot.sp.temp$sp4 <- as.numeric(sim.data.ShANOVA()$`M6.F2(ref: F2L2)*F1(ref: F1L2)`$summary.random$phi_22$mean)
+      data.plot.sp.temp$sp1 <- as.numeric(sim.data.ShANOVA()$`M6.F2[ref: F2L2]*F1[ref: F1L2]`$summary.random$phi_11$mean)
+      data.plot.sp.temp$sp2 <- as.numeric(sim.data.ShANOVA()$`M6.F2[ref: F2L2]*F1[ref: F1L2]`$summary.random$phi_12$mean)
+      data.plot.sp.temp$sp3 <- as.numeric(sim.data.ShANOVA()$`M6.F2[ref: F2L2]*F1[ref: F1L2]`$summary.random$phi_21$mean)
+      data.plot.sp.temp$sp4 <- as.numeric(sim.data.ShANOVA()$`M6.F2[ref: F2L2]*F1[ref: F1L2]`$summary.random$phi_22$mean)
       
     }
     
@@ -293,159 +293,159 @@ shinyServer(function(input, output, session) {
     
     if(input$sp_ef_mod=="M0"){
       
-      data.plot.RME.temp$rme1 <- sim.data.ShANOVA()$M0$summary.fitted.values$mean[1:3107]
-      data.plot.RME.temp$rme2 <- sim.data.ShANOVA()$M0$summary.fitted.values$mean[(3107+1):(3107*2)]
-      data.plot.RME.temp$rme3 <- sim.data.ShANOVA()$M0$summary.fitted.values$mean[(3107*2+1):(3107*3)]
-      data.plot.RME.temp$rme4 <- sim.data.ShANOVA()$M0$summary.fitted.values$mean[(3107*3+1):(3107*4)]
+      data.plot.RME.temp$rme1 <- as.numeric(sim.data.ShANOVA()$M0$summary.fitted.values$mean[1:3107])
+      data.plot.RME.temp$rme2 <- as.numeric(sim.data.ShANOVA()$M0$summary.fitted.values$mean[(3107+1):(3107*2)])
+      data.plot.RME.temp$rme3 <- as.numeric(sim.data.ShANOVA()$M0$summary.fitted.values$mean[(3107*2+1):(3107*3)])
+      data.plot.RME.temp$rme4 <- as.numeric(sim.data.ShANOVA()$M0$summary.fitted.values$mean[(3107*3+1):(3107*4)])
       
     }else if(input$sp_ef_mod=="M1"){
       
-      data.plot.RME.temp$rme1 <- sim.data.ShANOVA()$M1$summary.fitted.values$mean[1:3107]
-      data.plot.RME.temp$rme2 <- sim.data.ShANOVA()$M1$summary.fitted.values$mean[(3107+1):(3107*2)]
-      data.plot.RME.temp$rme3 <- sim.data.ShANOVA()$M1$summary.fitted.values$mean[(3107*2+1):(3107*3)]
-      data.plot.RME.temp$rme4 <- sim.data.ShANOVA()$M1$summary.fitted.values$mean[(3107*3+1):(3107*4)]
+      data.plot.RME.temp$rme1 <- as.numeric(sim.data.ShANOVA()$M1$summary.fitted.values$mean[1:3107])
+      data.plot.RME.temp$rme2 <- as.numeric(sim.data.ShANOVA()$M1$summary.fitted.values$mean[(3107+1):(3107*2)])
+      data.plot.RME.temp$rme3 <- as.numeric(sim.data.ShANOVA()$M1$summary.fitted.values$mean[(3107*2+1):(3107*3)])
+      data.plot.RME.temp$rme4 <- as.numeric(sim.data.ShANOVA()$M1$summary.fitted.values$mean[(3107*3+1):(3107*4)])
       
-    }else if(input$sp_ef_mod=="M2-ind(F1L1-F2L1)"){
+    }else if(input$sp_ef_mod=="M2.(F1L1-F2L1)"){
       
-      data.plot.RME.temp$rme1 <- sim.data.ShANOVA()[[3]]$summary.fitted.values$mean[1:3107]
-      data.plot.RME.temp$rme2 <- sim.data.ShANOVA()[[3]]$summary.fitted.values$mean[(3107+1):(3107*2)]
-      data.plot.RME.temp$rme3 <- sim.data.ShANOVA()[[3]]$summary.fitted.values$mean[(3107*2+1):(3107*3)]
-      data.plot.RME.temp$rme4 <- sim.data.ShANOVA()[[3]]$summary.fitted.values$mean[(3107*3+1):(3107*4)]
+      data.plot.RME.temp$rme1 <- as.numeric(sim.data.ShANOVA()$`M2.[F1L1-F2L1]`$summary.fitted.values$mean[1:3107])
+      data.plot.RME.temp$rme2 <- as.numeric(sim.data.ShANOVA()$`M2.[F1L1-F2L1]`$summary.fitted.values$mean[(3107+1):(3107*2)])
+      data.plot.RME.temp$rme3 <- as.numeric(sim.data.ShANOVA()$`M2.[F1L1-F2L1]`$summary.fitted.values$mean[(3107*2+1):(3107*3)])
+      data.plot.RME.temp$rme4 <- as.numeric(sim.data.ShANOVA()$`M2.[F1L1-F2L1]`$summary.fitted.values$mean[(3107*3+1):(3107*4)])
+    
+    }else if(input$sp_ef_mod=="M2.(F1L2-F2L1)"){
       
-    }else if(input$sp_ef_mod=="M2-ind(F1L2-F2L1)"){
+      data.plot.RME.temp$rme1 <- as.numeric(sim.data.ShANOVA()$`M2.[F1L1-F2L1]`$summary.fitted.values$mean[1:3107])
+      data.plot.RME.temp$rme2 <- as.numeric(sim.data.ShANOVA()$`M2.[F1L2-F2L1]`$summary.fitted.values$mean[(3107+1):(3107*2)])
+      data.plot.RME.temp$rme3 <- as.numeric(sim.data.ShANOVA()$`M2.[F1L2-F2L1]`$summary.fitted.values$mean[(3107*2+1):(3107*3)])
+      data.plot.RME.temp$rme4 <- as.numeric(sim.data.ShANOVA()$`M2.[F1L2-F2L1]`$summary.fitted.values$mean[(3107*3+1):(3107*4)])
       
-      data.plot.RME.temp$rme1 <- sim.data.ShANOVA()$`M2.(F1L2)`$summary.fitted.values$mean[1:3107]
-      data.plot.RME.temp$rme2 <- sim.data.ShANOVA()$`M2.(F1L2)`$summary.fitted.values$mean[(3107+1):(3107*2)]
-      data.plot.RME.temp$rme3 <- sim.data.ShANOVA()$`M2.(F1L2)`$summary.fitted.values$mean[(3107*2+1):(3107*3)]
-      data.plot.RME.temp$rme4 <- sim.data.ShANOVA()$`M2.(F1L2)`$summary.fitted.values$mean[(3107*3+1):(3107*4)]
+    }else if(input$sp_ef_mod=="M2.(F1L1-F2L2)"){
       
-    }else if(input$sp_ef_mod=="M2-ind(F2L1-F1L2)"){
+      data.plot.RME.temp$rme1 <- as.numeric(sim.data.ShANOVA()$`M2.[F1L1-F2L2]`$summary.fitted.values$mean[1:3107])
+      data.plot.RME.temp$rme2 <- as.numeric(sim.data.ShANOVA()$`M2.[F1L1-F2L2]`$summary.fitted.values$mean[(3107+1):(3107*2)])
+      data.plot.RME.temp$rme3 <- as.numeric(sim.data.ShANOVA()$`M2.[F1L1-F2L2]`$summary.fitted.values$mean[(3107*2+1):(3107*3)])
+      data.plot.RME.temp$rme4 <- as.numeric(sim.data.ShANOVA()$`M2.[F1L1-F2L2]`$summary.fitted.values$mean[(3107*3+1):(3107*4)])
       
-      data.plot.RME.temp$rme1 <- sim.data.ShANOVA()$`M2.(F2L1)`$summary.fitted.values$mean[1:3107]
-      data.plot.RME.temp$rme2 <- sim.data.ShANOVA()$`M2.(F2L1)`$summary.fitted.values$mean[(3107+1):(3107*2)]
-      data.plot.RME.temp$rme3 <- sim.data.ShANOVA()$`M2.(F2L1)`$summary.fitted.values$mean[(3107*2+1):(3107*3)]
-      data.plot.RME.temp$rme4 <- sim.data.ShANOVA()$`M2.(F2L1)`$summary.fitted.values$mean[(3107*3+1):(3107*4)]
+    }else if(input$sp_ef_mod=="M2.(F1L2-F2L2)"){
       
-    }else if(input$sp_ef_mod=="M2-ind(F2L2-F1L2)"){
+      data.plot.RME.temp$rme1 <- as.numeric(sim.data.ShANOVA()$`M2.[F1L2-F2L2]`$summary.fitted.values$mean[1:3107])
+      data.plot.RME.temp$rme2 <- as.numeric(sim.data.ShANOVA()$`M2.[F1L2-F2L2]`$summary.fitted.values$mean[(3107+1):(3107*2)])
+      data.plot.RME.temp$rme3 <- as.numeric(sim.data.ShANOVA()$`M2.[F1L2-F2L2]`$summary.fitted.values$mean[(3107*2+1):(3107*3)])
+      data.plot.RME.temp$rme4 <- as.numeric(sim.data.ShANOVA()$`M2.[F1L2-F2L2]`$summary.fitted.values$mean[(3107*3+1):(3107*4)])
       
-      data.plot.RME.temp$rme1 <- sim.data.ShANOVA()$`M2.(F2L2)`$summary.fitted.values$mean[1:3107]
-      data.plot.RME.temp$rme2 <- sim.data.ShANOVA()$`M2.(F2L2)`$summary.fitted.values$mean[(3107+1):(3107*2)]
-      data.plot.RME.temp$rme3 <- sim.data.ShANOVA()$`M2.(F2L2)`$summary.fitted.values$mean[(3107*2+1):(3107*3)]
-      data.plot.RME.temp$rme4 <- sim.data.ShANOVA()$`M2.(F2L2)`$summary.fitted.values$mean[(3107*3+1):(3107*4)]
+    }else if(input$sp_ef_mod=="M3.F1(F1L1)"){
       
-    }else if(input$sp_ef_mod=="M3-F1.(F1L1)"){
+      data.plot.RME.temp$rme1 <- as.numeric(sim.data.ShANOVA()$`M3.F1[ref: F1L1]`$summary.fitted.values$mean[1:3107])
+      data.plot.RME.temp$rme2 <- as.numeric(sim.data.ShANOVA()$`M3.F1[ref: F1L1]`$summary.fitted.values$mean[(3107+1):(3107*2)])
+      data.plot.RME.temp$rme3 <- as.numeric(sim.data.ShANOVA()$`M3.F1[ref: F1L1]`$summary.fitted.values$mean[(3107*2+1):(3107*3)])
+      data.plot.RME.temp$rme4 <- as.numeric(sim.data.ShANOVA()$`M3.F1[ref: F1L1]`$summary.fitted.values$mean[(3107*3+1):(3107*4)])
       
-      data.plot.RME.temp$rme1 <- sim.data.ShANOVA()$`M3.F1(ref: F1L1)`$summary.fitted.values$mean[1:3107]
-      data.plot.RME.temp$rme2 <- sim.data.ShANOVA()$`M3.F1(ref: F1L1)`$summary.fitted.values$mean[(3107+1):(3107*2)]
-      data.plot.RME.temp$rme3 <- sim.data.ShANOVA()$`M3.F1(ref: F1L1)`$summary.fitted.values$mean[(3107*2+1):(3107*3)]
-      data.plot.RME.temp$rme4 <- sim.data.ShANOVA()$`M3.F1(ref: F1L1)`$summary.fitted.values$mean[(3107*3+1):(3107*4)]
+    }else if(input$sp_ef_mod=="M3.F1(F1L2)"){
       
-    }else if(input$sp_ef_mod=="M3-F1.(F1L2)"){
+      data.plot.RME.temp$rme1 <- as.numeric(sim.data.ShANOVA()$`M3.F1[ref: F1L2]`$summary.fitted.values$mean[1:3107])
+      data.plot.RME.temp$rme2 <- as.numeric(sim.data.ShANOVA()$`M3.F1[ref: F1L2]`$summary.fitted.values$mean[(3107+1):(3107*2)])
+      data.plot.RME.temp$rme3 <- as.numeric(sim.data.ShANOVA()$`M3.F1[ref: F1L2]`$summary.fitted.values$mean[(3107*2+1):(3107*3)])
+      data.plot.RME.temp$rme4 <- as.numeric(sim.data.ShANOVA()$`M3.F1[ref: F1L2]`$summary.fitted.values$mean[(3107*3+1):(3107*4)])
       
-      data.plot.RME.temp$rme1 <- sim.data.ShANOVA()$`M3.F1(ref: F1L1)`$summary.fitted.values$mean[1:3107]
-      data.plot.RME.temp$rme2 <- sim.data.ShANOVA()$`M3.F1(ref: F1L1)`$summary.fitted.values$mean[(3107+1):(3107*2)]
-      data.plot.RME.temp$rme3 <- sim.data.ShANOVA()$`M3.F1(ref: F1L1)`$summary.fitted.values$mean[(3107*2+1):(3107*3)]
-      data.plot.RME.temp$rme4 <- sim.data.ShANOVA()$`M3.F1(ref: F1L1)`$summary.fitted.values$mean[(3107*3+1):(3107*4)]
+    }else if(input$sp_ef_mod=="M4.F2(F2L1)"){
       
-    }else if(input$sp_ef_mod=="M4-F2.(F2L1)"){
+      data.plot.RME.temp$rme1 <- as.numeric(sim.data.ShANOVA()$`M4.F2[ref: F2L1]`$summary.fitted.values$mean[1:3107])
+      data.plot.RME.temp$rme2 <- as.numeric(sim.data.ShANOVA()$`M4.F2[ref: F2L1]`$summary.fitted.values$mean[(3107+1):(3107*2)])
+      data.plot.RME.temp$rme3 <- as.numeric(sim.data.ShANOVA()$`M4.F2[ref: F2L1]`$summary.fitted.values$mean[(3107*2+1):(3107*3)])
+      data.plot.RME.temp$rme4 <- as.numeric(sim.data.ShANOVA()$`M4.F2[ref: F2L1]`$summary.fitted.values$mean[(3107*3+1):(3107*4)])
       
-      data.plot.RME.temp$rme1 <- sim.data.ShANOVA()$`M4.F2(ref: F2L1)`$summary.fitted.values$mean[1:3107]
-      data.plot.RME.temp$rme2 <- sim.data.ShANOVA()$`M4.F2(ref: F2L1)`$summary.fitted.values$mean[(3107+1):(3107*2)]
-      data.plot.RME.temp$rme3 <- sim.data.ShANOVA()$`M4.F2(ref: F2L1)`$summary.fitted.values$mean[(3107*2+1):(3107*3)]
-      data.plot.RME.temp$rme4 <- sim.data.ShANOVA()$`M4.F2(ref: F2L1)`$summary.fitted.values$mean[(3107*3+1):(3107*4)]
+    }else if(input$sp_ef_mod=="M4.F2(F2L2)"){
       
-    }else if(input$sp_ef_mod=="M4-F2.(F2L2)"){
+      data.plot.RME.temp$rme1 <- as.numeric(sim.data.ShANOVA()$`M4.F2[ref: F2L2]`$summary.fitted.values$mean[1:3107])
+      data.plot.RME.temp$rme2 <- as.numeric(sim.data.ShANOVA()$`M4.F2[ref: F2L2]`$summary.fitted.values$mean[(3107+1):(3107*2)])
+      data.plot.RME.temp$rme3 <- as.numeric(sim.data.ShANOVA()$`M4.F2[ref: F2L2]`$summary.fitted.values$mean[(3107*2+1):(3107*3)])
+      data.plot.RME.temp$rme4 <- as.numeric(sim.data.ShANOVA()$`M4.F2[ref: F2L2]`$summary.fitted.values$mean[(3107*3+1):(3107*4)])
       
-      data.plot.RME.temp$rme1 <- sim.data.ShANOVA()$`M4.F2(ref: F2L2)`$summary.fitted.values$mean[1:3107]
-      data.plot.RME.temp$rme2 <- sim.data.ShANOVA()$`M4.F2(ref: F2L2)`$summary.fitted.values$mean[(3107+1):(3107*2)]
-      data.plot.RME.temp$rme3 <- sim.data.ShANOVA()$`M4.F2(ref: F2L2)`$summary.fitted.values$mean[(3107*2+1):(3107*3)]
-      data.plot.RME.temp$rme4 <- sim.data.ShANOVA()$`M4.F2(ref: F2L2)`$summary.fitted.values$mean[(3107*3+1):(3107*4)]
+    }else if(input$sp_ef_mod=="M5.F1(F1L1)+F2(F2L1)"){
       
-    }else if(input$sp_ef_mod=="M5-F1.(F1L1)+F2.(F2L1)"){
+      data.plot.RME.temp$rme1 <- as.numeric(sim.data.ShANOVA()$`M5.F1[ref: F1L1]+F2[ref: F2L1]`$summary.fitted.values$mean[1:3107])
+      data.plot.RME.temp$rme2 <- as.numeric(sim.data.ShANOVA()$`M5.F1[ref: F1L1]+F2[ref: F2L1]`$summary.fitted.values$mean[(3107+1):(3107*2)])
+      data.plot.RME.temp$rme3 <- as.numeric(sim.data.ShANOVA()$`M5.F1[ref: F1L1]+F2[ref: F2L1]`$summary.fitted.values$mean[(3107*2+1):(3107*3)])
+      data.plot.RME.temp$rme4 <- as.numeric(sim.data.ShANOVA()$`M5.F1[ref: F1L1]+F2[ref: F2L1]`$summary.fitted.values$mean[(3107*3+1):(3107*4)])
       
-      data.plot.RME.temp$rme1 <- sim.data.ShANOVA()$`M5.F1(ref: F1L1)+F2(ref: F2L1)`$summary.fitted.values$mean[1:3107]
-      data.plot.RME.temp$rme2 <- sim.data.ShANOVA()$`M5.F1(ref: F1L1)+F2(ref: F2L1)`$summary.fitted.values$mean[(3107+1):(3107*2)]
-      data.plot.RME.temp$rme3 <- sim.data.ShANOVA()$`M5.F1(ref: F1L1)+F2(ref: F2L1)`$summary.fitted.values$mean[(3107*2+1):(3107*3)]
-      data.plot.RME.temp$rme4 <- sim.data.ShANOVA()$`M5.F1(ref: F1L1)+F2(ref: F2L1)`$summary.fitted.values$mean[(3107*3+1):(3107*4)]
+    }else if(input$sp_ef_mod=="M5.F1(F1L2)+F2(F2L1)"){
       
-    }else if(input$sp_ef_mod=="M5-F1.(F1L2)+F2.(F2L1)"){
-      
-      data.plot.RME.temp$rme1 <- sim.data.ShANOVA()$`M5.F1(ref: F1L2)+F2(ref: F2L1)`$summary.fitted.values$mean[1:3107]
-      data.plot.RME.temp$rme2 <- sim.data.ShANOVA()$`M5.F1(ref: F1L2)+F2(ref: F2L1)`$summary.fitted.values$mean[(3107+1):(3107*2)]
-      data.plot.RME.temp$rme3 <- sim.data.ShANOVA()$`M5.F1(ref: F1L2)+F2(ref: F2L1)`$summary.fitted.values$mean[(3107*2+1):(3107*3)]
-      data.plot.RME.temp$rme4 <- sim.data.ShANOVA()$`M5.F1(ref: F1L2)+F2(ref: F2L1)`$summary.fitted.values$mean[(3107*3+1):(3107*4)]
+      data.plot.RME.temp$rme1 <- as.numeric(sim.data.ShANOVA()$`M5.F1[ref: F1L2]+F2[ref: F2L1]`$summary.fitted.values$mean[1:3107])
+      data.plot.RME.temp$rme2 <- as.numeric(sim.data.ShANOVA()$`M5.F1[ref: F1L2]+F2[ref: F2L1]`$summary.fitted.values$mean[(3107+1):(3107*2)])
+      data.plot.RME.temp$rme3 <- as.numeric(sim.data.ShANOVA()$`M5.F1[ref: F1L2]+F2[ref: F2L1]`$summary.fitted.values$mean[(3107*2+1):(3107*3)])
+      data.plot.RME.temp$rme4 <- as.numeric(sim.data.ShANOVA()$`M5.F1[ref: F1L2]+F2[ref: F2L1]`$summary.fitted.values$mean[(3107*3+1):(3107*4)])
       data.plot.RME.temp$sp4 <- NA
       
-    }else if(input$sp_ef_mod=="M5-F1.(F1L1)+F2.(F2L2)"){
+    }else if(input$sp_ef_mod=="M5.F1(F1L1)+F2(F2L2)"){
       
-      data.plot.RME.temp$rme1 <- sim.data.ShANOVA()$`M5.F1(ref: F1L1)+F2(ref: F2L2)`$summary.fitted.values$mean[1:3107]
-      data.plot.RME.temp$rme2 <- sim.data.ShANOVA()$`M5.F1(ref: F1L1)+F2(ref: F2L2)`$summary.fitted.values$mean[(3107+1):(3107*2)]
-      data.plot.RME.temp$rme3 <- sim.data.ShANOVA()$`M5.F1(ref: F1L1)+F2(ref: F2L2)`$summary.fitted.values$mean[(3107*2+1):(3107*3)]
-      data.plot.RME.temp$rme4 <- sim.data.ShANOVA()$`M5.F1(ref: F1L1)+F2(ref: F2L2)`$summary.fitted.values$mean[(3107*3+1):(3107*4)]
+      data.plot.RME.temp$rme1 <- as.numeric(sim.data.ShANOVA()$`M5.F1[ref: F1L1]+F2[ref: F2L2]`$summary.fitted.values$mean[1:3107])
+      data.plot.RME.temp$rme2 <- as.numeric(sim.data.ShANOVA()$`M5.F1[ref: F1L1]+F2[ref: F2L2]`$summary.fitted.values$mean[(3107+1):(3107*2)])
+      data.plot.RME.temp$rme3 <- as.numeric(sim.data.ShANOVA()$`M5.F1[ref: F1L1]+F2[ref: F2L2]`$summary.fitted.values$mean[(3107*2+1):(3107*3)])
+      data.plot.RME.temp$rme4 <- as.numeric(sim.data.ShANOVA()$`M5.F1[ref: F1L1]+F2[ref: F2L2]`$summary.fitted.values$mean[(3107*3+1):(3107*4)])
       
-    }else if(input$sp_ef_mod=="M5-F1.(F1L2)+F2.(F2L2)"){
+    }else if(input$sp_ef_mod=="M5.F1(F1L2)+F2(F2L2)"){
       
-      data.plot.RME.temp$rme1 <- sim.data.ShANOVA()$`M5.F1(ref: F1L2)+F2(ref: F2L2)`$summary.fitted.values$mean[1:3107]
-      data.plot.RME.temp$rme2 <- sim.data.ShANOVA()$`M5.F1(ref: F1L2)+F2(ref: F2L2)`$summary.fitted.values$mean[(3107+1):(3107*2)]
-      data.plot.RME.temp$rme3 <- sim.data.ShANOVA()$`M5.F1(ref: F1L2)+F2(ref: F2L2)`$summary.fitted.values$mean[(3107*2+1):(3107*3)]
-      data.plot.RME.temp$rme4 <- sim.data.ShANOVA()$`M5.F1(ref: F1L2)+F2(ref: F2L2)`$summary.fitted.values$mean[(3107*3+1):(3107*4)]
+      data.plot.RME.temp$rme1 <- as.numeric(sim.data.ShANOVA()$`M5.F1[ref: F1L2]+F2[ref: F2L2]`$summary.fitted.values$mean[1:3107])
+      data.plot.RME.temp$rme2 <- as.numeric(sim.data.ShANOVA()$`M5.F1[ref: F1L2]+F2[ref: F2L2]`$summary.fitted.values$mean[(3107+1):(3107*2)])
+      data.plot.RME.temp$rme3 <- as.numeric(sim.data.ShANOVA()$`M5.F1[ref: F1L2]+F2[ref: F2L2]`$summary.fitted.values$mean[(3107*2+1):(3107*3)])
+      data.plot.RME.temp$rme4 <- as.numeric(sim.data.ShANOVA()$`M5.F1[ref: F1L2]+F2[ref: F2L2]`$summary.fitted.values$mean[(3107*3+1):(3107*4)])
       data.plot.RME.temp$sp4 <- NA
       
-    }else if(input$sp_ef_mod=="M6-F1.(F1L1)*F2.(F2L1)"){
+    }else if(input$sp_ef_mod=="M6.F1(F1L1)*F2(F2L1)"){
       
-      data.plot.RME.temp$rme1 <- sim.data.ShANOVA()$`M6.F1(ref: F1L1)*F2(ref: F2L1)`$summary.fitted.values$mean[1:3107]
-      data.plot.RME.temp$rme2 <- sim.data.ShANOVA()$`M6.F1(ref: F1L1)*F2(ref: F2L1)`$summary.fitted.values$mean[(3107+1):(3107*2)]
-      data.plot.RME.temp$rme3 <- sim.data.ShANOVA()$`M6.F1(ref: F1L1)*F2(ref: F2L1)`$summary.fitted.values$mean[(3107*2+1):(3107*3)]
-      data.plot.RME.temp$rme4 <- sim.data.ShANOVA()$`M6.F1(ref: F1L1)*F2(ref: F2L1)`$summary.fitted.values$mean[(3107*3+1):(3107*4)]
+      data.plot.RME.temp$rme1 <- as.numeric(sim.data.ShANOVA()$`M6.F1[ref: F1L1]*F2[ref: F2L1]`$summary.fitted.values$mean[1:3107])
+      data.plot.RME.temp$rme2 <- as.numeric(sim.data.ShANOVA()$`M6.F1[ref: F1L1]*F2[ref: F2L1]`$summary.fitted.values$mean[(3107+1):(3107*2)])
+      data.plot.RME.temp$rme3 <- as.numeric(sim.data.ShANOVA()$`M6.F1[ref: F1L1]*F2[ref: F2L1]`$summary.fitted.values$mean[(3107*2+1):(3107*3)])
+      data.plot.RME.temp$rme4 <- as.numeric(sim.data.ShANOVA()$`M6.F1[ref: F1L1]*F2[ref: F2L1]`$summary.fitted.values$mean[(3107*3+1):(3107*4)])
       
-    }else if(input$sp_ef_mod=="M6-F1.(F1L2)*F2.(F2L1)"){
+    }else if(input$sp_ef_mod=="M6.F1(F1L2)*F2(F2L1)"){
       
-      data.plot.RME.temp$rme1 <- sim.data.ShANOVA()$`M6.F1(F1L2)*F2(F2L1)`$summary.fitted.values$mean[1:3107]
-      data.plot.RME.temp$rme2 <- sim.data.ShANOVA()$`M6.F1(F1L2)*F2(F2L1)`$summary.fitted.values$mean[(3107+1):(3107*2)]
-      data.plot.RME.temp$rme3 <- sim.data.ShANOVA()$`M6.F1(F1L2)*F2(F2L1)`$summary.fitted.values$mean[(3107*2+1):(3107*3)]
-      data.plot.RME.temp$rme4 <- sim.data.ShANOVA()$`M6.F1(F1L2)*F2(F2L1)`$summary.fitted.values$mean[(3107*3+1):(3107*4)]
+      data.plot.RME.temp$rme1 <- as.numeric(sim.data.ShANOVA()$`M6.F1[ref: F1L2]*F2[ref: F2L1]`$summary.fitted.values$mean[1:3107])
+      data.plot.RME.temp$rme2 <- as.numeric(sim.data.ShANOVA()$`M6.F1[ref: F1L2]*F2[ref: F2L1]`$summary.fitted.values$mean[(3107+1):(3107*2)])
+      data.plot.RME.temp$rme3 <- as.numeric(sim.data.ShANOVA()$`M6.F1[ref: F1L2]*F2[ref: F2L1]`$summary.fitted.values$mean[(3107*2+1):(3107*3)])
+      data.plot.RME.temp$rme4 <- as.numeric(sim.data.ShANOVA()$`M6.F1[ref: F1L2]*F2[ref: F2L1]`$summary.fitted.values$mean[(3107*3+1):(3107*4)])
       
-    }else if(input$sp_ef_mod=="M6-F1.(F1L1)*F2.(F2L2)"){
+    }else if(input$sp_ef_mod=="M6.F1(F1L1)*F2(F2L2)"){
       
-      data.plot.RME.temp$rme1 <- sim.data.ShANOVA()$`M6.F1(ref: F1L1)*F2(ref: F2L2)`$summary.fitted.values$mean[1:3107]
-      data.plot.RME.temp$rme2 <- sim.data.ShANOVA()$`M6.F1(ref: F1L1)*F2(ref: F2L2)`$summary.fitted.values$mean[(3107+1):(3107*2)]
-      data.plot.RME.temp$rme3 <- sim.data.ShANOVA()$`M6.F1(ref: F1L1)*F2(ref: F2L2)`$summary.fitted.values$mean[(3107*2+1):(3107*3)]
-      data.plot.RME.temp$rme4 <- sim.data.ShANOVA()$`M6.F1(ref: F1L1)*F2(ref: F2L2)`$summary.fitted.values$mean[(3107*3+1):(3107*4)]
+      data.plot.RME.temp$rme1 <- as.numeric(sim.data.ShANOVA()$`M6.F1[ref: F1L1]*F2[ref: F2L2]`$summary.fitted.values$mean[1:3107])
+      data.plot.RME.temp$rme2 <- as.numeric(sim.data.ShANOVA()$`M6.F1[ref: F1L1]*F2[ref: F2L2]`$summary.fitted.values$mean[(3107+1):(3107*2)])
+      data.plot.RME.temp$rme3 <- as.numeric(sim.data.ShANOVA()$`M6.F1[ref: F1L1]*F2[ref: F2L2]`$summary.fitted.values$mean[(3107*2+1):(3107*3)])
+      data.plot.RME.temp$rme4 <- as.numeric(sim.data.ShANOVA()$`M6.F1[ref: F1L1]*F2[ref: F2L2]`$summary.fitted.values$mean[(3107*3+1):(3107*4)])
       
-    }else if(input$sp_ef_mod=="M6-F1.(F1L2)*F2.(F2L2)"){
+    }else if(input$sp_ef_mod=="M6.F1(F1L2)*F2(F2L2)"){
       
-      data.plot.RME.temp$rme1 <- sim.data.ShANOVA()$`M6.F1(ref: F1L2)*F2(ref: F2L2)`$summary.fitted.values$mean[1:3107]
-      data.plot.RME.temp$rme2 <- sim.data.ShANOVA()$`M6.F1(ref: F1L2)*F2(ref: F2L2)`$summary.fitted.values$mean[(3107+1):(3107*2)]
-      data.plot.RME.temp$rme3 <- sim.data.ShANOVA()$`M6.F1(ref: F1L2)*F2(ref: F2L2)`$summary.fitted.values$mean[(3107*2+1):(3107*3)]
-      data.plot.RME.temp$rme4 <- sim.data.ShANOVA()$`M6.F1(ref: F1L2)*F2(ref: F2L2)`$summary.fitted.values$mean[(3107*3+1):(3107*4)]
+      data.plot.RME.temp$rme1 <- as.numeric(sim.data.ShANOVA()$`M6.F1[ref: F1L2]*F2[ref: F2L2]`$summary.fitted.values$mean[1:3107])
+      data.plot.RME.temp$rme2 <- as.numeric(sim.data.ShANOVA()$`M6.F1[ref: F1L2]*F2[ref: F2L2]`$summary.fitted.values$mean[(3107+1):(3107*2)])
+      data.plot.RME.temp$rme3 <- as.numeric(sim.data.ShANOVA()$`M6.F1[ref: F1L2]*F2[ref: F2L2]`$summary.fitted.values$mean[(3107*2+1):(3107*3)])
+      data.plot.RME.temp$rme4 <- as.numeric(sim.data.ShANOVA()$`M6.F1[ref: F1L2]*F2[ref: F2L2]`$summary.fitted.values$mean[(3107*3+1):(3107*4)])
       
-    }else if(input$sp_ef_mod=="M6-F2.(F2L1)*F1.(F1L1)"){
+    }else if(input$sp_ef_mod=="M6.F2(F2L1)*F1(F1L1)"){
       
-      data.plot.RME.temp$rme1 <- sim.data.ShANOVA()$`M6.F2(ref: F2L1)*F1(ref: F1L1)`$summary.fitted.values$mean[1:3107]
-      data.plot.RME.temp$rme2 <- sim.data.ShANOVA()$`M6.F2(ref: F2L1)*F1(ref: F1L1)`$summary.fitted.values$mean[(3107+1):(3107*2)]
-      data.plot.RME.temp$rme3 <- sim.data.ShANOVA()$`M6.F2(ref: F2L1)*F1(ref: F1L1)`$summary.fitted.values$mean[(3107*2+1):(3107*3)]
-      data.plot.RME.temp$rme4 <- sim.data.ShANOVA()$`M6.F2(ref: F2L1)*F1(ref: F1L1)`$summary.fitted.values$mean[(3107*3+1):(3107*4)]
+      data.plot.RME.temp$rme1 <- as.numeric(sim.data.ShANOVA()$`M6.F2[ref: F2L1]*F1[ref: F1L1]`$summary.fitted.values$mean[1:3107])
+      data.plot.RME.temp$rme2 <- as.numeric(sim.data.ShANOVA()$`M6.F2[ref: F2L1]*F1[ref: F1L1]`$summary.fitted.values$mean[(3107+1):(3107*2)])
+      data.plot.RME.temp$rme3 <- as.numeric(sim.data.ShANOVA()$`M6.F2[ref: F2L1]*F1[ref: F1L1]`$summary.fitted.values$mean[(3107*2+1):(3107*3)])
+      data.plot.RME.temp$rme4 <- as.numeric(sim.data.ShANOVA()$`M6.F2[ref: F2L1]*F1[ref: F1L1]`$summary.fitted.values$mean[(3107*3+1):(3107*4)])
       
-    }else if(input$sp_ef_mod=="M6-F2.(F2L2)*F1.(F1L1)"){
+    }else if(input$sp_ef_mod=="M6.F2(F2L2)*F1(F1L1)"){
       
-      data.plot.RME.temp$rme1 <- sim.data.ShANOVA()$`M6.F2(ref: F2L2)*F1(ref: F1L1)`$summary.fitted.values$mean[1:3107]
-      data.plot.RME.temp$rme2 <- sim.data.ShANOVA()$`M6.F2(ref: F2L2)*F1(ref: F1L1)`$summary.fitted.values$mean[(3107+1):(3107*2)]
-      data.plot.RME.temp$rme3 <- sim.data.ShANOVA()$`M6.F2(ref: F2L2)*F1(ref: F1L1)`$summary.fitted.values$mean[(3107*2+1):(3107*3)]
-      data.plot.RME.temp$rme4 <- sim.data.ShANOVA()$`M6.F2(ref: F2L2)*F1(ref: F1L1)`$summary.fitted.values$mean[(3107*3+1):(3107*4)]
+      data.plot.RME.temp$rme1 <- as.numeric(sim.data.ShANOVA()$`M6.F2[ref: F2L2]*F1[ref: F1L1]`$summary.fitted.values$mean[1:3107])
+      data.plot.RME.temp$rme2 <- as.numeric(sim.data.ShANOVA()$`M6.F2[ref: F2L2]*F1[ref: F1L1]`$summary.fitted.values$mean[(3107+1):(3107*2)])
+      data.plot.RME.temp$rme3 <- as.numeric(sim.data.ShANOVA()$`M6.F2[ref: F2L2]*F1[ref: F1L1]`$summary.fitted.values$mean[(3107*2+1):(3107*3)])
+      data.plot.RME.temp$rme4 <- as.numeric(sim.data.ShANOVA()$`M6.F2[ref: F2L2]*F1[ref: F1L1]`$summary.fitted.values$mean[(3107*3+1):(3107*4)])
       
-    }else if(input$sp_ef_mod=="M6-F2.(F2L1)*F1.(F1L2)"){
+    }else if(input$sp_ef_mod=="M6.F2(F2L1)*F1(F1L2)"){
       
-      data.plot.RME.temp$rme1 <- sim.data.ShANOVA()$`M6.F2(ref: F2L1)*F1(ref: F1L2)`$summary.fitted.values$mean[1:3107]
-      data.plot.RME.temp$rme2 <- sim.data.ShANOVA()$`M6.F2(ref: F2L1)*F1(ref: F1L2)`$summary.fitted.values$mean[(3107+1):(3107*2)]
-      data.plot.RME.temp$rme3 <- sim.data.ShANOVA()$`M6.F2(ref: F2L1)*F1(ref: F1L2)`$summary.fitted.values$mean[(3107*2+1):(3107*3)]
-      data.plot.RME.temp$rme4 <- sim.data.ShANOVA()$`M6.F2(ref: F2L1)*F1(ref: F1L2)`$summary.fitted.values$mean[(3107*3+1):(3107*4)]
+      data.plot.RME.temp$rme1 <- as.numeric(sim.data.ShANOVA()$`M6.F2[ref: F2L1]*F1[ref: F1L2]`$summary.fitted.values$mean[1:3107])
+      data.plot.RME.temp$rme2 <- as.numeric(sim.data.ShANOVA()$`M6.F2[ref: F2L1]*F1[ref: F1L2]`$summary.fitted.values$mean[(3107+1):(3107*2)])
+      data.plot.RME.temp$rme3 <- as.numeric(sim.data.ShANOVA()$`M6.F2[ref: F2L1]*F1[ref: F1L2]`$summary.fitted.values$mean[(3107*2+1):(3107*3)])
+      data.plot.RME.temp$rme4 <- as.numeric(sim.data.ShANOVA()$`M6.F2[ref: F2L1]*F1[ref: F1L2]`$summary.fitted.values$mean[(3107*3+1):(3107*4)])
       
-    }else if(input$sp_ef_mod=="M6-F2.(F2L2)*F1.(F1L2)"){
+    }else if(input$sp_ef_mod=="M6.F2(F2L2)*F1(F1L2)"){
       
-      data.plot.RME.temp$rme1 <- sim.data.ShANOVA()$`M6.F2(ref: F2L2)*F1(ref: F1L2)`$summary.fitted.values$mean[1:3107]
-      data.plot.RME.temp$rme2 <- sim.data.ShANOVA()$`M6.F2(ref: F2L2)*F1(ref: F1L2)`$summary.fitted.values$mean[(3107+1):(3107*2)]
-      data.plot.RME.temp$rme3 <- sim.data.ShANOVA()$`M6.F2(ref: F2L2)*F1(ref: F1L2)`$summary.fitted.values$mean[(3107*2+1):(3107*3)]
-      data.plot.RME.temp$rme4 <- sim.data.ShANOVA()$`M6.F2(ref: F2L2)*F1(ref: F1L2)`$summary.fitted.values$mean[(3107*3+1):(3107*4)]
+      data.plot.RME.temp$rme1 <- as.numeric(sim.data.ShANOVA()$`M6.F2[ref: F2L2]*F1[ref: F1L2]`$summary.fitted.values$mean[1:3107])
+      data.plot.RME.temp$rme2 <- as.numeric(sim.data.ShANOVA()$`M6.F2[ref: F2L2]*F1[ref: F1L2]`$summary.fitted.values$mean[(3107+1):(3107*2)])
+      data.plot.RME.temp$rme3 <- as.numeric(sim.data.ShANOVA()$`M6.F2[ref: F2L2]*F1[ref: F1L2]`$summary.fitted.values$mean[(3107*2+1):(3107*3)])
+      data.plot.RME.temp$rme4 <- as.numeric(sim.data.ShANOVA()$`M6.F2[ref: F2L2]*F1[ref: F1L2]`$summary.fitted.values$mean[(3107*3+1):(3107*4)])
       
     } 
     
@@ -514,7 +514,7 @@ shinyServer(function(input, output, session) {
       
     }  
     
-    data.plot.sp.sim.temp
+    data.plot.sp.sim.temp %>% select(sim_sp1, sim_sp2, sim_sp3, sim_sp4)
   })
   
   data.plot.RME.sim <- reactive({
@@ -789,7 +789,7 @@ shinyServer(function(input, output, session) {
       
     }
     
-    data.plot.RME.sim.temp
+    data.plot.RME.sim.temp %>% select(sim_rme1, sim_rme2, sim_rme3, sim_rme4)
   })
   
   data.sp.w <- reactive({
@@ -946,7 +946,7 @@ shinyServer(function(input, output, session) {
       fig4.1 <- plot_rme(sf_obj = data.plot.RME.sim(), fill_by = "sim_rme4", title = "Simulated Risk - Group 4")
       fig4.2 <- plot_rme(sf_obj = data.plot.RME(), fill_by = "rme4", title = "RME Adjusted - Group 4")
     
-  }else if(input$sp_ef_mod %in% c("M2-ind(F1L1-F2L1)")){
+  }else if(input$sp_ef_mod %in% c("M2.(F1L1-F2L1)")){
     
     fig1.1 <- plot_rme(sf_obj = data.plot.RME.sim(), fill_by = "sim_rme1", title = "Simulated Risk - Group 1")
     fig1.2 <- plot_rme(sf_obj = data.plot.RME(), fill_by = "rme1", title = "RME Adjusted - Group 1")
@@ -957,7 +957,7 @@ shinyServer(function(input, output, session) {
     fig4.1 <- plot_rme(sf_obj = data.plot.RME.sim(), fill_by = "sim_rme4", title = "Simulated Risk - Group 4")
     fig4.2 <- plot_rme(sf_obj = data.plot.RME(), fill_by = "rme4", title = "RME Adjusted - Group 4")
     
-  }else if(input$sp_ef_mod %in% c("M2-ind(F1L2-F2L1)")){
+  }else if(input$sp_ef_mod %in% c("M2.(F1L2-F2L1)")){
     
     fig1.1 <- plot_rme(sf_obj = data.plot.RME.sim(), fill_by = "sim_rme3", title = "Simulated Risk - Group 1")
     fig1.2 <- plot_rme(sf_obj = data.plot.RME(), fill_by = "rme1", title = "RME Adjusted - Group 1")
@@ -968,7 +968,7 @@ shinyServer(function(input, output, session) {
     fig4.1 <- plot_rme(sf_obj = data.plot.RME.sim(), fill_by = "sim_rme2", title = "Simulated Risk - Group 4")
     fig4.2 <- plot_rme(sf_obj = data.plot.RME(), fill_by = "rme4", title = "RME Adjusted - Group 4")
     
-  }else if(input$sp_ef_mod %in% c("M2-ind(F2L1-F1L2)")){
+  }else if(input$sp_ef_mod %in% c("M2.(F1L1-F2L2)")){
     
     fig1.1 <- plot_rme(sf_obj = data.plot.RME.sim(), fill_by = "sim_rme1", title = "Simulated Risk - Group 1")
     fig1.2 <- plot_rme(sf_obj = data.plot.RME(), fill_by = "rme3", title = "RME Adjusted - Group 1")
@@ -979,7 +979,7 @@ shinyServer(function(input, output, session) {
     fig4.1 <- plot_rme(sf_obj = data.plot.RME.sim(), fill_by = "sim_rme4", title = "Simulated Risk - Group 4")
     fig4.2 <- plot_rme(sf_obj = data.plot.RME(), fill_by = "rme2", title = "RME Adjusted - Group 4")
     
-  }else if(input$sp_ef_mod %in% c("M2-ind(F2L2-F1L2)")){
+  }else if(input$sp_ef_mod %in% c("M2.(F1L2-F2L2)")){
     
     fig1.1 <- plot_rme(sf_obj = data.plot.RME.sim(), fill_by = "sim_rme4", title = "Simulated Risk - Group 1")
     fig1.2 <- plot_rme(sf_obj = data.plot.RME(), fill_by = "rme1", title = "RME Adjusted - Group 1")
@@ -990,10 +990,11 @@ shinyServer(function(input, output, session) {
     fig4.1 <- plot_rme(sf_obj = data.plot.RME.sim(), fill_by = "sim_rme1", title = "Simulated Risk - Group 4")
     fig4.2 <- plot_rme(sf_obj = data.plot.RME(), fill_by = "rme4", title = "RME Adjusted - Group 4")
     
-  }else if(input$sp_ef_mod %in% c("M3-F1.(F1L1)")){
+  }else if(input$sp_ef_mod %in% c("M3.F1(F1L1)")){
     
     fig1.1 <- plot_rme(sf_obj = data.plot.RME.sim(), fill_by = "sim_rme1", title = "Simulated Risk - Group 1")
     fig1.2 <- plot_rme(sf_obj = data.plot.RME(), fill_by = "rme1", title = "RME Adjusted - Group 1")
+    
     fig2.1 <- plot_rme(sf_obj = data.plot.RME.sim(), fill_by = "sim_rme2", title = "Simulated Risk - Group 2")
     fig2.2 <- plot_rme(sf_obj = data.plot.RME(), fill_by = "rme2", title = "RME Adjusted - Group 2")
     fig3.1 <- plot_rme(sf_obj = data.plot.RME.sim(), fill_by = "sim_rme3", title = "Simulated Risk - Group 3")
@@ -1001,7 +1002,7 @@ shinyServer(function(input, output, session) {
     fig4.1 <- plot_rme(sf_obj = data.plot.RME.sim(), fill_by = "sim_rme4", title = "Simulated Risk - Group 4")
     fig4.2 <- plot_rme(sf_obj = data.plot.RME(), fill_by = "rme4", title = "RME Adjusted - Group 4")
 
-  }else if(input$sp_ef_mod %in% c("M3-F1.(F1L2)")){
+  }else if(input$sp_ef_mod %in% c("M3.F1(F1L2)")){
     
     fig1.1 <- plot_rme(sf_obj = data.plot.RME.sim(), fill_by = "sim_rme1", title = "Simulated Risk - Group 1")
     fig1.2 <- plot_rme(sf_obj = data.plot.RME(), fill_by = "rme1", title = "RME Adjusted - Group 1")
@@ -1012,7 +1013,7 @@ shinyServer(function(input, output, session) {
     fig4.1 <- plot_rme(sf_obj = data.plot.RME.sim(), fill_by = "sim_rme4", title = "Simulated Risk - Group 4")
     fig4.2 <- plot_rme(sf_obj = data.plot.RME(), fill_by = "rme4", title = "RME Adjusted - Group 4")
     
-  }else if(input$sp_ef_mod %in% c("M4-F2.(F2L1)")){
+  }else if(input$sp_ef_mod %in% c("M4.F2(F2L1)")){
     
     fig1.1 <- plot_rme(sf_obj = data.plot.RME.sim(), fill_by = "sim_rme1", title = "Simulated Risk - Group 1")
     fig1.2 <- plot_rme(sf_obj = data.plot.RME(), fill_by = "rme1", title = "RME Adjusted - Group 1")
@@ -1023,7 +1024,7 @@ shinyServer(function(input, output, session) {
     fig4.1 <- plot_rme(sf_obj = data.plot.RME.sim(), fill_by = "sim_rme4", title = "Simulated Risk - Group 4")
     fig4.2 <- plot_rme(sf_obj = data.plot.RME(), fill_by = "rme4", title = "RME Adjusted - Group 4")
     
-  }else if(input$sp_ef_mod %in% c("M4-F2.(F2L2)")){
+  }else if(input$sp_ef_mod %in% c("M4.F2(F2L2)")){
     
     fig1.1 <- plot_rme(sf_obj = data.plot.RME.sim(), fill_by = "sim_rme1", title = "Simulated Risk - Group 1")
     fig1.2 <- plot_rme(sf_obj = data.plot.RME(), fill_by = "rme1", title = "RME Adjusted - Group 1")
@@ -1034,7 +1035,7 @@ shinyServer(function(input, output, session) {
     fig4.1 <- plot_rme(sf_obj = data.plot.RME.sim(), fill_by = "sim_rme4", title = "Simulated Risk - Group 4")
     fig4.2 <- plot_rme(sf_obj = data.plot.RME(), fill_by = "rme4", title = "RME Adjusted - Group 4")
     
-  }else if(input$sp_ef_mod %in% c("M5-F1.(F1L1)+F2.(F2L1)")){
+  }else if(input$sp_ef_mod %in% c("M5.F1(F1L1)+F2(F2L1)")){
     
     fig1.1 <- plot_rme(sf_obj = data.plot.RME.sim(), fill_by = "sim_rme1", title = "Simulated Risk - Group 1")
     fig1.2 <- plot_rme(sf_obj = data.plot.RME(), fill_by = "rme1", title = "RME Adjusted - Group 1")
@@ -1045,7 +1046,7 @@ shinyServer(function(input, output, session) {
     fig4.1 <- plot_rme(sf_obj = data.plot.RME.sim(), fill_by = "sim_rme4", title = "Simulated Risk - Group 4")
     fig4.2 <- plot_rme(sf_obj = data.plot.RME(), fill_by = "rme4", title = "RME Adjusted - Group 4")
     
-  }else if(input$sp_ef_mod %in% c("M5-F1.(F1L2)+F2.(F2L1)")){
+  }else if(input$sp_ef_mod %in% c("M5.F1(F1L2)+F2(F2L1)")){
     
     fig1.1 <- plot_rme(sf_obj = data.plot.RME.sim(), fill_by = "sim_rme3", title = "Simulated Risk - Group 1")
     fig1.2 <- plot_rme(sf_obj = data.plot.RME(), fill_by = "rme1", title = "RME Adjusted - Group 1")
@@ -1056,7 +1057,7 @@ shinyServer(function(input, output, session) {
     fig4.1 <- plot_rme(sf_obj = data.plot.RME.sim(), fill_by = "sim_rme2", title = "Simulated Risk - Group 4")
     fig4.2 <- plot_rme(sf_obj = data.plot.RME(), fill_by = "rme4", title = "RME Adjusted - Group 4")
     
-  }else if(input$sp_ef_mod %in% c("M5-F1.(F1L1)+F2.(F2L2)")){
+  }else if(input$sp_ef_mod %in% c("M5.F1(F1L1)+F2(F2L2)")){
     
     fig1.1 <- plot_rme(sf_obj = data.plot.RME.sim(), fill_by = "sim_rme2", title = "Simulated Risk - Group 1")
     fig1.2 <- plot_rme(sf_obj = data.plot.RME(), fill_by = "rme1", title = "RME Adjusted - Group 1")
@@ -1067,51 +1068,7 @@ shinyServer(function(input, output, session) {
     fig4.1 <- plot_rme(sf_obj = data.plot.RME.sim(), fill_by = "sim_rme3", title = "Simulated Risk - Group 4")
     fig4.2 <- plot_rme(sf_obj = data.plot.RME(), fill_by = "rme4", title = "RME Adjusted - Group 4")
     
-  }else if(input$sp_ef_mod %in% c("M5-F1.(F1L2)+F2.(F2L2)")){
-    
-    fig1.1 <- plot_rme(sf_obj = data.plot.RME.sim(), fill_by = "sim_rme5", title = "Simulated Risk - Group 1")
-    fig1.2 <- plot_rme(sf_obj = data.plot.RME(), fill_by = "rme1", title = "RME Adjusted - Group 1")
-    fig2.1 <- plot_rme(sf_obj = data.plot.RME.sim(), fill_by = "sim_rme3", title = "Simulated Risk - Group 2")
-    fig2.2 <- plot_rme(sf_obj = data.plot.RME(), fill_by = "rme2", title = "RME Adjusted - Group 2")
-    fig3.1 <- plot_rme(sf_obj = data.plot.RME.sim(), fill_by = "sim_rme2", title = "Simulated Risk - Group 3")
-    fig3.2 <- plot_rme(sf_obj = data.plot.RME(), fill_by = "rme3", title = "RME Adjusted - Group 3")
-    fig4.1 <- plot_rme(sf_obj = data.plot.RME.sim(), fill_by = "sim_rme1", title = "Simulated Risk - Group 4")
-    fig4.2 <- plot_rme(sf_obj = data.plot.RME(), fill_by = "rme4", title = "RME Adjusted - Group 4")
-    
-  }else if(input$sp_ef_mod %in% c("M6-F1.(F1L1)*F2.(F2L1)")){
-    
-    fig1.1 <- plot_rme(sf_obj = data.plot.RME.sim(), fill_by = "sim_rme1", title = "Simulated Risk - Group 1")
-    fig1.2 <- plot_rme(sf_obj = data.plot.RME(), fill_by = "rme1", title = "RME Adjusted - Group 1")
-    fig2.1 <- plot_rme(sf_obj = data.plot.RME.sim(), fill_by = "sim_rme2", title = "Simulated Risk - Group 2")
-    fig2.2 <- plot_rme(sf_obj = data.plot.RME(), fill_by = "rme2", title = "RME Adjusted - Group 2")
-    fig3.1 <- plot_rme(sf_obj = data.plot.RME.sim(), fill_by = "sim_rme3", title = "Simulated Risk - Group 3")
-    fig3.2 <- plot_rme(sf_obj = data.plot.RME(), fill_by = "rme3", title = "RME Adjusted - Group 3")
-    fig4.1 <- plot_rme(sf_obj = data.plot.RME.sim(), fill_by = "sim_rme4", title = "Simulated Risk - Group 4")
-    fig4.2 <- plot_rme(sf_obj = data.plot.RME(), fill_by = "rme4", title = "RME Adjusted - Group 4")
-    
-  }else if(input$sp_ef_mod %in% c("M6-F1.(F1L2)*F2.(F2L1)")){
-    
-    fig1.1 <- plot_rme(sf_obj = data.plot.RME.sim(), fill_by = "sim_rme3", title = "Simulated Risk - Group 1")
-    fig1.2 <- plot_rme(sf_obj = data.plot.RME(), fill_by = "rme1", title = "RME Adjusted - Group 1")
-    fig2.1 <- plot_rme(sf_obj = data.plot.RME.sim(), fill_by = "sim_rme4", title = "Simulated Risk - Group 2")
-    fig2.2 <- plot_rme(sf_obj = data.plot.RME(), fill_by = "rme2", title = "RME Adjusted - Group 2")
-    fig3.1 <- plot_rme(sf_obj = data.plot.RME.sim(), fill_by = "sim_rme1", title = "Simulated Risk - Group 3")
-    fig3.2 <- plot_rme(sf_obj = data.plot.RME(), fill_by = "rme3", title = "RME Adjusted - Group 3")
-    fig4.1 <- plot_rme(sf_obj = data.plot.RME.sim(), fill_by = "sim_rme2", title = "Simulated Risk - Group 4")
-    fig4.2 <- plot_rme(sf_obj = data.plot.RME(), fill_by = "rme4", title = "RME Adjusted - Group 4")
-    
-  }else if(input$sp_ef_mod %in% c("M6-F1.(F1L1)*F2.(F2L2)")){
-    
-    fig1.1 <- plot_rme(sf_obj = data.plot.RME.sim(), fill_by = "sim_rme2", title = "Simulated Risk - Group 1")
-    fig1.2 <- plot_rme(sf_obj = data.plot.RME(), fill_by = "rme1", title = "RME Adjusted - Group 1")
-    fig2.1 <- plot_rme(sf_obj = data.plot.RME.sim(), fill_by = "sim_rme1", title = "Simulated Risk - Group 2")
-    fig2.2 <- plot_rme(sf_obj = data.plot.RME(), fill_by = "rme2", title = "RME Adjusted - Group 2")
-    fig3.1 <- plot_rme(sf_obj = data.plot.RME.sim(), fill_by = "sim_rme4", title = "Simulated Risk - Group 3")
-    fig3.2 <- plot_rme(sf_obj = data.plot.RME(), fill_by = "rme3", title = "RME Adjusted - Group 3")
-    fig4.1 <- plot_rme(sf_obj = data.plot.RME.sim(), fill_by = "sim_rme3", title = "Simulated Risk - Group 4")
-    fig4.2 <- plot_rme(sf_obj = data.plot.RME(), fill_by = "rme4", title = "RME Adjusted - Group 4")
-    
-  }else if(input$sp_ef_mod %in% c("M6-F1.(F1L2)*F2.(F2L2)")){
+  }else if(input$sp_ef_mod %in% c("M5.F1(F1L2)+F2(F2L2)")){
     
     fig1.1 <- plot_rme(sf_obj = data.plot.RME.sim(), fill_by = "sim_rme4", title = "Simulated Risk - Group 1")
     fig1.2 <- plot_rme(sf_obj = data.plot.RME(), fill_by = "rme1", title = "RME Adjusted - Group 1")
@@ -1122,7 +1079,51 @@ shinyServer(function(input, output, session) {
     fig4.1 <- plot_rme(sf_obj = data.plot.RME.sim(), fill_by = "sim_rme1", title = "Simulated Risk - Group 4")
     fig4.2 <- plot_rme(sf_obj = data.plot.RME(), fill_by = "rme4", title = "RME Adjusted - Group 4")
     
-  }else if(input$sp_ef_mod %in% c("M6-F2.(F2L1)*F1.(F1L1)")){
+  }else if(input$sp_ef_mod %in% c("M6.F1(F1L1)*F2(F2L1)")){
+    
+    fig1.1 <- plot_rme(sf_obj = data.plot.RME.sim(), fill_by = "sim_rme1", title = "Simulated Risk - Group 1")
+    fig1.2 <- plot_rme(sf_obj = data.plot.RME(), fill_by = "rme1", title = "RME Adjusted - Group 1")
+    fig2.1 <- plot_rme(sf_obj = data.plot.RME.sim(), fill_by = "sim_rme2", title = "Simulated Risk - Group 2")
+    fig2.2 <- plot_rme(sf_obj = data.plot.RME(), fill_by = "rme2", title = "RME Adjusted - Group 2")
+    fig3.1 <- plot_rme(sf_obj = data.plot.RME.sim(), fill_by = "sim_rme3", title = "Simulated Risk - Group 3")
+    fig3.2 <- plot_rme(sf_obj = data.plot.RME(), fill_by = "rme3", title = "RME Adjusted - Group 3")
+    fig4.1 <- plot_rme(sf_obj = data.plot.RME.sim(), fill_by = "sim_rme4", title = "Simulated Risk - Group 4")
+    fig4.2 <- plot_rme(sf_obj = data.plot.RME(), fill_by = "rme4", title = "RME Adjusted - Group 4")
+    
+  }else if(input$sp_ef_mod %in% c("M6.F1(F1L2)*F2(F2L1)")){
+    
+    fig1.1 <- plot_rme(sf_obj = data.plot.RME.sim(), fill_by = "sim_rme3", title = "Simulated Risk - Group 1")
+    fig1.2 <- plot_rme(sf_obj = data.plot.RME(), fill_by = "rme1", title = "RME Adjusted - Group 1")
+    fig2.1 <- plot_rme(sf_obj = data.plot.RME.sim(), fill_by = "sim_rme4", title = "Simulated Risk - Group 2")
+    fig2.2 <- plot_rme(sf_obj = data.plot.RME(), fill_by = "rme2", title = "RME Adjusted - Group 2")
+    fig3.1 <- plot_rme(sf_obj = data.plot.RME.sim(), fill_by = "sim_rme1", title = "Simulated Risk - Group 3")
+    fig3.2 <- plot_rme(sf_obj = data.plot.RME(), fill_by = "rme3", title = "RME Adjusted - Group 3")
+    fig4.1 <- plot_rme(sf_obj = data.plot.RME.sim(), fill_by = "sim_rme2", title = "Simulated Risk - Group 4")
+    fig4.2 <- plot_rme(sf_obj = data.plot.RME(), fill_by = "rme4", title = "RME Adjusted - Group 4")
+    
+  }else if(input$sp_ef_mod %in% c("M6.F1(F1L1)*F2(F2L2)")){
+    
+    fig1.1 <- plot_rme(sf_obj = data.plot.RME.sim(), fill_by = "sim_rme2", title = "Simulated Risk - Group 1")
+    fig1.2 <- plot_rme(sf_obj = data.plot.RME(), fill_by = "rme1", title = "RME Adjusted - Group 1")
+    fig2.1 <- plot_rme(sf_obj = data.plot.RME.sim(), fill_by = "sim_rme1", title = "Simulated Risk - Group 2")
+    fig2.2 <- plot_rme(sf_obj = data.plot.RME(), fill_by = "rme2", title = "RME Adjusted - Group 2")
+    fig3.1 <- plot_rme(sf_obj = data.plot.RME.sim(), fill_by = "sim_rme4", title = "Simulated Risk - Group 3")
+    fig3.2 <- plot_rme(sf_obj = data.plot.RME(), fill_by = "rme3", title = "RME Adjusted - Group 3")
+    fig4.1 <- plot_rme(sf_obj = data.plot.RME.sim(), fill_by = "sim_rme3", title = "Simulated Risk - Group 4")
+    fig4.2 <- plot_rme(sf_obj = data.plot.RME(), fill_by = "rme4", title = "RME Adjusted - Group 4")
+    
+  }else if(input$sp_ef_mod %in% c("M6.F1(F1L2)*F2(F2L2)")){
+    
+    fig1.1 <- plot_rme(sf_obj = data.plot.RME.sim(), fill_by = "sim_rme4", title = "Simulated Risk - Group 1")
+    fig1.2 <- plot_rme(sf_obj = data.plot.RME(), fill_by = "rme1", title = "RME Adjusted - Group 1")
+    fig2.1 <- plot_rme(sf_obj = data.plot.RME.sim(), fill_by = "sim_rme3", title = "Simulated Risk - Group 2")
+    fig2.2 <- plot_rme(sf_obj = data.plot.RME(), fill_by = "rme2", title = "RME Adjusted - Group 2")
+    fig3.1 <- plot_rme(sf_obj = data.plot.RME.sim(), fill_by = "sim_rme2", title = "Simulated Risk - Group 3")
+    fig3.2 <- plot_rme(sf_obj = data.plot.RME(), fill_by = "rme3", title = "RME Adjusted - Group 3")
+    fig4.1 <- plot_rme(sf_obj = data.plot.RME.sim(), fill_by = "sim_rme1", title = "Simulated Risk - Group 4")
+    fig4.2 <- plot_rme(sf_obj = data.plot.RME(), fill_by = "rme4", title = "RME Adjusted - Group 4")
+    
+  }else if(input$sp_ef_mod %in% c("M6.F2(F2L1)*F1(F1L1)")){
     
     fig1.1 <- plot_rme(sf_obj = data.plot.RME.sim(), fill_by = "sim_rme1", title = "Simulated Risk - Group 1")
     fig1.2 <- plot_rme(sf_obj = data.plot.RME(), fill_by = "rme1", title = "RME Adjusted - Group 1")
@@ -1133,7 +1134,7 @@ shinyServer(function(input, output, session) {
     fig4.1 <- plot_rme(sf_obj = data.plot.RME.sim(), fill_by = "sim_rme4", title = "Simulated Risk - Group 4")
     fig4.2 <- plot_rme(sf_obj = data.plot.RME(), fill_by = "rme4", title = "RME Adjusted - Group 4")
     
-  }else if(input$sp_ef_mod %in% c("M6-F2.(F2L2)*F1.(F1L1)")){
+  }else if(input$sp_ef_mod %in% c("M6.F2(F2L2)*F1(F1L1)")){
     
     fig1.1 <- plot_rme(sf_obj = data.plot.RME.sim(), fill_by = "sim_rme2", title = "Simulated Risk - Group 1")
     fig1.2 <- plot_rme(sf_obj = data.plot.RME(), fill_by = "rme1", title = "RME Adjusted - Group 1")
@@ -1144,7 +1145,7 @@ shinyServer(function(input, output, session) {
     fig4.1 <- plot_rme(sf_obj = data.plot.RME.sim(), fill_by = "sim_rme3", title = "Simulated Risk - Group 4")
     fig4.2 <- plot_rme(sf_obj = data.plot.RME(), fill_by = "rme4", title = "RME Adjusted - Group 4")
     
-  }else if(input$sp_ef_mod %in% c("M6-F2.(F2L1)*F1.(F1L2)")){
+  }else if(input$sp_ef_mod %in% c("M6.F2(F2L1)*F1(F1L2)")){
     
     fig1.1 <- plot_rme(sf_obj = data.plot.RME.sim(), fill_by = "sim_rme3", title = "Simulated Risk - Group 1")
     fig1.2 <- plot_rme(sf_obj = data.plot.RME(), fill_by = "rme1", title = "RME Adjusted - Group 1")
@@ -1155,7 +1156,7 @@ shinyServer(function(input, output, session) {
     fig4.1 <- plot_rme(sf_obj = data.plot.RME.sim(), fill_by = "sim_rme2", title = "Simulated Risk - Group 4")
     fig4.2 <- plot_rme(sf_obj = data.plot.RME(), fill_by = "rme4", title = "RME Adjusted - Group 4")
     
-  }else if(input$sp_ef_mod %in% c("M6-F2.(F2L2)*F1.(F1L2)")){
+  }else if(input$sp_ef_mod %in% c("M6.F2(F2L2)*F1(F1L2)")){
     
     fig1.1 <- plot_rme(sf_obj = data.plot.RME.sim(), fill_by = "sim_rme4", title = "Simulated Risk - Group 1")
     fig1.2 <- plot_rme(sf_obj = data.plot.RME(), fill_by = "rme1", title = "RME Adjusted - Group 1")
@@ -1166,8 +1167,9 @@ shinyServer(function(input, output, session) {
     fig4.1 <- plot_rme(sf_obj = data.plot.RME.sim(), fill_by = "sim_rme1", title = "Simulated Risk - Group 4")
     fig4.2 <- plot_rme(sf_obj = data.plot.RME(), fill_by = "rme4", title = "RME Adjusted - Group 4")
     
+  }else{
+    stop(paste("Unhandled input$sp_ef_mod:", shQuote(input$sp_ef_mod)))
   }
-  
     grid.arrange(fig1.1, fig1.2, fig2.1, fig2.2, fig3.1, fig3.2, fig4.1, fig4.2, ncol=2)
   
   }, height = 1500))
@@ -1196,7 +1198,7 @@ shinyServer(function(input, output, session) {
       fig4.1 <- plot_spef(sf_obj = data.plot.sp.sim(), fill_by = "sim_sp4", title = "Simulated Spatial Effect 4", weight = data.sp.w()[4])
       fig4.2 <- plot_spef(sf_obj = data.plot.sp(), fill_by = "sp4", title = bquote(bold("Spatial Effect | "~phi[4])))
       
-    }else if(input$sp_ef_mod %in% c("M2-ind(F1L1-F2L1)", "M2-ind(F1L2-F2L1)", "M2-ind(F2L1-F1L2)", "M2-ind(F2L2-F1L2)")){
+    }else if(input$sp_ef_mod %in% c("M2.(F1L1-F2L1)", "M2.(F1L2-F2L1)", "M2.(F1L1-F2L2)", "M2.(F1L2-F2L2)")){
       
       fig1.1 <- plot_spef(sf_obj = data.plot.sp.sim(), fill_by = "sim_sp1", title = "Simulated Spatial Effect 1", weight = data.sp.w()[1])
       fig1.2 <- plot_spef(sf_obj = data.plot.sp(), fill_by = "sp1", title = bquote(bold("Spatial Effect | "~phi[11])))
@@ -1207,7 +1209,7 @@ shinyServer(function(input, output, session) {
       fig4.1 <- plot_spef(sf_obj = data.plot.sp.sim(), fill_by = "sim_sp4", title = "Simulated Spatial Effect 4", weight = data.sp.w()[4])
       fig4.2 <- plot_spef(sf_obj = data.plot.sp(), fill_by = "sp4", title = NULL)
       
-    }else if(input$sp_ef_mod %in% c("M3-F1.(F1L1)", "M3-F1.(F1L2)")){
+    }else if(input$sp_ef_mod %in% c("M3.F1(F1L1)", "M3.F1(F1L2)")){
       
       fig1.1 <- plot_spef(sf_obj = data.plot.sp.sim(), fill_by = "sim_sp1", title = "Simulated Spatial Effect 1", weight = data.sp.w()[1])
       fig1.2 <- plot_spef(sf_obj = data.plot.sp(), fill_by = "sp1", title = bquote(bold("Spatial Effect | "~phi[11])))
@@ -1218,7 +1220,7 @@ shinyServer(function(input, output, session) {
       fig4.1 <- plot_spef(sf_obj = data.plot.sp.sim(), fill_by = "sim_sp4", title = "Simulated Spatial Effect 4", weight = data.sp.w()[4])
       fig4.2 <- plot_spef(sf_obj = data.plot.sp(), fill_by = "sp4", title = NULL)
       
-    }else if(input$sp_ef_mod %in% c("M4-F2.(F2L1)", "M4-F2.(F2L2)")){
+    }else if(input$sp_ef_mod %in% c("M4.F2(F2L1)", "M4.F2(F2L2)")){
       
       fig1.1 <- plot_spef(sf_obj = data.plot.sp.sim(), fill_by = "sim_sp1", title = "Simulated Spatial Effect 1", weight = data.sp.w()[1])
       fig1.2 <- plot_spef(sf_obj = data.plot.sp(), fill_by = "sp1", title = bquote(bold("Spatial Effect | "~phi[11])))
@@ -1229,7 +1231,7 @@ shinyServer(function(input, output, session) {
       fig4.1 <- plot_spef(sf_obj = data.plot.sp.sim(), fill_by = "sim_sp4", title = "Simulated Spatial Effect 4", weight = data.sp.w()[4])
       fig4.2 <- plot_spef(sf_obj = data.plot.sp(), fill_by = "sp4", title = NULL)
       
-    }else if(input$sp_ef_mod %in% c("M5-F1.(F1L1)+F2.(F2L1)", "M5-F1.(F1L2)+F2.(F2L1)", "M5-F1.(F1L1)+F2.(F2L2)", "M5-F1.(F1L2)+F2.(F2L2)")){
+    }else if(input$sp_ef_mod %in% c("M5.F1(F1L1)+F2(F2L1)", "M5.F1(F1L2)+F2(F2L1)", "M5.F1(F1L1)+F2(F2L2)", "M5.F1(F1L2)+F2(F2L2)")){
       
       fig1.1 <- plot_spef(sf_obj = data.plot.sp.sim(), fill_by = "sim_sp1", title = "Simulated Spatial Effect 1", weight = data.sp.w()[1])
       fig1.2 <- plot_spef(sf_obj = data.plot.sp(), fill_by = "sp1", title = bquote(bold("Spatial Effect | "~phi[11])))
@@ -1240,8 +1242,8 @@ shinyServer(function(input, output, session) {
       fig4.1 <- plot_spef(sf_obj = data.plot.sp.sim(), fill_by = "sim_sp4", title = "Simulated Spatial Effect 4", weight = data.sp.w()[4])
       fig4.2 <- plot_spef(sf_obj = data.plot.sp(), fill_by = "sp4", title = NULL)
       
-    }else if(input$sp_ef_mod %in% c("M6-F1.(F1L1)*F2.(F2L1)", "M6-F1.(F1L2)*F2.(F2L1)", "M6-F1.(F1L1)*F2.(F2L2)", "M6-F1.(F1L2)*F2.(F2L2)",
-                                    "M6-F2.(F2L1)*F1.(F1L1)", "M6-F2.(F2L2)*F1.(F1L1)", "M6-F2.(F2L1)*F1.(F1L2)", "M6-F2.(F2L2)*F1.(F1L2)")){
+    }else if(input$sp_ef_mod %in% c("M6.F1(F1L1)*F2(F2L1)", "M6.F1(F1L2)*F2(F2L1)", "M6.F1(F1L1)*F2(F2L2)", "M6.F1(F1L2)*F2(F2L2)",
+                                    "M6.F2(F2L1)*F1(F1L1)", "M6.F2(F2L2)*F1(F1L1)", "M6.F2(F2L1)*F1(F1L2)", "M6.F2(F2L2)*F1(F1L2)")){
       
       fig1.1 <- plot_spef(sf_obj = data.plot.sp.sim(), fill_by = "sim_sp1", title = "Simulated Spatial Effect 1", weight = data.sp.w()[1])
       fig1.2 <- plot_spef(sf_obj = data.plot.sp(), fill_by = "sp1", title = bquote(bold("Spatial Effect | "~phi[11])))
@@ -1252,6 +1254,8 @@ shinyServer(function(input, output, session) {
       fig4.1 <- plot_spef(sf_obj = data.plot.sp.sim(), fill_by = "sim_sp4", title = "Simulated Spatial Effect 4", weight = data.sp.w()[4])
       fig4.2 <- plot_spef(sf_obj = data.plot.sp(), fill_by = "sp4", title = bquote(bold("Spatial Effect | "~phi[22])))
       
+    }else{
+      stop(paste("Unhandled input$sp_ef_mod:", shQuote(input$sp_ef_mod)))
     }
     
     grid.arrange(fig1.1, fig1.2, fig2.1, fig2.2, fig3.1, fig3.2, fig4.1, fig4.2, ncol=2)
