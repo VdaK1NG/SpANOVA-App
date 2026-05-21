@@ -1,5 +1,3 @@
-<h1> FIGURES NOT WORKING AFTER LAST COMMIT, TRYING TO FIX, SRY FOR INCONVENIENCE </h1>
-
 <h1> Suplemmentary Shiny App for Sp-ANOVA </h1>
 
 This application is part of the supplementary material from the article <i>"Spatial-ANOVA: Multidimensional Analysis Of Suicide-RelatedEmergency Calls"</i> by P. Escobar-Hernandez, A. López-Quílez, F. Palmí-Perales and M. Marco. Specifically, it contains the full results from the Simulation Study, including the Sensitivity Analysis, as well as the full results from the Case of Study.
