@@ -293,159 +293,159 @@ shinyServer(function(input, output, session) {
     
     if(input$sp_ef_mod=="M0"){
       
-      data_temp$rme1 <- sim.data.ShANOVA()$M0$RME[1:3107]
-      data_temp$rme2 <- sim.data.ShANOVA()$M0$RME[(3107+1):(3107*2)]
-      data_temp$rme3 <- sim.data.ShANOVA()$M0$RME[(3107*2+1):(3107*3)]
-      data_temp$rme4 <- sim.data.ShANOVA()$M0$RME[(3107*3+1):(3107*4)]
+      data_temp$summary.fitted.values$mean1 <- sim.data.ShANOVA()$M0$summary.fitted.values$mean[1:3107]
+      data_temp$summary.fitted.values$mean2 <- sim.data.ShANOVA()$M0$summary.fitted.values$mean[(3107+1):(3107*2)]
+      data_temp$summary.fitted.values$mean3 <- sim.data.ShANOVA()$M0$summary.fitted.values$mean[(3107*2+1):(3107*3)]
+      data_temp$summary.fitted.values$mean4 <- sim.data.ShANOVA()$M0$summary.fitted.values$mean[(3107*3+1):(3107*4)]
       
     }else if(input$sp_ef_mod=="M1"){
       
-      data_temp$rme1 <- sim.data.ShANOVA()$M1$summary.fitted.values$mean[1:3107]
-      data_temp$rme2 <- sim.data.ShANOVA()$M1$summary.fitted.values$mean[(3107+1):(3107*2)]
-      data_temp$rme3 <- sim.data.ShANOVA()$M1$summary.fitted.values$mean[(3107*2+1):(3107*3)]
-      data_temp$rme4 <- sim.data.ShANOVA()$M1$summary.fitted.values$mean[(3107*3+1):(3107*4)]
+      data_temp$summary.fitted.values$mean1 <- sim.data.ShANOVA()$M1$summary.fitted.values$mean[1:3107]
+      data_temp$summary.fitted.values$mean2 <- sim.data.ShANOVA()$M1$summary.fitted.values$mean[(3107+1):(3107*2)]
+      data_temp$summary.fitted.values$mean3 <- sim.data.ShANOVA()$M1$summary.fitted.values$mean[(3107*2+1):(3107*3)]
+      data_temp$summary.fitted.values$mean4 <- sim.data.ShANOVA()$M1$summary.fitted.values$mean[(3107*3+1):(3107*4)]
       
     }else if(input$sp_ef_mod=="M2-ind(F1L1-F2L1)"){
       
-      data_temp$rme1 <- sim.data.ShANOVA()$`M2.(F1L1)`$summary.fitted.values$mean[1:3107]
-      data_temp$rme2 <- sim.data.ShANOVA()$`M2.(F1L1)`$summary.fitted.values$mean[(3107+1):(3107*2)]
-      data_temp$rme3 <- sim.data.ShANOVA()$`M2.(F1L1)`$summary.fitted.values$mean[(3107*2+1):(3107*3)]
-      data_temp$rme4 <- sim.data.ShANOVA()$`M2.(F1L1)`$summary.fitted.values$mean[(3107*3+1):(3107*4)]
+      data_temp$summary.fitted.values$mean1 <- sim.data.ShANOVA()$`M2.(F1L1)`$summary.fitted.values$mean[1:3107]
+      data_temp$summary.fitted.values$mean2 <- sim.data.ShANOVA()$`M2.(F1L1)`$summary.fitted.values$mean[(3107+1):(3107*2)]
+      data_temp$summary.fitted.values$mean3 <- sim.data.ShANOVA()$`M2.(F1L1)`$summary.fitted.values$mean[(3107*2+1):(3107*3)]
+      data_temp$summary.fitted.values$mean4 <- sim.data.ShANOVA()$`M2.(F1L1)`$summary.fitted.values$mean[(3107*3+1):(3107*4)]
       
     }else if(input$sp_ef_mod=="M2-ind(F1L2-F2L1)"){
       
-      data_temp$rme1 <- sim.data.ShANOVA()$`M2.(F1L2)`$summary.fitted.values$mean[1:3107]
-      data_temp$rme2 <- sim.data.ShANOVA()$`M2.(F1L2)`$summary.fitted.values$mean[(3107+1):(3107*2)]
-      data_temp$rme3 <- sim.data.ShANOVA()$`M2.(F1L2)`$summary.fitted.values$mean[(3107*2+1):(3107*3)]
-      data_temp$rme4 <- sim.data.ShANOVA()$`M2.(F1L2)`$summary.fitted.values$mean[(3107*3+1):(3107*4)]
+      data_temp$summary.fitted.values$mean1 <- sim.data.ShANOVA()$`M2.(F1L2)`$summary.fitted.values$mean[1:3107]
+      data_temp$summary.fitted.values$mean2 <- sim.data.ShANOVA()$`M2.(F1L2)`$summary.fitted.values$mean[(3107+1):(3107*2)]
+      data_temp$summary.fitted.values$mean3 <- sim.data.ShANOVA()$`M2.(F1L2)`$summary.fitted.values$mean[(3107*2+1):(3107*3)]
+      data_temp$summary.fitted.values$mean4 <- sim.data.ShANOVA()$`M2.(F1L2)`$summary.fitted.values$mean[(3107*3+1):(3107*4)]
       
     }else if(input$sp_ef_mod=="M2-ind(F2L1-F1L2)"){
       
-      data_temp$rme1 <- sim.data.ShANOVA()$`M2.(F2L1)`$summary.fitted.values$mean[1:3107]
-      data_temp$rme2 <- sim.data.ShANOVA()$`M2.(F2L1)`$summary.fitted.values$mean[(3107+1):(3107*2)]
-      data_temp$rme3 <- sim.data.ShANOVA()$`M2.(F2L1)`$summary.fitted.values$mean[(3107*2+1):(3107*3)]
-      data_temp$rme4 <- sim.data.ShANOVA()$`M2.(F2L1)`$summary.fitted.values$mean[(3107*3+1):(3107*4)]
+      data_temp$summary.fitted.values$mean1 <- sim.data.ShANOVA()$`M2.(F2L1)`$summary.fitted.values$mean[1:3107]
+      data_temp$summary.fitted.values$mean2 <- sim.data.ShANOVA()$`M2.(F2L1)`$summary.fitted.values$mean[(3107+1):(3107*2)]
+      data_temp$summary.fitted.values$mean3 <- sim.data.ShANOVA()$`M2.(F2L1)`$summary.fitted.values$mean[(3107*2+1):(3107*3)]
+      data_temp$summary.fitted.values$mean4 <- sim.data.ShANOVA()$`M2.(F2L1)`$summary.fitted.values$mean[(3107*3+1):(3107*4)]
       
     }else if(input$sp_ef_mod=="M2-ind(F2L2-F1L2)"){
       
-      data_temp$rme1 <- sim.data.ShANOVA()$`M2.(F2L2)`$summary.fitted.values$mean[1:3107]
-      data_temp$rme2 <- sim.data.ShANOVA()$`M2.(F2L2)`$summary.fitted.values$mean[(3107+1):(3107*2)]
-      data_temp$rme3 <- sim.data.ShANOVA()$`M2.(F2L2)`$summary.fitted.values$mean[(3107*2+1):(3107*3)]
-      data_temp$rme4 <- sim.data.ShANOVA()$`M2.(F2L2)`$summary.fitted.values$mean[(3107*3+1):(3107*4)]
+      data_temp$summary.fitted.values$mean1 <- sim.data.ShANOVA()$`M2.(F2L2)`$summary.fitted.values$mean[1:3107]
+      data_temp$summary.fitted.values$mean2 <- sim.data.ShANOVA()$`M2.(F2L2)`$summary.fitted.values$mean[(3107+1):(3107*2)]
+      data_temp$summary.fitted.values$mean3 <- sim.data.ShANOVA()$`M2.(F2L2)`$summary.fitted.values$mean[(3107*2+1):(3107*3)]
+      data_temp$summary.fitted.values$mean4 <- sim.data.ShANOVA()$`M2.(F2L2)`$summary.fitted.values$mean[(3107*3+1):(3107*4)]
       
     }else if(input$sp_ef_mod=="M3-F1.(F1L1)"){
       
-      data_temp$rme1 <- sim.data.ShANOVA()$`M3.F1(ref: F1L1)`$summary.fitted.values$mean[1:3107]
-      data_temp$rme2 <- sim.data.ShANOVA()$`M3.F1(ref: F1L1)`$summary.fitted.values$mean[(3107+1):(3107*2)]
-      data_temp$rme3 <- sim.data.ShANOVA()$`M3.F1(ref: F1L1)`$summary.fitted.values$mean[(3107*2+1):(3107*3)]
-      data_temp$rme4 <- sim.data.ShANOVA()$`M3.F1(ref: F1L1)`$summary.fitted.values$mean[(3107*3+1):(3107*4)]
+      data_temp$summary.fitted.values$mean1 <- sim.data.ShANOVA()$`M3.F1(ref: F1L1)`$summary.fitted.values$mean[1:3107]
+      data_temp$summary.fitted.values$mean2 <- sim.data.ShANOVA()$`M3.F1(ref: F1L1)`$summary.fitted.values$mean[(3107+1):(3107*2)]
+      data_temp$summary.fitted.values$mean3 <- sim.data.ShANOVA()$`M3.F1(ref: F1L1)`$summary.fitted.values$mean[(3107*2+1):(3107*3)]
+      data_temp$summary.fitted.values$mean4 <- sim.data.ShANOVA()$`M3.F1(ref: F1L1)`$summary.fitted.values$mean[(3107*3+1):(3107*4)]
       
     }else if(input$sp_ef_mod=="M3-F1.(F1L2)"){
       
-      data_temp$rme1 <- sim.data.ShANOVA()$`M3.F1(ref: F1L1)`$summary.fitted.values$mean[1:3107]
-      data_temp$rme2 <- sim.data.ShANOVA()$`M3.F1(ref: F1L1)`$summary.fitted.values$mean[(3107+1):(3107*2)]
-      data_temp$rme3 <- sim.data.ShANOVA()$`M3.F1(ref: F1L1)`$summary.fitted.values$mean[(3107*2+1):(3107*3)]
-      data_temp$rme4 <- sim.data.ShANOVA()$`M3.F1(ref: F1L1)`$summary.fitted.values$mean[(3107*3+1):(3107*4)]
+      data_temp$summary.fitted.values$mean1 <- sim.data.ShANOVA()$`M3.F1(ref: F1L1)`$summary.fitted.values$mean[1:3107]
+      data_temp$summary.fitted.values$mean2 <- sim.data.ShANOVA()$`M3.F1(ref: F1L1)`$summary.fitted.values$mean[(3107+1):(3107*2)]
+      data_temp$summary.fitted.values$mean3 <- sim.data.ShANOVA()$`M3.F1(ref: F1L1)`$summary.fitted.values$mean[(3107*2+1):(3107*3)]
+      data_temp$summary.fitted.values$mean4 <- sim.data.ShANOVA()$`M3.F1(ref: F1L1)`$summary.fitted.values$mean[(3107*3+1):(3107*4)]
       
     }else if(input$sp_ef_mod=="M4-F2.(F2L1)"){
       
-      data_temp$rme1 <- sim.data.ShANOVA()$`M4.F2(ref: F2L1)`$summary.fitted.values$mean[1:3107]
-      data_temp$rme2 <- sim.data.ShANOVA()$`M4.F2(ref: F2L1)`$summary.fitted.values$mean[(3107+1):(3107*2)]
-      data_temp$rme3 <- sim.data.ShANOVA()$`M4.F2(ref: F2L1)`$summary.fitted.values$mean[(3107*2+1):(3107*3)]
-      data_temp$rme4 <- sim.data.ShANOVA()$`M4.F2(ref: F2L1)`$summary.fitted.values$mean[(3107*3+1):(3107*4)]
+      data_temp$summary.fitted.values$mean1 <- sim.data.ShANOVA()$`M4.F2(ref: F2L1)`$summary.fitted.values$mean[1:3107]
+      data_temp$summary.fitted.values$mean2 <- sim.data.ShANOVA()$`M4.F2(ref: F2L1)`$summary.fitted.values$mean[(3107+1):(3107*2)]
+      data_temp$summary.fitted.values$mean3 <- sim.data.ShANOVA()$`M4.F2(ref: F2L1)`$summary.fitted.values$mean[(3107*2+1):(3107*3)]
+      data_temp$summary.fitted.values$mean4 <- sim.data.ShANOVA()$`M4.F2(ref: F2L1)`$summary.fitted.values$mean[(3107*3+1):(3107*4)]
       
     }else if(input$sp_ef_mod=="M4-F2.(F2L2)"){
       
-      data_temp$rme1 <- sim.data.ShANOVA()$`M4.F2(ref: F2L2)`$summary.fitted.values$mean[1:3107]
-      data_temp$rme2 <- sim.data.ShANOVA()$`M4.F2(ref: F2L2)`$summary.fitted.values$mean[(3107+1):(3107*2)]
-      data_temp$rme3 <- sim.data.ShANOVA()$`M4.F2(ref: F2L2)`$summary.fitted.values$mean[(3107*2+1):(3107*3)]
-      data_temp$rme4 <- sim.data.ShANOVA()$`M4.F2(ref: F2L2)`$summary.fitted.values$mean[(3107*3+1):(3107*4)]
+      data_temp$summary.fitted.values$mean1 <- sim.data.ShANOVA()$`M4.F2(ref: F2L2)`$summary.fitted.values$mean[1:3107]
+      data_temp$summary.fitted.values$mean2 <- sim.data.ShANOVA()$`M4.F2(ref: F2L2)`$summary.fitted.values$mean[(3107+1):(3107*2)]
+      data_temp$summary.fitted.values$mean3 <- sim.data.ShANOVA()$`M4.F2(ref: F2L2)`$summary.fitted.values$mean[(3107*2+1):(3107*3)]
+      data_temp$summary.fitted.values$mean4 <- sim.data.ShANOVA()$`M4.F2(ref: F2L2)`$summary.fitted.values$mean[(3107*3+1):(3107*4)]
       
     }else if(input$sp_ef_mod=="M5-F1.(F1L1)+F2.(F2L1)"){
       
-      data_temp$rme1 <- sim.data.ShANOVA()$`M5.F1(ref: F1L1)+F2(ref: F2L1)`$summary.fitted.values$mean[1:3107]
-      data_temp$rme2 <- sim.data.ShANOVA()$`M5.F1(ref: F1L1)+F2(ref: F2L1)`$summary.fitted.values$mean[(3107+1):(3107*2)]
-      data_temp$rme3 <- sim.data.ShANOVA()$`M5.F1(ref: F1L1)+F2(ref: F2L1)`$summary.fitted.values$mean[(3107*2+1):(3107*3)]
-      data_temp$rme4 <- sim.data.ShANOVA()$`M5.F1(ref: F1L1)+F2(ref: F2L1)`$summary.fitted.values$mean[(3107*3+1):(3107*4)]
+      data_temp$summary.fitted.values$mean1 <- sim.data.ShANOVA()$`M5.F1(ref: F1L1)+F2(ref: F2L1)`$summary.fitted.values$mean[1:3107]
+      data_temp$summary.fitted.values$mean2 <- sim.data.ShANOVA()$`M5.F1(ref: F1L1)+F2(ref: F2L1)`$summary.fitted.values$mean[(3107+1):(3107*2)]
+      data_temp$summary.fitted.values$mean3 <- sim.data.ShANOVA()$`M5.F1(ref: F1L1)+F2(ref: F2L1)`$summary.fitted.values$mean[(3107*2+1):(3107*3)]
+      data_temp$summary.fitted.values$mean4 <- sim.data.ShANOVA()$`M5.F1(ref: F1L1)+F2(ref: F2L1)`$summary.fitted.values$mean[(3107*3+1):(3107*4)]
       
     }else if(input$sp_ef_mod=="M5-F1.(F1L2)+F2.(F2L1)"){
       
-      data_temp$rme1 <- sim.data.ShANOVA()$`M5.F1(ref: F1L2)+F2(ref: F2L1)`$summary.fitted.values$mean[1:3107]
-      data_temp$rme2 <- sim.data.ShANOVA()$`M5.F1(ref: F1L2)+F2(ref: F2L1)`$summary.fitted.values$mean[(3107+1):(3107*2)]
-      data_temp$rme3 <- sim.data.ShANOVA()$`M5.F1(ref: F1L2)+F2(ref: F2L1)`$summary.fitted.values$mean[(3107*2+1):(3107*3)]
-      data_temp$rme4 <- sim.data.ShANOVA()$`M5.F1(ref: F1L2)+F2(ref: F2L1)`$summary.fitted.values$mean[(3107*3+1):(3107*4)]
+      data_temp$summary.fitted.values$mean1 <- sim.data.ShANOVA()$`M5.F1(ref: F1L2)+F2(ref: F2L1)`$summary.fitted.values$mean[1:3107]
+      data_temp$summary.fitted.values$mean2 <- sim.data.ShANOVA()$`M5.F1(ref: F1L2)+F2(ref: F2L1)`$summary.fitted.values$mean[(3107+1):(3107*2)]
+      data_temp$summary.fitted.values$mean3 <- sim.data.ShANOVA()$`M5.F1(ref: F1L2)+F2(ref: F2L1)`$summary.fitted.values$mean[(3107*2+1):(3107*3)]
+      data_temp$summary.fitted.values$mean4 <- sim.data.ShANOVA()$`M5.F1(ref: F1L2)+F2(ref: F2L1)`$summary.fitted.values$mean[(3107*3+1):(3107*4)]
       data_temp$sp4 <- NA
       
     }else if(input$sp_ef_mod=="M5-F1.(F1L1)+F2.(F2L2)"){
       
-      data_temp$rme1 <- sim.data.ShANOVA()$`M5.F1(ref: F1L1)+F2(ref: F2L2)`$summary.fitted.values$mean[1:3107]
-      data_temp$rme2 <- sim.data.ShANOVA()$`M5.F1(ref: F1L1)+F2(ref: F2L2)`$summary.fitted.values$mean[(3107+1):(3107*2)]
-      data_temp$rme3 <- sim.data.ShANOVA()$`M5.F1(ref: F1L1)+F2(ref: F2L2)`$summary.fitted.values$mean[(3107*2+1):(3107*3)]
-      data_temp$rme4 <- sim.data.ShANOVA()$`M5.F1(ref: F1L1)+F2(ref: F2L2)`$summary.fitted.values$mean[(3107*3+1):(3107*4)]
+      data_temp$summary.fitted.values$mean1 <- sim.data.ShANOVA()$`M5.F1(ref: F1L1)+F2(ref: F2L2)`$summary.fitted.values$mean[1:3107]
+      data_temp$summary.fitted.values$mean2 <- sim.data.ShANOVA()$`M5.F1(ref: F1L1)+F2(ref: F2L2)`$summary.fitted.values$mean[(3107+1):(3107*2)]
+      data_temp$summary.fitted.values$mean3 <- sim.data.ShANOVA()$`M5.F1(ref: F1L1)+F2(ref: F2L2)`$summary.fitted.values$mean[(3107*2+1):(3107*3)]
+      data_temp$summary.fitted.values$mean4 <- sim.data.ShANOVA()$`M5.F1(ref: F1L1)+F2(ref: F2L2)`$summary.fitted.values$mean[(3107*3+1):(3107*4)]
       
     }else if(input$sp_ef_mod=="M5-F1.(F1L2)+F2.(F2L2)"){
       
-      data_temp$rme1 <- sim.data.ShANOVA()$`M5.F1(ref: F1L2)+F2(ref: F2L2)`$summary.fitted.values$mean[1:3107]
-      data_temp$rme2 <- sim.data.ShANOVA()$`M5.F1(ref: F1L2)+F2(ref: F2L2)`$summary.fitted.values$mean[(3107+1):(3107*2)]
-      data_temp$rme3 <- sim.data.ShANOVA()$`M5.F1(ref: F1L2)+F2(ref: F2L2)`$summary.fitted.values$mean[(3107*2+1):(3107*3)]
-      data_temp$rme4 <- sim.data.ShANOVA()$`M5.F1(ref: F1L2)+F2(ref: F2L2)`$summary.fitted.values$mean[(3107*3+1):(3107*4)]
+      data_temp$summary.fitted.values$mean1 <- sim.data.ShANOVA()$`M5.F1(ref: F1L2)+F2(ref: F2L2)`$summary.fitted.values$mean[1:3107]
+      data_temp$summary.fitted.values$mean2 <- sim.data.ShANOVA()$`M5.F1(ref: F1L2)+F2(ref: F2L2)`$summary.fitted.values$mean[(3107+1):(3107*2)]
+      data_temp$summary.fitted.values$mean3 <- sim.data.ShANOVA()$`M5.F1(ref: F1L2)+F2(ref: F2L2)`$summary.fitted.values$mean[(3107*2+1):(3107*3)]
+      data_temp$summary.fitted.values$mean4 <- sim.data.ShANOVA()$`M5.F1(ref: F1L2)+F2(ref: F2L2)`$summary.fitted.values$mean[(3107*3+1):(3107*4)]
       data_temp$sp4 <- NA
       
     }else if(input$sp_ef_mod=="M6-F1.(F1L1)*F2.(F2L1)"){
       
-      data_temp$rme1 <- sim.data.ShANOVA()$`M6.F1(ref: F1L1)*F2(ref: F2L1)`$summary.fitted.values$mean[1:3107]
-      data_temp$rme2 <- sim.data.ShANOVA()$`M6.F1(ref: F1L1)*F2(ref: F2L1)`$summary.fitted.values$mean[(3107+1):(3107*2)]
-      data_temp$rme3 <- sim.data.ShANOVA()$`M6.F1(ref: F1L1)*F2(ref: F2L1)`$summary.fitted.values$mean[(3107*2+1):(3107*3)]
-      data_temp$rme4 <- sim.data.ShANOVA()$`M6.F1(ref: F1L1)*F2(ref: F2L1)`$summary.fitted.values$mean[(3107*3+1):(3107*4)]
+      data_temp$summary.fitted.values$mean1 <- sim.data.ShANOVA()$`M6.F1(ref: F1L1)*F2(ref: F2L1)`$summary.fitted.values$mean[1:3107]
+      data_temp$summary.fitted.values$mean2 <- sim.data.ShANOVA()$`M6.F1(ref: F1L1)*F2(ref: F2L1)`$summary.fitted.values$mean[(3107+1):(3107*2)]
+      data_temp$summary.fitted.values$mean3 <- sim.data.ShANOVA()$`M6.F1(ref: F1L1)*F2(ref: F2L1)`$summary.fitted.values$mean[(3107*2+1):(3107*3)]
+      data_temp$summary.fitted.values$mean4 <- sim.data.ShANOVA()$`M6.F1(ref: F1L1)*F2(ref: F2L1)`$summary.fitted.values$mean[(3107*3+1):(3107*4)]
       
     }else if(input$sp_ef_mod=="M6-F1.(F1L2)*F2.(F2L1)"){
       
-      data_temp$rme1 <- sim.data.ShANOVA()$`M6.F1(F1L2)*F2(F2L1)`$summary.fitted.values$mean[1:3107]
-      data_temp$rme2 <- sim.data.ShANOVA()$`M6.F1(F1L2)*F2(F2L1)`$summary.fitted.values$mean[(3107+1):(3107*2)]
-      data_temp$rme3 <- sim.data.ShANOVA()$`M6.F1(F1L2)*F2(F2L1)`$summary.fitted.values$mean[(3107*2+1):(3107*3)]
-      data_temp$rme4 <- sim.data.ShANOVA()$`M6.F1(F1L2)*F2(F2L1)`$summary.fitted.values$mean[(3107*3+1):(3107*4)]
+      data_temp$summary.fitted.values$mean1 <- sim.data.ShANOVA()$`M6.F1(F1L2)*F2(F2L1)`$summary.fitted.values$mean[1:3107]
+      data_temp$summary.fitted.values$mean2 <- sim.data.ShANOVA()$`M6.F1(F1L2)*F2(F2L1)`$summary.fitted.values$mean[(3107+1):(3107*2)]
+      data_temp$summary.fitted.values$mean3 <- sim.data.ShANOVA()$`M6.F1(F1L2)*F2(F2L1)`$summary.fitted.values$mean[(3107*2+1):(3107*3)]
+      data_temp$summary.fitted.values$mean4 <- sim.data.ShANOVA()$`M6.F1(F1L2)*F2(F2L1)`$summary.fitted.values$mean[(3107*3+1):(3107*4)]
       
     }else if(input$sp_ef_mod=="M6-F1.(F1L1)*F2.(F2L2)"){
       
-      data_temp$rme1 <- sim.data.ShANOVA()$`M6.F1(ref: F1L1)*F2(ref: F2L2)`$summary.fitted.values$mean[1:3107]
-      data_temp$rme2 <- sim.data.ShANOVA()$`M6.F1(ref: F1L1)*F2(ref: F2L2)`$summary.fitted.values$mean[(3107+1):(3107*2)]
-      data_temp$rme3 <- sim.data.ShANOVA()$`M6.F1(ref: F1L1)*F2(ref: F2L2)`$summary.fitted.values$mean[(3107*2+1):(3107*3)]
-      data_temp$rme4 <- sim.data.ShANOVA()$`M6.F1(ref: F1L1)*F2(ref: F2L2)`$summary.fitted.values$mean[(3107*3+1):(3107*4)]
+      data_temp$summary.fitted.values$mean1 <- sim.data.ShANOVA()$`M6.F1(ref: F1L1)*F2(ref: F2L2)`$summary.fitted.values$mean[1:3107]
+      data_temp$summary.fitted.values$mean2 <- sim.data.ShANOVA()$`M6.F1(ref: F1L1)*F2(ref: F2L2)`$summary.fitted.values$mean[(3107+1):(3107*2)]
+      data_temp$summary.fitted.values$mean3 <- sim.data.ShANOVA()$`M6.F1(ref: F1L1)*F2(ref: F2L2)`$summary.fitted.values$mean[(3107*2+1):(3107*3)]
+      data_temp$summary.fitted.values$mean4 <- sim.data.ShANOVA()$`M6.F1(ref: F1L1)*F2(ref: F2L2)`$summary.fitted.values$mean[(3107*3+1):(3107*4)]
       
     }else if(input$sp_ef_mod=="M6-F1.(F1L2)*F2.(F2L2)"){
       
-      data_temp$rme1 <- sim.data.ShANOVA()$`M6.F1(ref: F1L2)*F2(ref: F2L2)`$summary.fitted.values$mean[1:3107]
-      data_temp$rme2 <- sim.data.ShANOVA()$`M6.F1(ref: F1L2)*F2(ref: F2L2)`$summary.fitted.values$mean[(3107+1):(3107*2)]
-      data_temp$rme3 <- sim.data.ShANOVA()$`M6.F1(ref: F1L2)*F2(ref: F2L2)`$summary.fitted.values$mean[(3107*2+1):(3107*3)]
-      data_temp$rme4 <- sim.data.ShANOVA()$`M6.F1(ref: F1L2)*F2(ref: F2L2)`$summary.fitted.values$mean[(3107*3+1):(3107*4)]
+      data_temp$summary.fitted.values$mean1 <- sim.data.ShANOVA()$`M6.F1(ref: F1L2)*F2(ref: F2L2)`$summary.fitted.values$mean[1:3107]
+      data_temp$summary.fitted.values$mean2 <- sim.data.ShANOVA()$`M6.F1(ref: F1L2)*F2(ref: F2L2)`$summary.fitted.values$mean[(3107+1):(3107*2)]
+      data_temp$summary.fitted.values$mean3 <- sim.data.ShANOVA()$`M6.F1(ref: F1L2)*F2(ref: F2L2)`$summary.fitted.values$mean[(3107*2+1):(3107*3)]
+      data_temp$summary.fitted.values$mean4 <- sim.data.ShANOVA()$`M6.F1(ref: F1L2)*F2(ref: F2L2)`$summary.fitted.values$mean[(3107*3+1):(3107*4)]
       
     }else if(input$sp_ef_mod=="M6-F2.(F2L1)*F1.(F1L1)"){
       
-      data_temp$rme1 <- sim.data.ShANOVA()$`M6.F2(ref: F2L1)*F1(ref: F1L1)`$summary.fitted.values$mean[1:3107]
-      data_temp$rme2 <- sim.data.ShANOVA()$`M6.F2(ref: F2L1)*F1(ref: F1L1)`$summary.fitted.values$mean[(3107+1):(3107*2)]
-      data_temp$rme3 <- sim.data.ShANOVA()$`M6.F2(ref: F2L1)*F1(ref: F1L1)`$summary.fitted.values$mean[(3107*2+1):(3107*3)]
-      data_temp$rme4 <- sim.data.ShANOVA()$`M6.F2(ref: F2L1)*F1(ref: F1L1)`$summary.fitted.values$mean[(3107*3+1):(3107*4)]
+      data_temp$summary.fitted.values$mean1 <- sim.data.ShANOVA()$`M6.F2(ref: F2L1)*F1(ref: F1L1)`$summary.fitted.values$mean[1:3107]
+      data_temp$summary.fitted.values$mean2 <- sim.data.ShANOVA()$`M6.F2(ref: F2L1)*F1(ref: F1L1)`$summary.fitted.values$mean[(3107+1):(3107*2)]
+      data_temp$summary.fitted.values$mean3 <- sim.data.ShANOVA()$`M6.F2(ref: F2L1)*F1(ref: F1L1)`$summary.fitted.values$mean[(3107*2+1):(3107*3)]
+      data_temp$summary.fitted.values$mean4 <- sim.data.ShANOVA()$`M6.F2(ref: F2L1)*F1(ref: F1L1)`$summary.fitted.values$mean[(3107*3+1):(3107*4)]
       
     }else if(input$sp_ef_mod=="M6-F2.(F2L2)*F1.(F1L1)"){
       
-      data_temp$rme1 <- sim.data.ShANOVA()$`M6.F2(ref: F2L2)*F1(ref: F1L1)`$summary.fitted.values$mean[1:3107]
-      data_temp$rme2 <- sim.data.ShANOVA()$`M6.F2(ref: F2L2)*F1(ref: F1L1)`$summary.fitted.values$mean[(3107+1):(3107*2)]
-      data_temp$rme3 <- sim.data.ShANOVA()$`M6.F2(ref: F2L2)*F1(ref: F1L1)`$summary.fitted.values$mean[(3107*2+1):(3107*3)]
-      data_temp$rme4 <- sim.data.ShANOVA()$`M6.F2(ref: F2L2)*F1(ref: F1L1)`$summary.fitted.values$mean[(3107*3+1):(3107*4)]
+      data_temp$summary.fitted.values$mean1 <- sim.data.ShANOVA()$`M6.F2(ref: F2L2)*F1(ref: F1L1)`$summary.fitted.values$mean[1:3107]
+      data_temp$summary.fitted.values$mean2 <- sim.data.ShANOVA()$`M6.F2(ref: F2L2)*F1(ref: F1L1)`$summary.fitted.values$mean[(3107+1):(3107*2)]
+      data_temp$summary.fitted.values$mean3 <- sim.data.ShANOVA()$`M6.F2(ref: F2L2)*F1(ref: F1L1)`$summary.fitted.values$mean[(3107*2+1):(3107*3)]
+      data_temp$summary.fitted.values$mean4 <- sim.data.ShANOVA()$`M6.F2(ref: F2L2)*F1(ref: F1L1)`$summary.fitted.values$mean[(3107*3+1):(3107*4)]
       
     }else if(input$sp_ef_mod=="M6-F2.(F2L1)*F1.(F1L2)"){
       
-      data_temp$rme1 <- sim.data.ShANOVA()$`M6.F2(ref: F2L1)*F1(ref: F1L2)`$summary.fitted.values$mean[1:3107]
-      data_temp$rme2 <- sim.data.ShANOVA()$`M6.F2(ref: F2L1)*F1(ref: F1L2)`$summary.fitted.values$mean[(3107+1):(3107*2)]
-      data_temp$rme3 <- sim.data.ShANOVA()$`M6.F2(ref: F2L1)*F1(ref: F1L2)`$summary.fitted.values$mean[(3107*2+1):(3107*3)]
-      data_temp$rme4 <- sim.data.ShANOVA()$`M6.F2(ref: F2L1)*F1(ref: F1L2)`$summary.fitted.values$mean[(3107*3+1):(3107*4)]
+      data_temp$summary.fitted.values$mean1 <- sim.data.ShANOVA()$`M6.F2(ref: F2L1)*F1(ref: F1L2)`$summary.fitted.values$mean[1:3107]
+      data_temp$summary.fitted.values$mean2 <- sim.data.ShANOVA()$`M6.F2(ref: F2L1)*F1(ref: F1L2)`$summary.fitted.values$mean[(3107+1):(3107*2)]
+      data_temp$summary.fitted.values$mean3 <- sim.data.ShANOVA()$`M6.F2(ref: F2L1)*F1(ref: F1L2)`$summary.fitted.values$mean[(3107*2+1):(3107*3)]
+      data_temp$summary.fitted.values$mean4 <- sim.data.ShANOVA()$`M6.F2(ref: F2L1)*F1(ref: F1L2)`$summary.fitted.values$mean[(3107*3+1):(3107*4)]
       
     }else if(input$sp_ef_mod=="M6-F2.(F2L2)*F1.(F1L2)"){
       
-      data_temp$rme1 <- sim.data.ShANOVA()$`M6.F2(ref: F2L2)*F1(ref: F1L2)`$summary.fitted.values$mean[1:3107]
-      data_temp$rme2 <- sim.data.ShANOVA()$`M6.F2(ref: F2L2)*F1(ref: F1L2)`$summary.fitted.values$mean[(3107+1):(3107*2)]
-      data_temp$rme3 <- sim.data.ShANOVA()$`M6.F2(ref: F2L2)*F1(ref: F1L2)`$summary.fitted.values$mean[(3107*2+1):(3107*3)]
-      data_temp$rme4 <- sim.data.ShANOVA()$`M6.F2(ref: F2L2)*F1(ref: F1L2)`$summary.fitted.values$mean[(3107*3+1):(3107*4)]
+      data_temp$summary.fitted.values$mean1 <- sim.data.ShANOVA()$`M6.F2(ref: F2L2)*F1(ref: F1L2)`$summary.fitted.values$mean[1:3107]
+      data_temp$summary.fitted.values$mean2 <- sim.data.ShANOVA()$`M6.F2(ref: F2L2)*F1(ref: F1L2)`$summary.fitted.values$mean[(3107+1):(3107*2)]
+      data_temp$summary.fitted.values$mean3 <- sim.data.ShANOVA()$`M6.F2(ref: F2L2)*F1(ref: F1L2)`$summary.fitted.values$mean[(3107*2+1):(3107*3)]
+      data_temp$summary.fitted.values$mean4 <- sim.data.ShANOVA()$`M6.F2(ref: F2L2)*F1(ref: F1L2)`$summary.fitted.values$mean[(3107*3+1):(3107*4)]
       
     } 
     
@@ -458,63 +458,64 @@ shinyServer(function(input, output, session) {
     
     if(input$mod_type=="M0" & input$base_type=="DIF"){
       
-      data_temp2$sim_sp1 <- data_temp2$group1_dif_risk
-      data_temp2$sim_sp2 <- data_temp2$group2_dif_risk
-      data_temp2$sim_sp3 <- data_temp2$group3_dif_risk
-      data_temp2$sim_sp4 <- data_temp2$group4_dif_risk
+      data_temp2$sim_sp1 <- as.numeric(data_temp2$group1_dif_risk)
+      data_temp2$sim_sp2 <- as.numeric(data_temp2$group2_dif_risk)
+      data_temp2$sim_sp3 <- as.numeric(data_temp2$group3_dif_risk)
+      data_temp2$sim_sp4 <- as.numeric(data_temp2$group4_dif_risk)
       
     }else if(input$mod_type=="M0" & input$base_type=="SIM"){
       
-      data_temp2$sim_sp1 <- data_temp2$group1_sim_risk
-      data_temp2$sim_sp2 <- data_temp2$group2_sim_risk
-      data_temp2$sim_sp3 <- data_temp2$group3_sim_risk
-      data_temp2$sim_sp4 <- data_temp2$group4_sim_risk
+      data_temp2$sim_sp1 <- as.numeric(data_temp2$group1_sim_risk)
+      data_temp2$sim_sp2 <- as.numeric(data_temp2$group2_sim_risk)
+      data_temp2$sim_sp3 <- as.numeric(data_temp2$group3_sim_risk)
+      data_temp2$sim_sp4 <- as.numeric(data_temp2$group4_sim_risk)
       
     }else if(input$mod_type=="M1"){
       
-      data_temp2$sim_sp1 <- data_temp2$ind.ef.g2
-      data_temp2$sim_sp2 <- data_temp2$ind.ef.g1
-      data_temp2$sim_sp3 <- data_temp2$ind.ef.g3
-      data_temp2$sim_sp4 <- data_temp2$ind.ef.g4
+      data_temp2$sim_sp1 <- as.numeric(data_temp2$ind.ef.g2)
+      data_temp2$sim_sp2 <- as.numeric(data_temp2$ind.ef.g1)
+      data_temp2$sim_sp3 <- as.numeric(data_temp2$ind.ef.g3)
+      data_temp2$sim_sp4 <- as.numeric(data_temp2$ind.ef.g4)
       
     }else if(input$mod_type=="M2"){
       
-      data_temp2$sim_sp1 <- data_temp2$ind.ef.g2
+      data_temp2$sim_sp1 <- as.numeric(data_temp2$ind.ef.g2)
       data_temp2$sim_sp2 <- NA
       data_temp2$sim_sp3 <- NA
       data_temp2$sim_sp4 <- NA
       
     }else if(input$mod_type=="M3"){
       
-      data_temp2$sim_sp1 <- data_temp2$ind.ef.g2
-      data_temp2$sim_sp2 <- data_temp2$POP_DENS_Scale
+      data_temp2$sim_sp1 <- as.numeric(data_temp2$ind.ef.g2)
+      data_temp2$sim_sp2 <- as.numeric(data_temp2$POP_DENS_Scale)
       data_temp2$sim_sp3 <- NA
       data_temp2$sim_sp4 <- NA
       
     }else if(input$mod_type=="M4"){
       
-      data_temp2$sim_sp1 <- data_temp2$ind.ef.g2
-      data_temp2$sim_sp2 <- data_temp2$Temp_Scale
+      data_temp2$sim_sp1 <- as.numeric(data_temp2$ind.ef.g2)
+      data_temp2$sim_sp2 <- as.numeric(data_temp2$Temp_Scale)
       data_temp2$sim_sp3 <- NA
       data_temp2$sim_sp4 <- NA
       
     }else if(input$mod_type=="M5"){
       
-      data_temp2$sim_sp1 <- data_temp2$ind.ef.g2
-      data_temp2$sim_sp2 <- data_temp2$POP_DENS_Scale
-      data_temp2$sim_sp3 <- data_temp2$Temp_Scale
+      data_temp2$sim_sp1 <- as.numeric(data_temp2$ind.ef.g2)
+      data_temp2$sim_sp2 <- as.numeric(data_temp2$POP_DENS_Scale)
+      data_temp2$sim_sp3 <- as.numeric(data_temp2$Temp_Scale)
       data_temp2$sim_sp4 <- NA
       
     }else if(input$mod_type=="M6"){
       
-      data_temp2$sim_sp1 <- data_temp2$ind.ef.g2
-      data_temp2$sim_sp2 <- data_temp2$Temp_Scale
-      data_temp2$sim_sp3 <- data_temp2$POP_DENS_Scale
-      data_temp2$sim_sp4 <- data_temp2$ind.ef.g1
+      data_temp2$sim_sp1 <- as.numeric(data_temp2$ind.ef.g2)
+      data_temp2$sim_sp2 <- as.numeric(data_temp2$Temp_Scale)
+      data_temp2$sim_sp3 <- as.numeric(data_temp2$POP_DENS_Scale)
+      data_temp2$sim_sp4 <- as.numeric(data_temp2$ind.ef.g1)
       
     }  
     
     data_temp2
+    browser()
   })
   
   data.plot.RME.sim <- reactive({
@@ -523,269 +524,269 @@ shinyServer(function(input, output, session) {
     
     if(input$mod_type=="M0" & input$base_type=="DIF"){
       
-      data_temp2$sim_rme1 <- data_risk$M0_DIF[1:3107]
-      data_temp2$sim_rme2 <- data_risk$M0_DIF[(3107+1):(3107*2)]
-      data_temp2$sim_rme3 <- data_risk$M0_DIF[(3107*2+1):(3107*3)]
-      data_temp2$sim_rme4 <- data_risk$M0_DIF[(3107*3+1):(3107*4)]
+      data_temp2$sim_rme1 <- as.numeric(data_risk$M0_DIF[1:3107])
+      data_temp2$sim_rme2 <- as.numeric(data_risk$M0_DIF[(3107+1):(3107*2)])
+      data_temp2$sim_rme3 <- as.numeric(data_risk$M0_DIF[(3107*2+1):(3107*3)])
+      data_temp2$sim_rme4 <- as.numeric(data_risk$M0_DIF[(3107*3+1):(3107*4)])
       
     }else if(input$mod_type=="M0" & input$base_type=="SIM"){
       
-      data_temp2$sim_rme1 <- data_risk$M0_SIM[1:3107]
-      data_temp2$sim_rme2 <- data_risk$M0_SIM[(3107+1):(3107*2)]
-      data_temp2$sim_rme3 <- data_risk$M0_SIM[(3107*2+1):(3107*3)]
-      data_temp2$sim_rme4 <- data_risk$M0_SIM[(3107*3+1):(3107*4)]
+      data_temp2$sim_rme1 <- as.numeric(data_risk$M0_SIM[1:3107])
+      data_temp2$sim_rme2 <- as.numeric(data_risk$M0_SIM[(3107+1):(3107*2)])
+      data_temp2$sim_rme3 <- as.numeric(data_risk$M0_SIM[(3107*2+1):(3107*3)])
+      data_temp2$sim_rme4 <- as.numeric(data_risk$M0_SIM[(3107*3+1):(3107*4)])
       
     }else if(input$mod_type=="M1" & input$base_type=="SIM" & input$risk_version=="v1"){
       
-      data_temp2$sim_rme1 <- data_risk$M1_SIM_V1[1:3107]
-      data_temp2$sim_rme2 <- data_risk$M1_SIM_V1[(3107+1):(3107*2)]
-      data_temp2$sim_rme3 <- data_risk$M1_SIM_V1[(3107*2+1):(3107*3)]
-      data_temp2$sim_rme4 <- data_risk$M1_SIM_V1[(3107*3+1):(3107*4)]
+      data_temp2$sim_rme1 <- as.numeric(data_risk$M1_SIM_V1[1:3107])
+      data_temp2$sim_rme2 <- as.numeric(data_risk$M1_SIM_V1[(3107+1):(3107*2)])
+      data_temp2$sim_rme3 <- as.numeric(data_risk$M1_SIM_V1[(3107*2+1):(3107*3)])
+      data_temp2$sim_rme4 <- as.numeric(data_risk$M1_SIM_V1[(3107*3+1):(3107*4)])
       
     }else if(input$mod_type=="M1" & input$base_type=="SIM" & input$risk_version=="v2"){
       
-      data_temp2$sim_rme1 <- data_risk$M1_SIM_V2[1:3107]
-      data_temp2$sim_rme2 <- data_risk$M1_SIM_V2[(3107+1):(3107*2)]
-      data_temp2$sim_rme3 <- data_risk$M1_SIM_V2[(3107*2+1):(3107*3)]
-      data_temp2$sim_rme4 <- data_risk$M1_SIM_V2[(3107*3+1):(3107*4)]
+      data_temp2$sim_rme1 <- as.numeric(data_risk$M1_SIM_V2[1:3107])
+      data_temp2$sim_rme2 <- as.numeric(data_risk$M1_SIM_V2[(3107+1):(3107*2)])
+      data_temp2$sim_rme3 <- as.numeric(data_risk$M1_SIM_V2[(3107*2+1):(3107*3)])
+      data_temp2$sim_rme4 <- as.numeric(data_risk$M1_SIM_V2[(3107*3+1):(3107*4)])
       
     }else if(input$mod_type=="M1" & input$base_type=="SIM" & input$risk_version=="v3"){
       
-      data_temp2$sim_rme1 <- data_risk$M1_SIM_V3[1:3107]
-      data_temp2$sim_rme2 <- data_risk$M1_SIM_V3[(3107+1):(3107*2)]
-      data_temp2$sim_rme3 <- data_risk$M1_SIM_V3[(3107*2+1):(3107*3)]
-      data_temp2$sim_rme4 <- data_risk$M1_SIM_V3[(3107*3+1):(3107*4)]
+      data_temp2$sim_rme1 <- as.numeric(data_risk$M1_SIM_V3[1:3107])
+      data_temp2$sim_rme2 <- as.numeric(data_risk$M1_SIM_V3[(3107+1):(3107*2)])
+      data_temp2$sim_rme3 <- as.numeric(data_risk$M1_SIM_V3[(3107*2+1):(3107*3)])
+      data_temp2$sim_rme4 <- as.numeric(data_risk$M1_SIM_V3[(3107*3+1):(3107*4)])
       
     }else if(input$mod_type=="M1" & input$base_type=="DIF" & input$risk_version=="v1"){
       
-      data_temp2$sim_rme1 <- data_risk$M1_DIF_V1[1:3107]
-      data_temp2$sim_rme2 <- data_risk$M1_DIF_V1[(3107+1):(3107*2)]
-      data_temp2$sim_rme3 <- data_risk$M1_DIF_V1[(3107*2+1):(3107*3)]
-      data_temp2$sim_rme4 <- data_risk$M1_DIF_V1[(3107*3+1):(3107*4)]
+      data_temp2$sim_rme1 <- as.numeric(data_risk$M1_DIF_V1[1:3107])
+      data_temp2$sim_rme2 <- as.numeric(data_risk$M1_DIF_V1[(3107+1):(3107*2)])
+      data_temp2$sim_rme3 <- as.numeric(data_risk$M1_DIF_V1[(3107*2+1):(3107*3)])
+      data_temp2$sim_rme4 <- as.numeric(data_risk$M1_DIF_V1[(3107*3+1):(3107*4)])
       
     }else if(input$mod_type=="M1" & input$base_type=="DIF" & input$risk_version=="v2"){
       
-      data_temp2$sim_rme1 <- data_risk$M1_DIF_V2[1:3107]
-      data_temp2$sim_rme2 <- data_risk$M1_DIF_V2[(3107+1):(3107*2)]
-      data_temp2$sim_rme3 <- data_risk$M1_DIF_V2[(3107*2+1):(3107*3)]
-      data_temp2$sim_rme4 <- data_risk$M1_DIF_V2[(3107*3+1):(3107*4)]
+      data_temp2$sim_rme1 <- as.numeric(data_risk$M1_DIF_V2[1:3107])
+      data_temp2$sim_rme2 <- as.numeric(data_risk$M1_DIF_V2[(3107+1):(3107*2)])
+      data_temp2$sim_rme3 <- as.numeric(data_risk$M1_DIF_V2[(3107*2+1):(3107*3)])
+      data_temp2$sim_rme4 <- as.numeric(data_risk$M1_DIF_V2[(3107*3+1):(3107*4)])
       
     }else if(input$mod_type=="M1" & input$base_type=="DIF" & input$risk_version=="v3"){
       
-      data_temp2$sim_rme1 <- data_risk$M1_DIF_V3[1:3107]
-      data_temp2$sim_rme2 <- data_risk$M1_DIF_V3[(3107+1):(3107*2)]
-      data_temp2$sim_rme3 <- data_risk$M1_DIF_V3[(3107*2+1):(3107*3)]
-      data_temp2$sim_rme4 <- data_risk$M1_DIF_V3[(3107*3+1):(3107*4)]
+      data_temp2$sim_rme1 <- as.numeric(data_risk$M1_DIF_V3[1:3107])
+      data_temp2$sim_rme2 <- as.numeric(data_risk$M1_DIF_V3[(3107+1):(3107*2)])
+      data_temp2$sim_rme3 <- as.numeric(data_risk$M1_DIF_V3[(3107*2+1):(3107*3)])
+      data_temp2$sim_rme4 <- as.numeric(data_risk$M1_DIF_V3[(3107*3+1):(3107*4)])
       
     }else if(input$mod_type=="M2" & input$base_type=="SIM" & input$risk_version=="v1"){
       
-      data_temp2$sim_rme1 <- data_risk$M2_SIM_V1[1:3107]
-      data_temp2$sim_rme2 <- data_risk$M2_SIM_V1[(3107+1):(3107*2)]
-      data_temp2$sim_rme3 <- data_risk$M2_SIM_V1[(3107*2+1):(3107*3)]
-      data_temp2$sim_rme4 <- data_risk$M2_SIM_V1[(3107*3+1):(3107*4)]
+      data_temp2$sim_rme1 <- as.numeric(data_risk$M2_SIM_V1[1:3107])
+      data_temp2$sim_rme2 <- as.numeric(data_risk$M2_SIM_V1[(3107+1):(3107*2)])
+      data_temp2$sim_rme3 <- as.numeric(data_risk$M2_SIM_V1[(3107*2+1):(3107*3)])
+      data_temp2$sim_rme4 <- as.numeric(data_risk$M2_SIM_V1[(3107*3+1):(3107*4)])
       
     }else if(input$mod_type=="M2" & input$base_type=="SIM" & input$risk_version=="v2"){
       
-      data_temp2$sim_rme1 <- data_risk$M2_SIM_V2[1:3107]
-      data_temp2$sim_rme2 <- data_risk$M2_SIM_V2[(3107+1):(3107*2)]
-      data_temp2$sim_rme3 <- data_risk$M2_SIM_V2[(3107*2+1):(3107*3)]
-      data_temp2$sim_rme4 <- data_risk$M2_SIM_V2[(3107*3+1):(3107*4)]
+      data_temp2$sim_rme1 <- as.numeric(data_risk$M2_SIM_V2[1:3107])
+      data_temp2$sim_rme2 <- as.numeric(data_risk$M2_SIM_V2[(3107+1):(3107*2)])
+      data_temp2$sim_rme3 <- as.numeric(data_risk$M2_SIM_V2[(3107*2+1):(3107*3)])
+      data_temp2$sim_rme4 <- as.numeric(data_risk$M2_SIM_V2[(3107*3+1):(3107*4)])
       
     }else if(input$mod_type=="M2" & input$base_type=="SIM" & input$risk_version=="v3"){
       
-      data_temp2$sim_rme1 <- data_risk$M2_SIM_V3[1:3107]
-      data_temp2$sim_rme2 <- data_risk$M2_SIM_V3[(3107+1):(3107*2)]
-      data_temp2$sim_rme3 <- data_risk$M2_SIM_V3[(3107*2+1):(3107*3)]
-      data_temp2$sim_rme4 <- data_risk$M2_SIM_V3[(3107*3+1):(3107*4)]
+      data_temp2$sim_rme1 <- as.numeric(data_risk$M2_SIM_V3[1:3107])
+      data_temp2$sim_rme2 <- as.numeric(data_risk$M2_SIM_V3[(3107+1):(3107*2)])
+      data_temp2$sim_rme3 <- as.numeric(data_risk$M2_SIM_V3[(3107*2+1):(3107*3)])
+      data_temp2$sim_rme4 <- as.numeric(data_risk$M2_SIM_V3[(3107*3+1):(3107*4)])
       
     }else if(input$mod_type=="M2" & input$base_type=="DIF" & input$risk_version=="v1"){
       
-      data_temp2$sim_rme1 <- data_risk$M2_DIF_V1[1:3107]
-      data_temp2$sim_rme2 <- data_risk$M2_DIF_V1[(3107+1):(3107*2)]
-      data_temp2$sim_rme3 <- data_risk$M2_DIF_V1[(3107*2+1):(3107*3)]
-      data_temp2$sim_rme4 <- data_risk$M2_DIF_V1[(3107*3+1):(3107*4)]
+      data_temp2$sim_rme1 <- as.numeric(data_risk$M2_DIF_V1[1:3107])
+      data_temp2$sim_rme2 <- as.numeric(data_risk$M2_DIF_V1[(3107+1):(3107*2)])
+      data_temp2$sim_rme3 <- as.numeric(data_risk$M2_DIF_V1[(3107*2+1):(3107*3)])
+      data_temp2$sim_rme4 <- as.numeric(data_risk$M2_DIF_V1[(3107*3+1):(3107*4)])
       
     }else if(input$mod_type=="M2" & input$base_type=="DIF" & input$risk_version=="v2"){
       
-      data_temp2$sim_rme1 <- data_risk$M2_DIF_V2[1:3107]
-      data_temp2$sim_rme2 <- data_risk$M2_DIF_V2[(3107+1):(3107*2)]
-      data_temp2$sim_rme3 <- data_risk$M2_DIF_V2[(3107*2+1):(3107*3)]
-      data_temp2$sim_rme4 <- data_risk$M2_DIF_V2[(3107*3+1):(3107*4)]
+      data_temp2$sim_rme1 <- as.numeric(data_risk$M2_DIF_V2[1:3107])
+      data_temp2$sim_rme2 <- as.numeric(data_risk$M2_DIF_V2[(3107+1):(3107*2)])
+      data_temp2$sim_rme3 <- as.numeric(data_risk$M2_DIF_V2[(3107*2+1):(3107*3)])
+      data_temp2$sim_rme4 <- as.numeric(data_risk$M2_DIF_V2[(3107*3+1):(3107*4)])
       
     }else if(input$mod_type=="M2" & input$base_type=="DIF" & input$risk_version=="v3"){
       
-      data_temp2$sim_rme1 <- data_risk$M2_DIF_V3[1:3107]
-      data_temp2$sim_rme2 <- data_risk$M2_DIF_V3[(3107+1):(3107*2)]
-      data_temp2$sim_rme3 <- data_risk$M2_DIF_V3[(3107*2+1):(3107*3)]
-      data_temp2$sim_rme4 <- data_risk$M2_DIF_V3[(3107*3+1):(3107*4)]
+      data_temp2$sim_rme1 <- as.numeric(data_risk$M2_DIF_V3[1:3107])
+      data_temp2$sim_rme2 <- as.numeric(data_risk$M2_DIF_V3[(3107+1):(3107*2)])
+      data_temp2$sim_rme3 <- as.numeric(data_risk$M2_DIF_V3[(3107*2+1):(3107*3)])
+      data_temp2$sim_rme4 <- as.numeric(data_risk$M2_DIF_V3[(3107*3+1):(3107*4)])
       
     }else if(input$mod_type=="M3" & input$base_type=="SIM" & input$risk_version=="v1"){
       
-      data_temp2$sim_rme1 <- data_risk$M3_SIM_V1[1:3107]
-      data_temp2$sim_rme2 <- data_risk$M3_SIM_V1[(3107+1):(3107*2)]
-      data_temp2$sim_rme3 <- data_risk$M3_SIM_V1[(3107*2+1):(3107*3)]
-      data_temp2$sim_rme4 <- data_risk$M3_SIM_V1[(3107*3+1):(3107*4)]
+      data_temp2$sim_rme1 <- as.numeric(data_risk$M3_SIM_V1[1:3107])
+      data_temp2$sim_rme2 <- as.numeric(data_risk$M3_SIM_V1[(3107+1):(3107*2)])
+      data_temp2$sim_rme3 <- as.numeric(data_risk$M3_SIM_V1[(3107*2+1):(3107*3)])
+      data_temp2$sim_rme4 <- as.numeric(data_risk$M3_SIM_V1[(3107*3+1):(3107*4)])
       
     }else if(input$mod_type=="M3" & input$base_type=="SIM" & input$risk_version=="v2"){
       
-      data_temp2$sim_rme1 <- data_risk$M3_SIM_V2[1:3107]
-      data_temp2$sim_rme2 <- data_risk$M3_SIM_V2[(3107+1):(3107*2)]
-      data_temp2$sim_rme3 <- data_risk$M3_SIM_V2[(3107*2+1):(3107*3)]
-      data_temp2$sim_rme4 <- data_risk$M3_SIM_V2[(3107*3+1):(3107*4)]
+      data_temp2$sim_rme1 <- as.numeric(data_risk$M3_SIM_V2[1:3107])
+      data_temp2$sim_rme2 <- as.numeric(data_risk$M3_SIM_V2[(3107+1):(3107*2)])
+      data_temp2$sim_rme3 <- as.numeric(data_risk$M3_SIM_V2[(3107*2+1):(3107*3)])
+      data_temp2$sim_rme4 <- as.numeric(data_risk$M3_SIM_V2[(3107*3+1):(3107*4)])
       
     }else if(input$mod_type=="M3" & input$base_type=="SIM" & input$risk_version=="v3"){
       
-      data_temp2$sim_rme1 <- data_risk$M3_SIM_V3[1:3107]
-      data_temp2$sim_rme2 <- data_risk$M3_SIM_V3[(3107+1):(3107*2)]
-      data_temp2$sim_rme3 <- data_risk$M3_SIM_V3[(3107*2+1):(3107*3)]
-      data_temp2$sim_rme4 <- data_risk$M3_SIM_V3[(3107*3+1):(3107*4)]
+      data_temp2$sim_rme1 <- as.numeric(data_risk$M3_SIM_V3[1:3107])
+      data_temp2$sim_rme2 <- as.numeric(data_risk$M3_SIM_V3[(3107+1):(3107*2)])
+      data_temp2$sim_rme3 <- as.numeric(data_risk$M3_SIM_V3[(3107*2+1):(3107*3)])
+      data_temp2$sim_rme4 <- as.numeric(data_risk$M3_SIM_V3[(3107*3+1):(3107*4)])
       
     }else if(input$mod_type=="M3" & input$base_type=="DIF" & input$risk_version=="v1"){
       
-      data_temp2$sim_rme1 <- data_risk$M3_DIF_V1[1:3107]
-      data_temp2$sim_rme2 <- data_risk$M3_DIF_V1[(3107+1):(3107*2)]
-      data_temp2$sim_rme3 <- data_risk$M3_DIF_V1[(3107*2+1):(3107*3)]
-      data_temp2$sim_rme4 <- data_risk$M3_DIF_V1[(3107*3+1):(3107*4)]
+      data_temp2$sim_rme1 <- as.numeric(data_risk$M3_DIF_V1[1:3107])
+      data_temp2$sim_rme2 <- as.numeric(data_risk$M3_DIF_V1[(3107+1):(3107*2)])
+      data_temp2$sim_rme3 <- as.numeric(data_risk$M3_DIF_V1[(3107*2+1):(3107*3)])
+      data_temp2$sim_rme4 <- as.numeric(data_risk$M3_DIF_V1[(3107*3+1):(3107*4)])
       
     }else if(input$mod_type=="M3" & input$base_type=="DIF" & input$risk_version=="v2"){
       
-      data_temp2$sim_rme1 <- data_risk$M3_DIF_V2[1:3107]
-      data_temp2$sim_rme2 <- data_risk$M3_DIF_V2[(3107+1):(3107*2)]
-      data_temp2$sim_rme3 <- data_risk$M3_DIF_V2[(3107*2+1):(3107*3)]
-      data_temp2$sim_rme4 <- data_risk$M3_DIF_V2[(3107*3+1):(3107*4)]
+      data_temp2$sim_rme1 <- as.numeric(data_risk$M3_DIF_V2[1:3107])
+      data_temp2$sim_rme2 <- as.numeric(data_risk$M3_DIF_V2[(3107+1):(3107*2)])
+      data_temp2$sim_rme3 <- as.numeric(data_risk$M3_DIF_V2[(3107*2+1):(3107*3)])
+      data_temp2$sim_rme4 <- as.numeric(data_risk$M3_DIF_V2[(3107*3+1):(3107*4)])
       
     }else if(input$mod_type=="M3" & input$base_type=="DIF" & input$risk_version=="v3"){
       
-      data_temp2$sim_rme1 <- data_risk$M3_DIF_V3[1:3107]
-      data_temp2$sim_rme2 <- data_risk$M3_DIF_V3[(3107+1):(3107*2)]
-      data_temp2$sim_rme3 <- data_risk$M3_DIF_V3[(3107*2+1):(3107*3)]
-      data_temp2$sim_rme4 <- data_risk$M3_DIF_V3[(3107*3+1):(3107*4)]
+      data_temp2$sim_rme1 <- as.numeric(data_risk$M3_DIF_V3[1:3107])
+      data_temp2$sim_rme2 <- as.numeric(data_risk$M3_DIF_V3[(3107+1):(3107*2)])
+      data_temp2$sim_rme3 <- as.numeric(data_risk$M3_DIF_V3[(3107*2+1):(3107*3)])
+      data_temp2$sim_rme4 <- as.numeric(data_risk$M3_DIF_V3[(3107*3+1):(3107*4)])
       
     }else if(input$mod_type=="M4" & input$base_type=="SIM" & input$risk_version=="v1"){
       
-      data_temp2$sim_rme1 <- data_risk$M4_SIM_V1[1:3107]
-      data_temp2$sim_rme2 <- data_risk$M4_SIM_V1[(3107+1):(3107*2)]
-      data_temp2$sim_rme3 <- data_risk$M4_SIM_V1[(3107*2+1):(3107*3)]
-      data_temp2$sim_rme4 <- data_risk$M4_SIM_V1[(3107*3+1):(3107*4)]
+      data_temp2$sim_rme1 <- as.numeric(data_risk$M4_SIM_V1[1:3107])
+      data_temp2$sim_rme2 <- as.numeric(data_risk$M4_SIM_V1[(3107+1):(3107*2)])
+      data_temp2$sim_rme3 <- as.numeric(data_risk$M4_SIM_V1[(3107*2+1):(3107*3)])
+      data_temp2$sim_rme4 <- as.numeric(data_risk$M4_SIM_V1[(3107*3+1):(3107*4)])
       
     }else if(input$mod_type=="M4" & input$base_type=="SIM" & input$risk_version=="v2"){
       
-      data_temp2$sim_rme1 <- data_risk$M4_SIM_V2[1:3107]
-      data_temp2$sim_rme2 <- data_risk$M4_SIM_V2[(3107+1):(3107*2)]
-      data_temp2$sim_rme3 <- data_risk$M4_SIM_V2[(3107*2+1):(3107*3)]
-      data_temp2$sim_rme4 <- data_risk$M4_SIM_V2[(3107*3+1):(3107*4)]
+      data_temp2$sim_rme1 <- as.numeric(data_risk$M4_SIM_V2[1:3107])
+      data_temp2$sim_rme2 <- as.numeric(data_risk$M4_SIM_V2[(3107+1):(3107*2)])
+      data_temp2$sim_rme3 <- as.numeric(data_risk$M4_SIM_V2[(3107*2+1):(3107*3)])
+      data_temp2$sim_rme4 <- as.numeric(data_risk$M4_SIM_V2[(3107*3+1):(3107*4)])
       
     }else if(input$mod_type=="M4" & input$base_type=="SIM" & input$risk_version=="v3"){
       
-      data_temp2$sim_rme1 <- data_risk$M4_SIM_V3[1:3107]
-      data_temp2$sim_rme2 <- data_risk$M4_SIM_V3[(3107+1):(3107*2)]
-      data_temp2$sim_rme3 <- data_risk$M4_SIM_V3[(3107*2+1):(3107*3)]
-      data_temp2$sim_rme4 <- data_risk$M4_SIM_V3[(3107*3+1):(3107*4)]
+      data_temp2$sim_rme1 <- as.numeric(data_risk$M4_SIM_V3[1:3107])
+      data_temp2$sim_rme2 <- as.numeric(data_risk$M4_SIM_V3[(3107+1):(3107*2)])
+      data_temp2$sim_rme3 <- as.numeric(data_risk$M4_SIM_V3[(3107*2+1):(3107*3)])
+      data_temp2$sim_rme4 <- as.numeric(data_risk$M4_SIM_V3[(3107*3+1):(3107*4)])
       
     }else if(input$mod_type=="M4" & input$base_type=="DIF" & input$risk_version=="v1"){
       
-      data_temp2$sim_rme1 <- data_risk$M4_DIF_V1[1:3107]
-      data_temp2$sim_rme2 <- data_risk$M4_DIF_V1[(3107+1):(3107*2)]
-      data_temp2$sim_rme3 <- data_risk$M4_DIF_V1[(3107*2+1):(3107*3)]
-      data_temp2$sim_rme4 <- data_risk$M4_DIF_V1[(3107*3+1):(3107*4)]
+      data_temp2$sim_rme1 <- as.numeric(data_risk$M4_DIF_V1[1:3107])
+      data_temp2$sim_rme2 <- as.numeric(data_risk$M4_DIF_V1[(3107+1):(3107*2)])
+      data_temp2$sim_rme3 <- as.numeric(data_risk$M4_DIF_V1[(3107*2+1):(3107*3)])
+      data_temp2$sim_rme4 <- as.numeric(data_risk$M4_DIF_V1[(3107*3+1):(3107*4)])
       
     }else if(input$mod_type=="M4" & input$base_type=="DIF" & input$risk_version=="v2"){
       
-      data_temp2$sim_rme1 <- data_risk$M4_DIF_V2[1:3107]
-      data_temp2$sim_rme2 <- data_risk$M4_DIF_V2[(3107+1):(3107*2)]
-      data_temp2$sim_rme3 <- data_risk$M4_DIF_V2[(3107*2+1):(3107*3)]
-      data_temp2$sim_rme4 <- data_risk$M4_DIF_V2[(3107*3+1):(3107*4)]
+      data_temp2$sim_rme1 <- as.numeric(data_risk$M4_DIF_V2[1:3107])
+      data_temp2$sim_rme2 <- as.numeric(data_risk$M4_DIF_V2[(3107+1):(3107*2)])
+      data_temp2$sim_rme3 <- as.numeric(data_risk$M4_DIF_V2[(3107*2+1):(3107*3)])
+      data_temp2$sim_rme4 <- as.numeric(data_risk$M4_DIF_V2[(3107*3+1):(3107*4)])
       
     }else if(input$mod_type=="M4" & input$base_type=="DIF" & input$risk_version=="v3"){
       
-      data_temp2$sim_rme1 <- data_risk$M4_DIF_V3[1:3107]
-      data_temp2$sim_rme2 <- data_risk$M4_DIF_V3[(3107+1):(3107*2)]
-      data_temp2$sim_rme3 <- data_risk$M4_DIF_V3[(3107*2+1):(3107*3)]
-      data_temp2$sim_rme4 <- data_risk$M4_DIF_V3[(3107*3+1):(3107*4)]
+      data_temp2$sim_rme1 <- as.numeric(data_risk$M4_DIF_V3[1:3107])
+      data_temp2$sim_rme2 <- as.numeric(data_risk$M4_DIF_V3[(3107+1):(3107*2)])
+      data_temp2$sim_rme3 <- as.numeric(data_risk$M4_DIF_V3[(3107*2+1):(3107*3)])
+      data_temp2$sim_rme4 <- as.numeric(data_risk$M4_DIF_V3[(3107*3+1):(3107*4)])
       
     }else if(input$mod_type=="M5" & input$base_type=="SIM" & input$risk_version=="v1"){
       
-      data_temp2$sim_rme1 <- data_risk$M5_SIM_V1[1:3107]
-      data_temp2$sim_rme2 <- data_risk$M5_SIM_V1[(3107+1):(3107*2)]
-      data_temp2$sim_rme3 <- data_risk$M5_SIM_V1[(3107*2+1):(3107*3)]
-      data_temp2$sim_rme4 <- data_risk$M5_SIM_V1[(3107*3+1):(3107*4)]
+      data_temp2$sim_rme1 <- as.numeric(data_risk$M5_SIM_V1[1:3107])
+      data_temp2$sim_rme2 <- as.numeric(data_risk$M5_SIM_V1[(3107+1):(3107*2)])
+      data_temp2$sim_rme3 <- as.numeric(data_risk$M5_SIM_V1[(3107*2+1):(3107*3)])
+      data_temp2$sim_rme4 <- as.numeric(data_risk$M5_SIM_V1[(3107*3+1):(3107*4)])
       
     }else if(input$mod_type=="M5" & input$base_type=="SIM" & input$risk_version=="v2"){
       
-      data_temp2$sim_rme1 <- data_risk$M5_SIM_V2[1:3107]
-      data_temp2$sim_rme2 <- data_risk$M5_SIM_V2[(3107+1):(3107*2)]
-      data_temp2$sim_rme3 <- data_risk$M5_SIM_V2[(3107*2+1):(3107*3)]
-      data_temp2$sim_rme4 <- data_risk$M5_SIM_V2[(3107*3+1):(3107*4)]
+      data_temp2$sim_rme1 <- as.numeric(data_risk$M5_SIM_V2[1:3107])
+      data_temp2$sim_rme2 <- as.numeric(data_risk$M5_SIM_V2[(3107+1):(3107*2)])
+      data_temp2$sim_rme3 <- as.numeric(data_risk$M5_SIM_V2[(3107*2+1):(3107*3)])
+      data_temp2$sim_rme4 <- as.numeric(data_risk$M5_SIM_V2[(3107*3+1):(3107*4)])
       
     }else if(input$mod_type=="M5" & input$base_type=="SIM" & input$risk_version=="v3"){
       
-      data_temp2$sim_rme1 <- data_risk$M5_SIM_V3[1:3107]
-      data_temp2$sim_rme2 <- data_risk$M5_SIM_V3[(3107+1):(3107*2)]
-      data_temp2$sim_rme3 <- data_risk$M5_SIM_V3[(3107*2+1):(3107*3)]
-      data_temp2$sim_rme4 <- data_risk$M5_SIM_V3[(3107*3+1):(3107*4)]
+      data_temp2$sim_rme1 <- as.numeric(data_risk$M5_SIM_V3[1:3107])
+      data_temp2$sim_rme2 <- as.numeric(data_risk$M5_SIM_V3[(3107+1):(3107*2)])
+      data_temp2$sim_rme3 <- as.numeric(data_risk$M5_SIM_V3[(3107*2+1):(3107*3)])
+      data_temp2$sim_rme4 <- as.numeric(data_risk$M5_SIM_V3[(3107*3+1):(3107*4)])
       
     }else if(input$mod_type=="M5" & input$base_type=="DIF" & input$risk_version=="v1"){
       
-      data_temp2$sim_rme1 <- data_risk$M5_DIF_V1[1:3107]
-      data_temp2$sim_rme2 <- data_risk$M5_DIF_V1[(3107+1):(3107*2)]
-      data_temp2$sim_rme3 <- data_risk$M5_DIF_V1[(3107*2+1):(3107*3)]
-      data_temp2$sim_rme4 <- data_risk$M5_DIF_V1[(3107*3+1):(3107*4)]
+      data_temp2$sim_rme1 <- as.numeric(data_risk$M5_DIF_V1[1:3107])
+      data_temp2$sim_rme2 <- as.numeric(data_risk$M5_DIF_V1[(3107+1):(3107*2)])
+      data_temp2$sim_rme3 <- as.numeric(data_risk$M5_DIF_V1[(3107*2+1):(3107*3)])
+      data_temp2$sim_rme4 <- as.numeric(data_risk$M5_DIF_V1[(3107*3+1):(3107*4)])
       
     }else if(input$mod_type=="M5" & input$base_type=="DIF" & input$risk_version=="v2"){
       
-      data_temp2$sim_rme1 <- data_risk$M5_DIF_V2[1:3107]
-      data_temp2$sim_rme2 <- data_risk$M5_DIF_V2[(3107+1):(3107*2)]
-      data_temp2$sim_rme3 <- data_risk$M5_DIF_V2[(3107*2+1):(3107*3)]
-      data_temp2$sim_rme4 <- data_risk$M5_DIF_V2[(3107*3+1):(3107*4)]
+      data_temp2$sim_rme1 <- as.numeric(data_risk$M5_DIF_V2[1:3107])
+      data_temp2$sim_rme2 <- as.numeric(data_risk$M5_DIF_V2[(3107+1):(3107*2)])
+      data_temp2$sim_rme3 <- as.numeric(data_risk$M5_DIF_V2[(3107*2+1):(3107*3)])
+      data_temp2$sim_rme4 <- as.numeric(data_risk$M5_DIF_V2[(3107*3+1):(3107*4)])
       
     }else if(input$mod_type=="M5" & input$base_type=="DIF" & input$risk_version=="v3"){
       
-      data_temp2$sim_rme1 <- data_risk$M5_DIF_V3[1:3107]
-      data_temp2$sim_rme2 <- data_risk$M5_DIF_V3[(3107+1):(3107*2)]
-      data_temp2$sim_rme3 <- data_risk$M5_DIF_V3[(3107*2+1):(3107*3)]
-      data_temp2$sim_rme4 <- data_risk$M5_DIF_V3[(3107*3+1):(3107*4)]
+      data_temp2$sim_rme1 <- as.numeric(data_risk$M5_DIF_V3[1:3107])
+      data_temp2$sim_rme2 <- as.numeric(data_risk$M5_DIF_V3[(3107+1):(3107*2)])
+      data_temp2$sim_rme3 <- as.numeric(data_risk$M5_DIF_V3[(3107*2+1):(3107*3)])
+      data_temp2$sim_rme4 <- as.numeric(data_risk$M5_DIF_V3[(3107*3+1):(3107*4)])
       
     }else if(input$mod_type=="M6" & input$base_type=="SIM" & input$risk_version=="v1"){
       
-      data_temp2$sim_rme1 <- data_risk$M6_SIM_V1[1:3107]
-      data_temp2$sim_rme2 <- data_risk$M6_SIM_V1[(3107+1):(3107*2)]
-      data_temp2$sim_rme3 <- data_risk$M6_SIM_V1[(3107*2+1):(3107*3)]
-      data_temp2$sim_rme4 <- data_risk$M6_SIM_V1[(3107*3+1):(3107*4)]
+      data_temp2$sim_rme1 <- as.numeric(data_risk$M6_SIM_V1[1:3107])
+      data_temp2$sim_rme2 <- as.numeric(data_risk$M6_SIM_V1[(3107+1):(3107*2)])
+      data_temp2$sim_rme3 <- as.numeric(data_risk$M6_SIM_V1[(3107*2+1):(3107*3)])
+      data_temp2$sim_rme4 <- as.numeric(data_risk$M6_SIM_V1[(3107*3+1):(3107*4)])
       
     }else if(input$mod_type=="M6" & input$base_type=="SIM" & input$risk_version=="v2"){
       
-      data_temp2$sim_rme1 <- data_risk$M6_SIM_V2[1:3107]
-      data_temp2$sim_rme2 <- data_risk$M6_SIM_V2[(3107+1):(3107*2)]
-      data_temp2$sim_rme3 <- data_risk$M6_SIM_V2[(3107*2+1):(3107*3)]
-      data_temp2$sim_rme4 <- data_risk$M6_SIM_V2[(3107*3+1):(3107*4)]
+      data_temp2$sim_rme1 <- as.numeric(data_risk$M6_SIM_V2[1:3107])
+      data_temp2$sim_rme2 <- as.numeric(data_risk$M6_SIM_V2[(3107+1):(3107*2)])
+      data_temp2$sim_rme3 <- as.numeric(data_risk$M6_SIM_V2[(3107*2+1):(3107*3)])
+      data_temp2$sim_rme4 <- as.numeric(data_risk$M6_SIM_V2[(3107*3+1):(3107*4)])
       
     }else if(input$mod_type=="M6" & input$base_type=="SIM" & input$risk_version=="v3"){
       
-      data_temp2$sim_rme1 <- data_risk$M6_SIM_V3[1:3107]
-      data_temp2$sim_rme2 <- data_risk$M6_SIM_V3[(3107+1):(3107*2)]
-      data_temp2$sim_rme3 <- data_risk$M6_SIM_V3[(3107*2+1):(3107*3)]
-      data_temp2$sim_rme4 <- data_risk$M6_SIM_V3[(3107*3+1):(3107*4)]
+      data_temp2$sim_rme1 <- as.numeric(data_risk$M6_SIM_V3[1:3107])
+      data_temp2$sim_rme2 <- as.numeric(data_risk$M6_SIM_V3[(3107+1):(3107*2)])
+      data_temp2$sim_rme3 <- as.numeric(data_risk$M6_SIM_V3[(3107*2+1):(3107*3)])
+      data_temp2$sim_rme4 <- as.numeric(data_risk$M6_SIM_V3[(3107*3+1):(3107*4)])
       
     }else if(input$mod_type=="M6" & input$base_type=="DIF" & input$risk_version=="v1"){
       
-      data_temp2$sim_rme1 <- data_risk$M6_DIF_V1[1:3107]
-      data_temp2$sim_rme2 <- data_risk$M6_DIF_V1[(3107+1):(3107*2)]
-      data_temp2$sim_rme3 <- data_risk$M6_DIF_V1[(3107*2+1):(3107*3)]
-      data_temp2$sim_rme4 <- data_risk$M6_DIF_V1[(3107*3+1):(3107*4)]
+      data_temp2$sim_rme1 <- as.numeric(data_risk$M6_DIF_V1[1:3107])
+      data_temp2$sim_rme2 <- as.numeric(data_risk$M6_DIF_V1[(3107+1):(3107*2)])
+      data_temp2$sim_rme3 <- as.numeric(data_risk$M6_DIF_V1[(3107*2+1):(3107*3)])
+      data_temp2$sim_rme4 <- as.numeric(data_risk$M6_DIF_V1[(3107*3+1):(3107*4)])
       
     }else if(input$mod_type=="M6" & input$base_type=="DIF" & input$risk_version=="v2"){
       
-      data_temp2$sim_rme1 <- data_risk$M6_DIF_V2[1:3107]
-      data_temp2$sim_rme2 <- data_risk$M6_DIF_V2[(3107+1):(3107*2)]
-      data_temp2$sim_rme3 <- data_risk$M6_DIF_V2[(3107*2+1):(3107*3)]
-      data_temp2$sim_rme4 <- data_risk$M6_DIF_V2[(3107*3+1):(3107*4)]
+      data_temp2$sim_rme1 <- as.numeric(data_risk$M6_DIF_V2[1:3107])
+      data_temp2$sim_rme2 <- as.numeric(data_risk$M6_DIF_V2[(3107+1):(3107*2)])
+      data_temp2$sim_rme3 <- as.numeric(data_risk$M6_DIF_V2[(3107*2+1):(3107*3)])
+      data_temp2$sim_rme4 <- as.numeric(data_risk$M6_DIF_V2[(3107*3+1):(3107*4)])
       
     }else if(input$mod_type=="M6" & input$base_type=="DIF" & input$risk_version=="v3"){
       
-      data_temp2$sim_rme1 <- data_risk$M6_DIF_V3[1:3107]
-      data_temp2$sim_rme2 <- data_risk$M6_DIF_V3[(3107+1):(3107*2)]
-      data_temp2$sim_rme3 <- data_risk$M6_DIF_V3[(3107*2+1):(3107*3)]
-      data_temp2$sim_rme4 <- data_risk$M6_DIF_V3[(3107*3+1):(3107*4)]
+      data_temp2$sim_rme1 <- as.numeric(data_risk$M6_DIF_V3[1:3107])
+      data_temp2$sim_rme2 <- as.numeric(data_risk$M6_DIF_V3[(3107+1):(3107*2)])
+      data_temp2$sim_rme3 <- as.numeric(data_risk$M6_DIF_V3[(3107*2+1):(3107*3)])
+      data_temp2$sim_rme4 <- as.numeric(data_risk$M6_DIF_V3[(3107*3+1):(3107*4)])
       
     }
     
@@ -1173,7 +1174,7 @@ shinyServer(function(input, output, session) {
   }, height = 1500))
   
   observeEvent(input$action, output$plot_sp_sim <- renderPlot({
-    browser()
+    
     if(input$sp_ef_mod=="M0"){
       
       fig1.1 <- plot_spef(sf_obj = data.plot.sp.sim(), fill_by = "sim_sp1", title = "Simulated Spatial Effect 1")
@@ -1298,8 +1299,6 @@ shinyServer(function(input, output, session) {
     data_mod
     
   })
-    
-    
   
   output$plot_sp <- renderPlot({
     
@@ -1341,7 +1340,6 @@ shinyServer(function(input, output, session) {
 
   
   } , height = 500)
-  
   
   ###################################
   data.table_sense <- reactive({
@@ -1412,19 +1410,16 @@ shinyServer(function(input, output, session) {
     
   })
   
-  
-  
   data.sense <- reactive({
     if(input$mod_type_sens=="M0"){ 
       n_mod <- paste0(input$mod_type_sens, "_", input$base_type_sens, "_SpANOVA") 
-      data_temp <- hyperpam_dbs %>% filter(mod_spec==n_mod)
+      data_temp <- hyperpam_dbs %>% mutate(sim_type = gsub(" ref:", "", sim_type), sim_type = gsub("ref: ", "", sim_type)) %>% filter(mod_spec==n_mod)
       }else{
       n_mod <- paste0(input$mod_type_sens, "_", input$base_type_sens, "_SpANOVA", "_", input$risk_version_sens)
-      data_temp <- hyperpam_dbs %>% filter(mod_spec==n_mod)
+      data_temp <- hyperpam_dbs %>% mutate(sim_type = gsub(" ref:", "", sim_type), sim_type = gsub("ref: ", "", sim_type)) %>% filter(mod_spec==n_mod)
       }
     data_temp
   })
-  
   
   output$plot_m1_sens <- renderPlot({
     
@@ -1443,26 +1438,26 @@ shinyServer(function(input, output, session) {
     fig1 <- ggplot(data = data_fig1) +
       geom_point(aes(x = Version, y = mean, color = Version)) + 
       geom_errorbar(aes(x = Version, ymax = `0.975quant`, ymin = `0.025quant`, color = Version)) +
-      xlab(NULL) + ylab(NULL) + ggtitle("Variance of phi_1") +
-      theme(legend.position = "none", text = element_text(size = 17))
+      xlab(NULL) + ylab(NULL) + ggtitle(bquote(bold("Variance "~phi[1]))) + 
+      theme(legend.position = "none", text = element_text(size = 17), plot.title = element_text(size=14, face= "bold", colour= "black", hjust = 0.5))
     
     fig2 <- ggplot(data = data_fig2) +
       geom_point(aes(x = Version, y = mean, color = Version)) + 
       geom_errorbar(aes(x = Version, ymax = `0.975quant`, ymin = `0.025quant`, color = Version)) +
-      xlab(NULL) + ylab(NULL) + ggtitle("Variance of phi_2") +
-      theme(legend.position = "none", text = element_text(size = 17))
+      xlab(NULL) + ylab(NULL) + ggtitle(bquote(bold("Variance "~phi[2]))) + 
+      theme(legend.position = "none", text = element_text(size = 17), plot.title = element_text(size=14, face= "bold", colour= "black", hjust = 0.5))
     
     fig3 <- ggplot(data = data_fig3) +
       geom_point(aes(x = Version, y = mean, color = Version)) + 
       geom_errorbar(aes(x = Version, ymax = `0.975quant`, ymin = `0.025quant`, color = Version)) +
-      xlab(NULL) + ylab(NULL) + ggtitle("Variance of phi_3") +
-      theme(legend.position = "none", text = element_text(size = 17))
+      xlab(NULL) + ylab(NULL) + ggtitle(bquote(bold("Variance "~phi[3]))) + 
+      theme(legend.position = "none", text = element_text(size = 17), plot.title = element_text(size=14, face= "bold", colour= "black", hjust = 0.5))
     
     fig4 <- ggplot(data = data_fig4) +
       geom_point(aes(x = Version, y = mean, color = Version)) + 
       geom_errorbar(aes(x = Version, ymax = `0.975quant`, ymin = `0.025quant`, color = Version)) +
-      xlab(NULL) + ylab(NULL) + ggtitle("Variance of phi_4") +
-      theme(legend.position = "none", text = element_text(size = 17))
+      xlab(NULL) + ylab(NULL) + ggtitle(bquote(bold("Variance "~phi[4]))) + 
+      theme(legend.position = "none", text = element_text(size = 17), plot.title = element_text(size=14, face= "bold", colour= "black", hjust = 0.5))
     
     
     grid.arrange(fig1, fig2, fig3, fig4, ncol=2)
@@ -1473,40 +1468,40 @@ shinyServer(function(input, output, session) {
   output$plot_m2_sens <- renderPlot({
     
     data_fig1 <- data.sense() %>% 
-      filter(effect=="Precision for phi_11", sim_type=="M2.(F1L1)")
+      filter(effect=="Precision for phi_11", sim_type=="M2.(F1L1-F2L1)")
     
     data_fig2 <- data.sense() %>% 
-      filter(effect=="Precision for phi_11", sim_type=="M2.(F1L2)")
+      filter(effect=="Precision for phi_11", sim_type=="M2.(F1L2-F2L1)")
     
     data_fig3 <- data.sense() %>% 
-      filter(effect=="Precision for phi_11", sim_type=="M2.(F2L1)")
+      filter(effect=="Precision for phi_11", sim_type=="M2.(F1L1-F2L2)")
     
     data_fig4 <- data.sense() %>% 
-      filter(effect=="Precision for phi_11", sim_type=="M2.(F2L2)")
+      filter(effect=="Precision for phi_11", sim_type=="M2.(F1L2-F2L2)")
     
     fig1 <- ggplot(data = data_fig1) +
       geom_point(aes(x = Version, y = mean, color = Version)) + 
       geom_errorbar(aes(x = Version, ymax = `0.975quant`, ymin = `0.025quant`, color = Version)) +
-      xlab(NULL) + ylab(NULL) + ggtitle("Variance of phi_11 - M2.(F1L1)") +
-      theme(legend.position = "none", text = element_text(size = 17))
+      xlab(NULL) + ylab(NULL) + ggtitle(bquote(bold("Variance "~phi[11]~" M2.(F1L1-F2L1)"))) +
+      theme(legend.position = "none", text = element_text(size = 17), plot.title = element_text(size=14, face= "bold", colour= "black", hjust = 0.5))
     
     fig2 <- ggplot(data = data_fig2) +
       geom_point(aes(x = Version, y = mean, color = Version)) + 
       geom_errorbar(aes(x = Version, ymax = `0.975quant`, ymin = `0.025quant`, color = Version)) +
-      xlab(NULL) + ylab(NULL) + ggtitle("Variance of phi_11 - M2.(F1L2)") +
-      theme(legend.position = "none", text = element_text(size = 17))
+      xlab(NULL) + ylab(NULL) + ggtitle(bquote(bold("Variance "~phi[11]~" M2.(F1L2-F2L1)"))) +
+      theme(legend.position = "none", text = element_text(size = 17), plot.title = element_text(size=14, face= "bold", colour= "black", hjust = 0.5))
     
     fig3 <- ggplot(data = data_fig3) +
       geom_point(aes(x = Version, y = mean, color = Version)) + 
       geom_errorbar(aes(x = Version, ymax = `0.975quant`, ymin = `0.025quant`, color = Version)) +
-      xlab(NULL) + ylab(NULL) + ggtitle("Variance of phi_11 - M2.(F2L1)") +
-      theme(legend.position = "none", text = element_text(size = 17))
+      xlab(NULL) + ylab(NULL) + ggtitle(bquote(bold("Variance "~phi[11]~" M2.(F1L1-F2L2)"))) +
+      theme(legend.position = "none", text = element_text(size = 17), plot.title = element_text(size=14, face= "bold", colour= "black", hjust = 0.5))
     
     fig4 <- ggplot(data = data_fig4) +
       geom_point(aes(x = Version, y = mean, color = Version)) + 
       geom_errorbar(aes(x = Version, ymax = `0.975quant`, ymin = `0.025quant`, color = Version)) +
-      xlab(NULL) + ylab(NULL) + ggtitle("Variance of phi_11 - M2.(F2L2)") +
-      theme(legend.position = "none", text = element_text(size = 17))
+      xlab(NULL) + ylab(NULL) + ggtitle(bquote(bold("Variance "~phi[11]~" M2.(F1L2-F2L2)"))) +
+      theme(legend.position = "none", text = element_text(size = 17), plot.title = element_text(size=14, face= "bold", colour= "black", hjust = 0.5))
     
     grid.arrange(fig1, fig2, fig3, fig4, ncol=2)
     
@@ -1530,26 +1525,26 @@ shinyServer(function(input, output, session) {
     fig1 <- ggplot(data = data_fig1) +
       geom_point(aes(x = Version, y = mean, color = Version)) + 
       geom_errorbar(aes(x = Version, ymax = `0.975quant`, ymin = `0.025quant`, color = Version)) +
-      xlab(NULL) + ylab(NULL) + ggtitle("Variance of phi_11 - M3.F1(F1L1)") +
-      theme(legend.position = "none", text = element_text(size = 17))
+      xlab(NULL) + ylab(NULL) + ggtitle(bquote(bold("Variance "~phi[11]~" M3.F1(F1L1)"))) +
+      theme(legend.position = "none", text = element_text(size = 17), plot.title = element_text(size=14, face= "bold", colour= "black", hjust = 0.5))
     
     fig2 <- ggplot(data = data_fig2) +
       geom_point(aes(x = Version, y = mean, color = Version)) + 
       geom_errorbar(aes(x = Version, ymax = `0.975quant`, ymin = `0.025quant`, color = Version)) +
-      xlab(NULL) + ylab(NULL) + ggtitle("Variance of phi_21 - M3.F1(F1L1)") +
-      theme(legend.position = "none", text = element_text(size = 17))
+      xlab(NULL) + ylab(NULL) + ggtitle(bquote(bold("Variance "~phi[21]~" M3.F1(F1L1)"))) +
+      theme(legend.position = "none", text = element_text(size = 17), plot.title = element_text(size=14, face= "bold", colour= "black", hjust = 0.5))
     
     fig3 <- ggplot(data = data_fig3) +
       geom_point(aes(x = Version, y = mean, color = Version)) + 
       geom_errorbar(aes(x = Version, ymax = `0.975quant`, ymin = `0.025quant`, color = Version)) +
-      xlab(NULL) + ylab(NULL) + ggtitle("Variance of phi_11 - M3.F1(F1L2)") +
-      theme(legend.position = "none", text = element_text(size = 17))
+      xlab(NULL) + ylab(NULL) + ggtitle(bquote(bold("Variance "~phi[11]~" M3.F1(F1L2)"))) +
+      theme(legend.position = "none", text = element_text(size = 17), plot.title = element_text(size=14, face= "bold", colour= "black", hjust = 0.5))
     
     fig4 <- ggplot(data = data_fig4) +
       geom_point(aes(x = Version, y = mean, color = Version)) + 
       geom_errorbar(aes(x = Version, ymax = `0.975quant`, ymin = `0.025quant`, color = Version)) +
-      xlab(NULL) + ylab(NULL) + ggtitle("Variance of phi_21 - M3.F1(F1L2)") +
-      theme(legend.position = "none", text = element_text(size = 17))
+      xlab(NULL) + ylab(NULL) + ggtitle(bquote(bold("Variance "~phi[21]~" M3.F1(F1L2)"))) +
+      theme(legend.position = "none", text = element_text(size = 17), plot.title = element_text(size=14, face= "bold", colour= "black", hjust = 0.5))
     
     grid.arrange(fig1, fig2, fig3, fig4, ncol=2)
     
@@ -1573,26 +1568,26 @@ shinyServer(function(input, output, session) {
     fig1 <- ggplot(data = data_fig1) +
       geom_point(aes(x = Version, y = mean, color = Version)) + 
       geom_errorbar(aes(x = Version, ymax = `0.975quant`, ymin = `0.025quant`, color = Version)) +
-      xlab(NULL) + ylab(NULL) + ggtitle("Variance of phi_11 - M4.F2(F2L1)") +
-      theme(legend.position = "none", text = element_text(size = 17))
+      xlab(NULL) + ylab(NULL) + ggtitle(bquote(bold("Variance "~phi[11]~" M4.F1(F2L1)"))) +
+      theme(legend.position = "none", text = element_text(size = 17), plot.title = element_text(size=14, face= "bold", colour= "black", hjust = 0.5))
     
     fig2 <- ggplot(data = data_fig2) +
       geom_point(aes(x = Version, y = mean, color = Version)) + 
       geom_errorbar(aes(x = Version, ymax = `0.975quant`, ymin = `0.025quant`, color = Version)) +
-      xlab(NULL) + ylab(NULL) + ggtitle("Variance of phi_12 - M4.F2(F2L1)") +
-      theme(legend.position = "none", text = element_text(size = 17))
+      xlab(NULL) + ylab(NULL) + ggtitle(bquote(bold("Variance "~phi[12]~" M4.F1(F2L1)"))) +
+      theme(legend.position = "none", text = element_text(size = 17), plot.title = element_text(size=14, face= "bold", colour= "black", hjust = 0.5))
     
     fig3 <- ggplot(data = data_fig3) +
       geom_point(aes(x = Version, y = mean, color = Version)) + 
       geom_errorbar(aes(x = Version, ymax = `0.975quant`, ymin = `0.025quant`, color = Version)) +
-      xlab(NULL) + ylab(NULL) + ggtitle("Variance of phi_11 - M4.F2(F2L2)") +
-      theme(legend.position = "none", text = element_text(size = 17))
+      xlab(NULL) + ylab(NULL) + ggtitle(bquote(bold("Variance "~phi[11]~" M4.F1(F2L1)"))) +
+      theme(legend.position = "none", text = element_text(size = 17), plot.title = element_text(size=14, face= "bold", colour= "black", hjust = 0.5))
     
     fig4 <- ggplot(data = data_fig4) +
       geom_point(aes(x = Version, y = mean, color = Version)) + 
       geom_errorbar(aes(x = Version, ymax = `0.975quant`, ymin = `0.025quant`, color = Version)) +
-      xlab(NULL) + ylab(NULL) + ggtitle("Variance of phi_12 - M4.F2(F2L2)") +
-      theme(legend.position = "none", text = element_text(size = 17))
+      xlab(NULL) + ylab(NULL) + ggtitle(bquote(bold("Variance "~phi[12]~" M4.F1(F2L2)"))) +
+      theme(legend.position = "none", text = element_text(size = 17), plot.title = element_text(size=14, face= "bold", colour= "black", hjust = 0.5))
     
     grid.arrange(fig1, fig2, fig3, fig4, ncol=2)
     
@@ -1622,80 +1617,80 @@ shinyServer(function(input, output, session) {
     fig1 <- ggplot(data = data_fig1) +
       geom_point(aes(x = Version, y = mean, color = Version)) + 
       geom_errorbar(aes(x = Version, ymax = `0.975quant`, ymin = `0.025quant`, color = Version)) +
-      xlab(NULL) + ylab(NULL) + ggtitle("Variance of phi_11 - M5.F1(F1L1)+F2(F2L1)") +
-      theme(legend.position = "none", text = element_text(size = 17))
+      xlab(NULL) + ylab(NULL) + ggtitle(bquote(bold("Variance "~phi[11]~" M5.F1(F1L1)+F2(F2L1)"))) + 
+      theme(legend.position = "none", text = element_text(size = 17), plot.title = element_text(size=14, face= "bold", colour= "black", hjust = 0.5))
     
     fig2 <- ggplot(data = data_fig2) +
       geom_point(aes(x = Version, y = mean, color = Version)) + 
       geom_errorbar(aes(x = Version, ymax = `0.975quant`, ymin = `0.025quant`, color = Version)) +
-      xlab(NULL) + ylab(NULL) + ggtitle("Variance of phi_12 - M5.F1(F1L1)+F2(F2L1)") +
-      theme(legend.position = "none", text = element_text(size = 17))
+      xlab(NULL) + ylab(NULL) + ggtitle(bquote(bold("Variance "~phi[12]~" M5.F1(F1L1)+F2(F2L1)"))) + 
+      theme(legend.position = "none", text = element_text(size = 17), plot.title = element_text(size=14, face= "bold", colour= "black", hjust = 0.5))
     
     fig3 <- ggplot(data = data_fig3) +
       geom_point(aes(x = Version, y = mean, color = Version)) + 
       geom_errorbar(aes(x = Version, ymax = `0.975quant`, ymin = `0.025quant`, color = Version)) +
-      xlab(NULL) + ylab(NULL) + ggtitle("Variance of phi_11 - M5.F1(F1L1)+F2(F2L1)") +
-      theme(legend.position = "none", text = element_text(size = 17))
+      xlab(NULL) + ylab(NULL) + ggtitle(bquote(bold("Variance "~phi[21]~" M5.F1(F1L1)+F2(F2L1)"))) + 
+      theme(legend.position = "none", text = element_text(size = 17), plot.title = element_text(size=14, face= "bold", colour= "black", hjust = 0.5))
     
     #-----------------------------------------------------------------------------------------------------------#
     
     fig4 <- ggplot(data = data_fig4) +
       geom_point(aes(x = Version, y = mean, color = Version)) + 
       geom_errorbar(aes(x = Version, ymax = `0.975quant`, ymin = `0.025quant`, color = Version)) +
-      xlab(NULL) + ylab(NULL) + ggtitle("Variance of phi_12 - M5.F1(F1L2)+F2(F2L1)") +
-      theme(legend.position = "none", text = element_text(size = 17))
+      xlab(NULL) + ylab(NULL) + ggtitle(bquote(bold("Variance "~phi[11]~" M5.F1(F1L2)+F2(F2L1)"))) + 
+      theme(legend.position = "none", text = element_text(size = 17), plot.title = element_text(size=14, face= "bold", colour= "black", hjust = 0.5))
     
     fig5 <- ggplot(data = data_fig5) +
       geom_point(aes(x = Version, y = mean, color = Version)) + 
       geom_errorbar(aes(x = Version, ymax = `0.975quant`, ymin = `0.025quant`, color = Version)) +
-      xlab(NULL) + ylab(NULL) + ggtitle("Variance of phi_12 - M5.F1(F1L2)+F2(F2L1)") +
-      theme(legend.position = "none", text = element_text(size = 17))
+      xlab(NULL) + ylab(NULL) + ggtitle(bquote(bold("Variance "~phi[12]~" M5.F1(F1L2)+F2(F2L1)"))) + 
+      theme(legend.position = "none", text = element_text(size = 17), plot.title = element_text(size=14, face= "bold", colour= "black", hjust = 0.5))
     
     fig6 <- ggplot(data = data_fig6) +
       geom_point(aes(x = Version, y = mean, color = Version)) + 
       geom_errorbar(aes(x = Version, ymax = `0.975quant`, ymin = `0.025quant`, color = Version)) +
-      xlab(NULL) + ylab(NULL) + ggtitle("Variance of phi_12 - M5.F1(F1L2)+F2(F2L1)") +
-      theme(legend.position = "none", text = element_text(size = 17))
+      xlab(NULL) + ylab(NULL) + ggtitle(bquote(bold("Variance "~phi[21]~" M5.F1(F1L2)+F2(F2L1)"))) + 
+      theme(legend.position = "none", text = element_text(size = 17), plot.title = element_text(size=14, face= "bold", colour= "black", hjust = 0.5))
     
     #-----------------------------------------------------------------------------------------------------------#
     
     fig7 <- ggplot(data = data_fig7) +
       geom_point(aes(x = Version, y = mean, color = Version)) + 
       geom_errorbar(aes(x = Version, ymax = `0.975quant`, ymin = `0.025quant`, color = Version)) +
-      xlab(NULL) + ylab(NULL) + ggtitle("Variance of phi_12 - M5.F1(F1L1)+F2(F2L2)") +
-      theme(legend.position = "none", text = element_text(size = 17))
+      xlab(NULL) + ylab(NULL) + ggtitle(bquote(bold("Variance "~phi[11]~" M5.F1(F1L1)+F2(F2L2)"))) + 
+      theme(legend.position = "none", text = element_text(size = 17), plot.title = element_text(size=14, face= "bold", colour= "black", hjust = 0.5))
     
     fig8 <- ggplot(data = data_fig8) +
       geom_point(aes(x = Version, y = mean, color = Version)) + 
       geom_errorbar(aes(x = Version, ymax = `0.975quant`, ymin = `0.025quant`, color = Version)) +
-      xlab(NULL) + ylab(NULL) + ggtitle("Variance of phi_12 - M5.F1(F1L1)+F2(F2L2)") +
-      theme(legend.position = "none", text = element_text(size = 17))
+      xlab(NULL) + ylab(NULL) + ggtitle(bquote(bold("Variance "~phi[12]~" M5.F1(F1L1)+F2(F2L2)"))) + 
+      theme(legend.position = "none", text = element_text(size = 17), plot.title = element_text(size=14, face= "bold", colour= "black", hjust = 0.5))
     
     fig9 <- ggplot(data = data_fig9) +
       geom_point(aes(x = Version, y = mean, color = Version)) + 
       geom_errorbar(aes(x = Version, ymax = `0.975quant`, ymin = `0.025quant`, color = Version)) +
-      xlab(NULL) + ylab(NULL) + ggtitle("Variance of phi_12 - M5.F1(F1L1)+F2(F2L2)") +
-      theme(legend.position = "none", text = element_text(size = 17))
+      xlab(NULL) + ylab(NULL) + ggtitle(bquote(bold("Variance "~phi[21]~" M5.F1(F1L1)+F2(F2L2)"))) + 
+      theme(legend.position = "none", text = element_text(size = 17), plot.title = element_text(size=14, face= "bold", colour= "black", hjust = 0.5))
     
     #-----------------------------------------------------------------------------------------------------------#
     
     fig10 <- ggplot(data = data_fig10) +
       geom_point(aes(x = Version, y = mean, color = Version)) + 
       geom_errorbar(aes(x = Version, ymax = `0.975quant`, ymin = `0.025quant`, color = Version)) +
-      xlab(NULL) + ylab(NULL) + ggtitle("Variance of phi_12 - M5.F1(F1L2)+F2(F2L2)") +
-      theme(legend.position = "none", text = element_text(size = 17))
+      xlab(NULL) + ylab(NULL) + ggtitle(bquote(bold("Variance "~phi[11]~" M5.F1(F1L2)+F2(F2L2)"))) + 
+      theme(legend.position = "none", text = element_text(size = 17), plot.title = element_text(size=14, face= "bold", colour= "black", hjust = 0.5))
     
     fig11 <- ggplot(data = data_fig11) +
       geom_point(aes(x = Version, y = mean, color = Version)) + 
       geom_errorbar(aes(x = Version, ymax = `0.975quant`, ymin = `0.025quant`, color = Version)) +
-      xlab(NULL) + ylab(NULL) + ggtitle("Variance of phi_12 - M5.F1(F1L2)+F2(F2L2)") +
-      theme(legend.position = "none", text = element_text(size = 17))
+      xlab(NULL) + ylab(NULL) + ggtitle(bquote(bold("Variance "~phi[12]~" M5.F1(F1L2)+F2(F2L2)"))) + 
+      theme(legend.position = "none", text = element_text(size = 17), plot.title = element_text(size=14, face= "bold", colour= "black", hjust = 0.5))
     
     fig12 <- ggplot(data = data_fig12) +
       geom_point(aes(x = Version, y = mean, color = Version)) + 
       geom_errorbar(aes(x = Version, ymax = `0.975quant`, ymin = `0.025quant`, color = Version)) +
-      xlab(NULL) + ylab(NULL) + ggtitle("Variance of phi_12 - M5.F1(F1L2)+F2(F2L2)") +
-      theme(legend.position = "none", text = element_text(size = 17))
+      xlab(NULL) + ylab(NULL) + ggtitle(bquote(bold("Variance "~phi[21]~" M5.F1(F1L2)+F2(F2L2)"))) + 
+      theme(legend.position = "none", text = element_text(size = 17), plot.title = element_text(size=14, face= "bold", colour= "black", hjust = 0.5))
     
     #-----------------------------------------------------------------------------------------------------------#
     
@@ -1751,208 +1746,208 @@ shinyServer(function(input, output, session) {
     fig1 <- ggplot(data = data_fig1) +
       geom_point(aes(x = Version, y = mean, color = Version)) + 
       geom_errorbar(aes(x = Version, ymax = `0.975quant`, ymin = `0.025quant`, color = Version)) +
-      xlab(NULL) + ylab(NULL) + ggtitle("Variance of phi_11 - M6.F1(F1L1)*F2(F2L1)") +
-      theme(legend.position = "none", text = element_text(size = 17))
+      xlab(NULL) + ylab(NULL) + ggtitle(bquote(bold("Variance "~phi[11]~" M6.F1(F1L1)+F2(F2L1)"))) + 
+      theme(legend.position = "none", text = element_text(size = 17), plot.title = element_text(size=10, face= "bold", colour= "black", hjust = 0.5))
     
     fig2 <- ggplot(data = data_fig2) +
       geom_point(aes(x = Version, y = mean, color = Version)) + 
       geom_errorbar(aes(x = Version, ymax = `0.975quant`, ymin = `0.025quant`, color = Version)) +
-      xlab(NULL) + ylab(NULL) + ggtitle("Variance of phi_12 - M6.F1(F1L1)*F2(F2L1)") +
-      theme(legend.position = "none", text = element_text(size = 17))
+      xlab(NULL) + ylab(NULL) + ggtitle(bquote(bold("Variance "~phi[12]~" M6.F1(F1L1)+F2(F2L1)"))) + 
+      theme(legend.position = "none", text = element_text(size = 17), plot.title = element_text(size=10, face= "bold", colour= "black", hjust = 0.5))
     
     fig3 <- ggplot(data = data_fig3) +
       geom_point(aes(x = Version, y = mean, color = Version)) + 
       geom_errorbar(aes(x = Version, ymax = `0.975quant`, ymin = `0.025quant`, color = Version)) +
-      xlab(NULL) + ylab(NULL) + ggtitle("Variance of phi_21 - M6.F1(F1L1)*F2(F2L1)") +
-      theme(legend.position = "none", text = element_text(size = 17))
+      xlab(NULL) + ylab(NULL) + ggtitle(bquote(bold("Variance "~phi[21]~" M6.F1(F1L1)+F2(F2L1)"))) + 
+      theme(legend.position = "none", text = element_text(size = 17), plot.title = element_text(size=10, face= "bold", colour= "black", hjust = 0.5))
     
     fig4 <- ggplot(data = data_fig4) +
       geom_point(aes(x = Version, y = mean, color = Version)) + 
       geom_errorbar(aes(x = Version, ymax = `0.975quant`, ymin = `0.025quant`, color = Version)) +
-      xlab(NULL) + ylab(NULL) + ggtitle("Variance of phi_22 - M6.F1(F1L1)*F2(F2L1)") +
-      theme(legend.position = "none", text = element_text(size = 17))
+      xlab(NULL) + ylab(NULL) + ggtitle(bquote(bold("Variance "~phi[22]~" M6.F1(F1L1)+F2(F2L1)"))) + 
+      theme(legend.position = "none", text = element_text(size = 17), plot.title = element_text(size=10, face= "bold", colour= "black", hjust = 0.5))
     
     #-----------------------------------------------------------------------------------------------------------#
     
     fig5 <- ggplot(data = data_fig5) +
       geom_point(aes(x = Version, y = mean, color = Version)) + 
       geom_errorbar(aes(x = Version, ymax = `0.975quant`, ymin = `0.025quant`, color = Version)) +
-      xlab(NULL) + ylab(NULL) + ggtitle("Variance of phi_11 - M6.F1(F1L2)+F2(F2L1)") +
-      theme(legend.position = "none", text = element_text(size = 17))
+      xlab(NULL) + ylab(NULL) + ggtitle(bquote(bold("Variance "~phi[11]~" M6.F1(F1L2)+F2(F2L1)"))) + 
+      theme(legend.position = "none", text = element_text(size = 17), plot.title = element_text(size=10, face= "bold", colour= "black", hjust = 0.5))
     
     fig6 <- ggplot(data = data_fig6) +
       geom_point(aes(x = Version, y = mean, color = Version)) + 
       geom_errorbar(aes(x = Version, ymax = `0.975quant`, ymin = `0.025quant`, color = Version)) +
-      xlab(NULL) + ylab(NULL) + ggtitle("Variance of phi_12 - M6.F1(F1L2)+F2(F2L1)") +
-      theme(legend.position = "none", text = element_text(size = 17))
+      xlab(NULL) + ylab(NULL) + ggtitle(bquote(bold("Variance "~phi[12]~" M6.F1(F1L2)+F2(F2L1)"))) + 
+      theme(legend.position = "none", text = element_text(size = 17), plot.title = element_text(size=10, face= "bold", colour= "black", hjust = 0.5))
     
     fig7 <- ggplot(data = data_fig7) +
       geom_point(aes(x = Version, y = mean, color = Version)) + 
       geom_errorbar(aes(x = Version, ymax = `0.975quant`, ymin = `0.025quant`, color = Version)) +
-      xlab(NULL) + ylab(NULL) + ggtitle("Variance of phi_21 - M6.F1(F1L2)+F2(F2L1)") +
-      theme(legend.position = "none", text = element_text(size = 17))
+      xlab(NULL) + ylab(NULL) + ggtitle(bquote(bold("Variance "~phi[21]~" M6.F1(F1L2)+F2(F2L1)"))) + 
+      theme(legend.position = "none", text = element_text(size = 17), plot.title = element_text(size=10, face= "bold", colour= "black", hjust = 0.5))
     
     fig8 <- ggplot(data = data_fig8) +
       geom_point(aes(x = Version, y = mean, color = Version)) + 
       geom_errorbar(aes(x = Version, ymax = `0.975quant`, ymin = `0.025quant`, color = Version)) +
-      xlab(NULL) + ylab(NULL) + ggtitle("Variance of phi_22 - M6.F1(F1L2)+F2(F2L1)") +
-      theme(legend.position = "none", text = element_text(size = 17))
+      xlab(NULL) + ylab(NULL) + ggtitle(bquote(bold("Variance "~phi[22]~" M6.F1(F1L2)+F2(F2L1)"))) + 
+      theme(legend.position = "none", text = element_text(size = 17), plot.title = element_text(size=10, face= "bold", colour= "black", hjust = 0.5))
     
     #-----------------------------------------------------------------------------------------------------------#
     
     fig9 <- ggplot(data = data_fig9) +
       geom_point(aes(x = Version, y = mean, color = Version)) + 
       geom_errorbar(aes(x = Version, ymax = `0.975quant`, ymin = `0.025quant`, color = Version)) +
-      xlab(NULL) + ylab(NULL) + ggtitle("Variance of phi_11 - M6.F1(F1L1)+F2(F2L2)") +
-      theme(legend.position = "none", text = element_text(size = 17))
+      xlab(NULL) + ylab(NULL) + ggtitle(bquote(bold("Variance "~phi[11]~" M6.F1(F1L1)+F2(F2L2)"))) + 
+      theme(legend.position = "none", text = element_text(size = 17), plot.title = element_text(size=10, face= "bold", colour= "black", hjust = 0.5))
     
     fig10 <- ggplot(data = data_fig10) +
       geom_point(aes(x = Version, y = mean, color = Version)) + 
       geom_errorbar(aes(x = Version, ymax = `0.975quant`, ymin = `0.025quant`, color = Version)) +
-      xlab(NULL) + ylab(NULL) + ggtitle("Variance of phi_12 - M6.F1(F1L1)+F2(F2L2)") +
-      theme(legend.position = "none", text = element_text(size = 17))
+      xlab(NULL) + ylab(NULL) + ggtitle(bquote(bold("Variance "~phi[12]~" M6.F1(F1L1)+F2(F2L2)"))) + 
+      theme(legend.position = "none", text = element_text(size = 17), plot.title = element_text(size=10, face= "bold", colour= "black", hjust = 0.5))
     
     fig11 <- ggplot(data = data_fig11) +
       geom_point(aes(x = Version, y = mean, color = Version)) + 
       geom_errorbar(aes(x = Version, ymax = `0.975quant`, ymin = `0.025quant`, color = Version)) +
-      xlab(NULL) + ylab(NULL) + ggtitle("Variance of phi_21 - M6.F1(F1L1)+F2(F2L2)") +
-      theme(legend.position = "none", text = element_text(size = 17))
+      xlab(NULL) + ylab(NULL) + ggtitle(bquote(bold("Variance "~phi[21]~" M6.F1(F1L1)+F2(F2L2)"))) + 
+      theme(legend.position = "none", text = element_text(size = 17), plot.title = element_text(size=10, face= "bold", colour= "black", hjust = 0.5))
     
     fig12 <- ggplot(data = data_fig12) +
       geom_point(aes(x = Version, y = mean, color = Version)) + 
       geom_errorbar(aes(x = Version, ymax = `0.975quant`, ymin = `0.025quant`, color = Version)) +
-      xlab(NULL) + ylab(NULL) + ggtitle("Variance of phi_22 - M6.F1(F1L1)+F2(F2L2)") +
-      theme(legend.position = "none", text = element_text(size = 17))
+      xlab(NULL) + ylab(NULL) + ggtitle(bquote(bold("Variance "~phi[22]~" M6.F1(F1L1)+F2(F2L2)"))) + 
+      theme(legend.position = "none", text = element_text(size = 17), plot.title = element_text(size=10, face= "bold", colour= "black", hjust = 0.5))
     
     #-----------------------------------------------------------------------------------------------------------#
     
     fig13 <- ggplot(data = data_fig13) +
       geom_point(aes(x = Version, y = mean, color = Version)) + 
       geom_errorbar(aes(x = Version, ymax = `0.975quant`, ymin = `0.025quant`, color = Version)) +
-      xlab(NULL) + ylab(NULL) + ggtitle("Variance of phi_11 - M6.F1(F1L2)+F2(F2L2)") +
-      theme(legend.position = "none", text = element_text(size = 17))
+      xlab(NULL) + ylab(NULL) + ggtitle(bquote(bold("Variance "~phi[11]~" M6.F1(F1L2)+F2(F2L2)"))) + 
+      theme(legend.position = "none", text = element_text(size = 17), plot.title = element_text(size=10, face= "bold", colour= "black", hjust = 0.5))
     
     fig14 <- ggplot(data = data_fig14) +
       geom_point(aes(x = Version, y = mean, color = Version)) + 
       geom_errorbar(aes(x = Version, ymax = `0.975quant`, ymin = `0.025quant`, color = Version)) +
-      xlab(NULL) + ylab(NULL) + ggtitle("Variance of phi_12 - M6.F1(F1L2)+F2(F2L2)") +
-      theme(legend.position = "none", text = element_text(size = 17))
+      xlab(NULL) + ylab(NULL) + ggtitle(bquote(bold("Variance "~phi[12]~" M6.F1(F1L2)+F2(F2L2)"))) + 
+      theme(legend.position = "none", text = element_text(size = 17), plot.title = element_text(size=10, face= "bold", colour= "black", hjust = 0.5))
     
     fig15 <- ggplot(data = data_fig15) +
       geom_point(aes(x = Version, y = mean, color = Version)) + 
       geom_errorbar(aes(x = Version, ymax = `0.975quant`, ymin = `0.025quant`, color = Version)) +
-      xlab(NULL) + ylab(NULL) + ggtitle("Variance of phi_21 - M6.F1(F1L2)+F2(F2L2)") +
-      theme(legend.position = "none", text = element_text(size = 17))
+      xlab(NULL) + ylab(NULL) + ggtitle(bquote(bold("Variance "~phi[21]~" M6.F1(F1L2)+F2(F2L2)"))) + 
+      theme(legend.position = "none", text = element_text(size = 17), plot.title = element_text(size=10, face= "bold", colour= "black", hjust = 0.5))
     
     fig16 <- ggplot(data = data_fig16) +
       geom_point(aes(x = Version, y = mean, color = Version)) + 
       geom_errorbar(aes(x = Version, ymax = `0.975quant`, ymin = `0.025quant`, color = Version)) +
-      xlab(NULL) + ylab(NULL) + ggtitle("Variance of phi_22 - M6.F1(F1L2)+F2(F2L2)") +
-      theme(legend.position = "none", text = element_text(size = 17))
+      xlab(NULL) + ylab(NULL) + ggtitle(bquote(bold("Variance "~phi[22]~" M6.F1(F1L2)+F2(F2L2)"))) + 
+      theme(legend.position = "none", text = element_text(size = 17), plot.title = element_text(size=10, face= "bold", colour= "black", hjust = 0.5))
     
     #-----------------------------------------------------------------------------------------------------------#
     
     fig17 <- ggplot(data = data_fig17) +
       geom_point(aes(x = Version, y = mean, color = Version)) + 
       geom_errorbar(aes(x = Version, ymax = `0.975quant`, ymin = `0.025quant`, color = Version)) +
-      xlab(NULL) + ylab(NULL) + ggtitle("Variance of phi_11 - M6.F2(F2L1)+F1(F1L1)") +
-      theme(legend.position = "none", text = element_text(size = 17))
+      xlab(NULL) + ylab(NULL) + ggtitle(bquote(bold("Variance "~phi[11]~" M6.F1(F2L1)+F2(F1L1)"))) + 
+      theme(legend.position = "none", text = element_text(size = 17), plot.title = element_text(size=10, face= "bold", colour= "black", hjust = 0.5))
     
     fig18 <- ggplot(data = data_fig18) +
       geom_point(aes(x = Version, y = mean, color = Version)) + 
       geom_errorbar(aes(x = Version, ymax = `0.975quant`, ymin = `0.025quant`, color = Version)) +
-      xlab(NULL) + ylab(NULL) + ggtitle("Variance of phi_12 - M6.F2(F2L1)+F1(F1L1)") +
-      theme(legend.position = "none", text = element_text(size = 17))
+      xlab(NULL) + ylab(NULL) + ggtitle(bquote(bold("Variance "~phi[12]~" M6.F1(F2L1)+F2(F1L1)"))) + 
+      theme(legend.position = "none", text = element_text(size = 17), plot.title = element_text(size=10, face= "bold", colour= "black", hjust = 0.5))
     
     fig19 <- ggplot(data = data_fig19) +
       geom_point(aes(x = Version, y = mean, color = Version)) + 
       geom_errorbar(aes(x = Version, ymax = `0.975quant`, ymin = `0.025quant`, color = Version)) +
-      xlab(NULL) + ylab(NULL) + ggtitle("Variance of phi_21 - M6.F2(F2L1)+F1(F1L1)") +
-      theme(legend.position = "none", text = element_text(size = 17))
+      xlab(NULL) + ylab(NULL) + ggtitle(bquote(bold("Variance "~phi[21]~" M6.F1(F2L1)+F2(F1L1)"))) + 
+      theme(legend.position = "none", text = element_text(size = 17), plot.title = element_text(size=10, face= "bold", colour= "black", hjust = 0.5))
     
     fig20 <- ggplot(data = data_fig20) +
       geom_point(aes(x = Version, y = mean, color = Version)) + 
       geom_errorbar(aes(x = Version, ymax = `0.975quant`, ymin = `0.025quant`, color = Version)) +
-      xlab(NULL) + ylab(NULL) + ggtitle("Variance of phi_22 - M6.F2(F2L1)+F1(F1L1)") +
-      theme(legend.position = "none", text = element_text(size = 17))
+      xlab(NULL) + ylab(NULL) + ggtitle(bquote(bold("Variance "~phi[22]~" M6.F1(F2L1)+F2(F1L1)"))) + 
+      theme(legend.position = "none", text = element_text(size = 17), plot.title = element_text(size=10, face= "bold", colour= "black", hjust = 0.5))
     
     #-----------------------------------------------------------------------------------------------------------#
     
     fig21 <- ggplot(data = data_fig21) +
       geom_point(aes(x = Version, y = mean, color = Version)) + 
       geom_errorbar(aes(x = Version, ymax = `0.975quant`, ymin = `0.025quant`, color = Version)) +
-      xlab(NULL) + ylab(NULL) + ggtitle("Variance of phi_11 - M6.F2(F2L1)+F1(F1L2)") +
-      theme(legend.position = "none", text = element_text(size = 17))
+      xlab(NULL) + ylab(NULL) + ggtitle(bquote(bold("Variance "~phi[11]~" M6.F1(F2L1)+F2(F1L2)"))) + 
+      theme(legend.position = "none", text = element_text(size = 17), plot.title = element_text(size=10, face= "bold", colour= "black", hjust = 0.5))
     
     fig22 <- ggplot(data = data_fig22) +
       geom_point(aes(x = Version, y = mean, color = Version)) + 
       geom_errorbar(aes(x = Version, ymax = `0.975quant`, ymin = `0.025quant`, color = Version)) +
-      xlab(NULL) + ylab(NULL) + ggtitle("Variance of phi_12 - M6.F2(F2L1)+F1(F1L2)") +
-      theme(legend.position = "none", text = element_text(size = 17))
+      xlab(NULL) + ylab(NULL) + ggtitle(bquote(bold("Variance "~phi[12]~" M6.F1(F2L1)+F2(F1L2)"))) + 
+      theme(legend.position = "none", text = element_text(size = 17), plot.title = element_text(size=10, face= "bold", colour= "black", hjust = 0.5))
     
     fig23 <- ggplot(data = data_fig23) +
       geom_point(aes(x = Version, y = mean, color = Version)) + 
       geom_errorbar(aes(x = Version, ymax = `0.975quant`, ymin = `0.025quant`, color = Version)) +
-      xlab(NULL) + ylab(NULL) + ggtitle("Variance of phi_21 - M6.F2(F2L1)+F1(F1L2)") +
-      theme(legend.position = "none", text = element_text(size = 17))
+      xlab(NULL) + ylab(NULL) + ggtitle(bquote(bold("Variance "~phi[21]~" M6.F1(F2L1)+F2(F1L2)"))) + 
+      theme(legend.position = "none", text = element_text(size = 17), plot.title = element_text(size=10, face= "bold", colour= "black", hjust = 0.5))
     
     fig24 <- ggplot(data = data_fig24) +
       geom_point(aes(x = Version, y = mean, color = Version)) + 
       geom_errorbar(aes(x = Version, ymax = `0.975quant`, ymin = `0.025quant`, color = Version)) +
-      xlab(NULL) + ylab(NULL) + ggtitle("Variance of phi_22 - M6.F2(F2L1)+F1(F1L2)") +
-      theme(legend.position = "none", text = element_text(size = 17))
+      xlab(NULL) + ylab(NULL) + ggtitle(bquote(bold("Variance "~phi[22]~" M6.F1(F2L1)+F2(F1L2)"))) + 
+      theme(legend.position = "none", text = element_text(size = 17), plot.title = element_text(size=10, face= "bold", colour= "black", hjust = 0.5))
     
     #-----------------------------------------------------------------------------------------------------------#
     
     fig25 <- ggplot(data = data_fig25) +
       geom_point(aes(x = Version, y = mean, color = Version)) + 
       geom_errorbar(aes(x = Version, ymax = `0.975quant`, ymin = `0.025quant`, color = Version)) +
-      xlab(NULL) + ylab(NULL) + ggtitle("Variance of phi_11 - M6.F2(F2L2)+F1(F1L1)") +
-      theme(legend.position = "none", text = element_text(size = 17))
+      xlab(NULL) + ylab(NULL) + ggtitle(bquote(bold("Variance "~phi[11]~" M6.F1(F2L2)+F2(F1L1)"))) + 
+      theme(legend.position = "none", text = element_text(size = 17), plot.title = element_text(size=10, face= "bold", colour= "black", hjust = 0.5))
     
     fig26 <- ggplot(data = data_fig26) +
       geom_point(aes(x = Version, y = mean, color = Version)) + 
       geom_errorbar(aes(x = Version, ymax = `0.975quant`, ymin = `0.025quant`, color = Version)) +
-      xlab(NULL) + ylab(NULL) + ggtitle("Variance of phi_12 - M6.F2(F2L2)+F1(F1L1)") +
-      theme(legend.position = "none", text = element_text(size = 17))
+      xlab(NULL) + ylab(NULL) + ggtitle(bquote(bold("Variance "~phi[12]~" M6.F1(F2L2)+F2(F1L1)"))) + 
+      theme(legend.position = "none", text = element_text(size = 17), plot.title = element_text(size=10, face= "bold", colour= "black", hjust = 0.5))
     
     fig27 <- ggplot(data = data_fig27) +
       geom_point(aes(x = Version, y = mean, color = Version)) + 
       geom_errorbar(aes(x = Version, ymax = `0.975quant`, ymin = `0.025quant`, color = Version)) +
-      xlab(NULL) + ylab(NULL) + ggtitle("Variance of phi_21 - M6.F2(F2L2)+F1(F1L1)") +
-      theme(legend.position = "none", text = element_text(size = 17))
+      xlab(NULL) + ylab(NULL) + ggtitle(bquote(bold("Variance "~phi[21]~" M6.F1(F2L2)+F2(F1L1)"))) + 
+      theme(legend.position = "none", text = element_text(size = 17), plot.title = element_text(size=10, face= "bold", colour= "black", hjust = 0.5))
     
     fig28 <- ggplot(data = data_fig28) +
       geom_point(aes(x = Version, y = mean, color = Version)) + 
       geom_errorbar(aes(x = Version, ymax = `0.975quant`, ymin = `0.025quant`, color = Version)) +
-      xlab(NULL) + ylab(NULL) + ggtitle("Variance of phi_22 - M6.F2(F2L2)+F1(F1L1)") +
-      theme(legend.position = "none", text = element_text(size = 17))
+      xlab(NULL) + ylab(NULL) + ggtitle(bquote(bold("Variance "~phi[22]~" M6.F1(F2L2)+F2(F1L1)"))) + 
+      theme(legend.position = "none", text = element_text(size = 17), plot.title = element_text(size=10, face= "bold", colour= "black", hjust = 0.5))
     
     #-----------------------------------------------------------------------------------------------------------#
     
     fig29 <- ggplot(data = data_fig29) +
       geom_point(aes(x = Version, y = mean, color = Version)) + 
       geom_errorbar(aes(x = Version, ymax = `0.975quant`, ymin = `0.025quant`, color = Version)) +
-      xlab(NULL) + ylab(NULL) + ggtitle("Variance of phi_11 - M6.F2(F2L2)+F1(F1L2)") +
-      theme(legend.position = "none", text = element_text(size = 17))
+      xlab(NULL) + ylab(NULL) + ggtitle(bquote(bold("Variance "~phi[11]~" M6.F1(F2L2)+F2(F1L2)"))) + 
+      theme(legend.position = "none", text = element_text(size = 17), plot.title = element_text(size=10, face= "bold", colour= "black", hjust = 0.5))
     
     fig30 <- ggplot(data = data_fig30) +
       geom_point(aes(x = Version, y = mean, color = Version)) + 
       geom_errorbar(aes(x = Version, ymax = `0.975quant`, ymin = `0.025quant`, color = Version)) +
-      xlab(NULL) + ylab(NULL) + ggtitle("Variance of phi_12 - M6.F2(F2L2)+F1(F1L2)") +
-      theme(legend.position = "none", text = element_text(size = 17))
+      xlab(NULL) + ylab(NULL) + ggtitle(bquote(bold("Variance "~phi[12]~" M6.F1(F2L2)+F2(F1L2)"))) + 
+      theme(legend.position = "none", text = element_text(size = 17), plot.title = element_text(size=10, face= "bold", colour= "black", hjust = 0.5))
     
     fig31 <- ggplot(data = data_fig31) +
       geom_point(aes(x = Version, y = mean, color = Version)) + 
       geom_errorbar(aes(x = Version, ymax = `0.975quant`, ymin = `0.025quant`, color = Version)) +
-      xlab(NULL) + ylab(NULL) + ggtitle("Variance of phi_21 - M6.F2(F2L2)+F1(F1L2)") +
-      theme(legend.position = "none", text = element_text(size = 17))
+      xlab(NULL) + ylab(NULL) + ggtitle(bquote(bold("Variance "~phi[21]~" M6.F1(F2L2)+F2(F1L2)"))) + 
+      theme(legend.position = "none", text = element_text(size = 17), plot.title = element_text(size=10, face= "bold", colour= "black", hjust = 0.5))
     
     fig32 <- ggplot(data = data_fig32) +
       geom_point(aes(x = Version, y = mean, color = Version)) + 
       geom_errorbar(aes(x = Version, ymax = `0.975quant`, ymin = `0.025quant`, color = Version)) +
-      xlab(NULL) + ylab(NULL) + ggtitle("Variance of phi_22 - M6.F2(F2L2)+F1(F1L2)") +
-      theme(legend.position = "none", text = element_text(size = 17))
+      xlab(NULL) + ylab(NULL) + ggtitle(bquote(bold("Variance "~phi[22]~" M6.F1(F2L2)+F2(F1L2)"))) + 
+      theme(legend.position = "none", text = element_text(size = 17), plot.title = element_text(size=10, face= "bold", colour= "black", hjust = 0.5))
     
     #-----------------------------------------------------------------------------------------------------------#
     
